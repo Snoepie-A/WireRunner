@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wire Runner</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Welcome to Wire Runner!</h1>
+    <div id="wireRunner">
+        <img src="wirerunner.gif" height="150px"/> 
+    </div>
+    <p style="text-align: center;">Here you will find your guide to and explenation of Over The Wire challanges.</p>
+
+    <button class="accordion">Bandit  +</button>
+    <div class="panel">
+        <button class="accordion">Bandit  0</button>
+        <div class="panel">
+
+            <p>For level 0 of over the wire we will just need to login The details are given for us. Login using the following:</p>
+
+            <pre id="codeBlocks">
+                <code>
+                $ ssh bandit0@bandit.labs.overthewire.org -p 2220 
+                </code> 
+            </pre>
+
+            <p>What does all the above letter soup mean you wonder? Let's break it down!</p>
+
+            <p>
+                First with ssh we tell the computer. "Hey, you have this thing called Secure SHell. I want to use that command."
+                <br/><br/>
+                Then we say where we want to ssh to. You will see the next part kinda looks like an email? It can be interpreted in the same way. The first part before the @ is the user we want to be. In this case bandit0. After the @ is the domain we want to be at. In this case: bandit.labs.overthewire.org. Neat! <br/><br/>
+                Lastly we have this weird -p thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communicaton streams seperate.
+             </p>
+            <p>
+                If you have never logged in to over the wire you will be promted to accept a Key. Huh? What? Keys? <br/><br/>
+                Basically what is happening here is. When you encrypt something you and the person you are talking to need to agree on how things will be enctypted. This key is part of the cipher you will need to encrypt things to securely talk to the server you are connecting to. <br/><br/>
+                What does all this "The authenticity of host '[bandit.labs.overthewire.org]:2221 ([176.9.9.172]:2220)' can't be established." Mean? Well in the scary world of the internet we have some authorities that can validate that someone is who they say they are. This is just saying these authorities don't have a record for this key or who it belongs to. Rest assured though. You can accept this key. So just say yes.
+            </p>
+            <p>
+                Next we will be prompted for the password to login with. Luckily they give this to you!
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                bandit0  
+                </code> 
+            </pre>
+            <p>
+                Enter this password and you are now logged in as another user, on another computer, somewhere else completely on the earth. That's insane!
+            </p>
+            <p>
+                The next instructions are also given to you this early in the game. The next password is in a file called readme and we use that password to log into the next level. To read it use the cat command.
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ cat readme 
+                </code> 
+            </pre>
+
+            <p>
+                The cat command just reads some text and prints it out to the terminal for you to read. I still personally like to imagine that the floating cat head from Alice in wonderland is reading it to me.
+            </p>
+            <p>
+                Copy this weird long looking password. Exit your connection session by typing:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ exit 
+                </code> 
+            </pre>
+            <p>into your terminal. And you should be back to your home terminal.</p>
+            <p>Sweet! We did it. Now we can go on to the next level. Ready?</p>
+        </div>
+
+    
+        <button class="accordion">Bandit  1</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  2</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  3</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  4</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  5</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  6</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  7</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  8</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  9</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+
+
+        <button class="accordion">Bandit  10</button>
+        <div class="panel">
+            <p>Lorem ipsum</p>
+        </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
