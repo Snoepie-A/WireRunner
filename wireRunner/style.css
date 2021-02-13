@@ -1,0 +1,53 @@
+html {
+    background-image: -moz-linear-gradient(#000000,#020b36);
+    background-repeat: no-repeat;
+    color:#e3e3ff;
+    min-height: 100%;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    background-color: black;
+}
+
+#wireRunner {
+   display: block;
+    margin-left: 43%;
+    margin-right: 57%;
+    background-color: black;
+}
+
+.accordion {
+    font-size: 40px;
+    background-color: transparent;
+    color: #d6fffb;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+
+  .accordion:hover{
+      background-color:#040d38;
+      text-decoration: underline;
+  }
+
+  .panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+  }
+
+  #codeBlocks {
+      background-color: #230745;
+      border-radius: 0.01px;
+      border-color: #b3e3f4;
+      border-style: solid;
+      padding-top: 10px;
+      word-wrap: break-word;
+  }
