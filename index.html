@@ -78,7 +78,26 @@
     
         <button class="accordion">Bandit  1</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>Now we are at our first challange. here the password is stored in a file called: -</p>
+            <p>Cool, we read a file last time... just use cat? Ah... doesn't work.. what gives?</p>
+            <p>When cat sees the "-" it does not interpret this as a file name, it interprets it as another way to represent stdin (standard input, basically where your computer receives input from, no need to worry about this to much at the moment).</p>
+            <p>Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:</p>
+            <pre id="codeBlocks">
+                <code>
+                $ ./ 
+                </code> 
+            </pre>
+            <p>Well that looks really weird... what does it do? In linux this is a way to tell a command, or anything almost that "Hey, I want to to look for or do this thing in the directory that we currently are." Directories are the same thing as folders on Windows.</p>
+
+            <p>So to read the password file we would need to:
+                <pre id="codeBlocks">
+                    <code>
+                    $ cat ./- 
+                    </code> 
+                </pre>
+            </p>
+
+            <p>Great! That was weird but not too hard. Ready for the next level? Let's go!</p>
         </div>
 
 
