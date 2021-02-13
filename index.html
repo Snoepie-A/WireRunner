@@ -103,7 +103,55 @@
 
         <button class="accordion">Bandit  2</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>So our next machine needs us to open a file with spaces in it. Luckily this is super easy. </p>
+            <p>What makes opening a file with spaces different is that the terminal does not interpret the space as space character. It thinks you want to open another file. So:</p>
+            <pre id="codeBlocks">
+                <code>
+                $ cat this file
+                </code> 
+            </pre>
+            <p>Would be asking the computer to:
+                -cat the file: this<br>
+                -cat the file: file<br>
+                So the error we will get with this is telling us that the file name we put in to cat does not exist. As all of these treated as seperate file names and are thus not valid names of things that we can cat.
+            </p>
+            <p>
+                How do we get around this? There are two ways we can go about this
+            </p>
+            <p>Well we need to tell the terminal that the string of text we put in is the exact wording. And just as with english. We use qoutes! So we need:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ cat "spaces in this filename"
+                </code> 
+            </pre>
+            <p>
+                Basically what this is saying is. Everything in the qoutes is the exact words and formating(spaces included) that I want.
+            </p>
+            <p>
+                Another way we can do this is with back slashes. What these do is they escape the function of the character being fed to the terminal. So by default it would mean "Hey here is a space, so things after this character is considered a new file.". By escaping this meaning we can have the space be what we are use to it being in text files. So it would look like:
+            </p>
+
+            <pre id="codeBlocks">
+                <code>
+                $ cat spaces\ in\ this\ filename
+                </code> 
+            </pre>
+            <p>
+                Woah! That looks kinda funky! Do I need to remember how to format this? Luckily not! Linux has this super cool feature called tab complete.
+            </p>
+            <p>
+                what tab complete does is search for files or folders in the dierectory that you are currently in and try and match the name as best as possible. So try typing:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ cat sp
+                </code> 
+            </pre>
+            <p> 
+                And now press space. It will complete it all for you! Sweet! 
+            </p>
+            <p>Submitting the command one of these two ways will get you the next password and we are on our way to level 3!</p>
         </div>
 
 
