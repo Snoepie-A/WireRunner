@@ -30,10 +30,10 @@
             <p>What does all the above letter soup mean you wonder? Let's break it down!</p>
 
             <p>
-                First with ssh we tell the computer. "Hey, you have this thing called Secure SHell. I want to use that command."
+                First with <b>ssh</b> we tell the computer. "Hey, you have this thing called <b>S</b>ecure <b>SH</b>ell. I want to use that command."
                 <br/><br/>
                 Then we say where we want to ssh to. You will see the next part kinda looks like an email? It can be interpreted in the same way. The first part before the @ is the user we want to be. In this case bandit0. After the @ is the domain we want to be at. In this case: bandit.labs.overthewire.org. Neat! <br/><br/>
-                Lastly we have this weird -p thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communication streams separate.
+                Lastly we have this weird <b>-p</b> thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communication streams separate.
              </p>
             <p>
                 If you have never logged in to over the wire you will be prompted to accept a Key. Huh? What? Keys? <br/><br/>
@@ -52,7 +52,7 @@
                 Enter this password and you are now logged in as another user, on another computer, somewhere else completely on the earth. That's insane!
             </p>
             <p>
-                The next instructions are also given to you this early in the game. The next password is in a file called readme and we use that password to log into the next level. To read it use the cat command.
+                The next instructions are also given to you this early in the game. The next password is in a file called <b>readme</b> and we use that password to login to the next level. To read it use the <b>cat</b> command.
             </p>
             <pre id="codeBlocks">
                 <code>
@@ -61,7 +61,7 @@
             </pre>
 
             <p>
-                The cat command just reads some text and prints it out to the terminal for you to read. I still personally like to imagine that the floating cat head from Alice in wonderland is reading it to me.
+                The <b>cat</b> command just reads some text and prints it out to the terminal for you to read. I still personally like to imagine that the floating cat head from Alice in wonderland is reading it to me.
             </p>
             <p>
                 Copy this weird long looking password. Exit your connection session by typing:
@@ -78,8 +78,8 @@
     
         <button class="accordion">Bandit  1</button>
         <div class="panel">
-            <p>Now we are at our first challenge. here the password is stored in a file called: -</p>
-            <p>Cool, we read a file last time... just use cat? Ah... doesn't work.. what gives?</p>
+            <p>Now we are at our first challenge. here the password is stored in a file called: <b>-</b></p>
+            <p>Cool, we read a file last time... just use <cat>cat</cat>? Ah... doesn't work.. what gives?</p>
             <p>When cat sees the "-" it does not interpret this as a file name, it interprets it as another way to represent stdin (standard input, basically where your computer receives input from, no need to worry about this to much at the moment).</p>
             <p>Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:</p>
             <pre id="codeBlocks">
@@ -125,11 +125,7 @@
                 $ cat "spaces in this filename"
                 </code> 
             </pre>
-            <p><pre id="codeBlocks">
-                <code>
-                $ clear
-                </code> 
-            </pre>
+            <p>
                 Basically what this is saying is. Everything in the quotes is the exact words and formatting(spaces included) that I want.
             </p>
             <p>
@@ -168,30 +164,37 @@
                 $ ls
                 </code> 
             </pre>
-            <p>Well... what does this do? Simple, it just LiSts everything in the directory that you are currently in. We will then see a directory named: inhere</p>
+            <p>Well... what does this do? Simple, it just <b>L</b>i<b>S</b>ts everything in the directory that you are currently in. We will then see a directory named: <i>inhere</i></p>
             <p>Well how do we get into "inhere" We use this command:</p>
             <pre id="codeBlocks">
                 <code>
                 $ cd inhere
                 </code> 
             </pre>
-            <p>This means Change Directory and is a command you will use so much that you will feel like a CD with only one song on it.</p>
-            <p>New directory, new files and directories to find. ls time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?</p>
+            <p>This means <b>C</b>hange <b>D</b>irectory and is a command you will use so much that you will feel like a CD with only one song on it.</p>
+            <p>New directory, new files and directories to find. <b>ls</b> time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?</p>
             <p>Now we get to hidden files and folders. How do we see those? We use the command:</p>
             <pre id="codeBlocks">
                 <code>
                 $ ls -la
                 </code> 
             </pre>
-            <p>This will list everything in a long format (gets you extra juicy details) and will list all of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name ".hidden" .</p>
+            <p>This will list everything in a <b>l</b>ong format (gets you extra juicy details) and will list <b>a</b>ll of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name "<i>.hidden</i>" .</p>
             <p>Why the naming convention? Not sure really. Someone just decided that's the way (ah-ha ah-ha) they like it.</p>
-            <p>Anyway you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level. See you in the 4th dimension!</p>
+            <p>Anyway you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level.</p> 
+            <pre id="codeBlocks">
+                <code>
+                $ cat .hidden
+                </code> 
+            </pre>
+
+            <p>See you in the 4th dimension!</p>
         </div>
 
 
         <button class="accordion">Bandit  4</button>
         <div class="panel">
-            <p>The next password is in the only human readable file in the "inhere" directory. What does that mean?</p>
+            <p>The next password is in the only human readable file in the "<i>inhere</i>" directory. What does that mean?</p>
             <p>
                 Well anything that isn't really data files. That definition should be good enough for now.
                 But to see what one looks like, after you <b>cd</b> into the inhere directory. Run an <b>ls</b> so that we can see all the files. let's open the first file. The are all dashed file names. Luckily we have also touched on these before. So run the command: 
