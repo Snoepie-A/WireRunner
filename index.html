@@ -12,7 +12,7 @@
  
         <img src="wirerunner.gif"  id="wireRunner" height="150px"/> 
 
-    <p style="text-align: center;">Here you will find your guide to and explenation of Over The Wire challanges. All commands are run from the Linux bash terminal.</p>
+    <p style="text-align: center;">Here you will find your guide to and explanation of Over The Wire challenges. All commands are run from the Linux bash terminal.</p>
 
     <button class="accordion">Bandit  +</button>
     <div class="panel">
@@ -26,18 +26,18 @@
                 $ ssh bandit0@bandit.labs.overthewire.org -p 2220 
                 </code> 
             </pre>
-
+            
             <p>What does all the above letter soup mean you wonder? Let's break it down!</p>
 
             <p>
                 First with ssh we tell the computer. "Hey, you have this thing called Secure SHell. I want to use that command."
                 <br/><br/>
                 Then we say where we want to ssh to. You will see the next part kinda looks like an email? It can be interpreted in the same way. The first part before the @ is the user we want to be. In this case bandit0. After the @ is the domain we want to be at. In this case: bandit.labs.overthewire.org. Neat! <br/><br/>
-                Lastly we have this weird -p thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communicaton streams seperate.
+                Lastly we have this weird -p thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communication streams separate.
              </p>
             <p>
-                If you have never logged in to over the wire you will be promted to accept a Key. Huh? What? Keys? <br/><br/>
-                Basically what is happening here is. When you encrypt something you and the person you are talking to need to agree on how things will be enctypted. This key is part of the cipher you will need to encrypt things to securely talk to the server you are connecting to. <br/><br/>
+                If you have never logged in to over the wire you will be prompted to accept a Key. Huh? What? Keys? <br/><br/>
+                Basically what is happening here is. When you encrypt something you and the person you are talking to need to agree on how things will be encrypted. This key is part of the cipher you will need to encrypt things to securely talk to the server you are connecting to. <br/><br/>
                 What does all this "The authenticity of host '[bandit.labs.overthewire.org]:2221 ([176.9.9.172]:2220)' can't be established." Mean? Well in the scary world of the internet we have some authorities that can validate that someone is who they say they are. This is just saying these authorities don't have a record for this key or who it belongs to. Rest assured though. You can accept this key. So just say yes.
             </p>
             <p>
@@ -78,7 +78,7 @@
     
         <button class="accordion">Bandit  1</button>
         <div class="panel">
-            <p>Now we are at our first challange. here the password is stored in a file called: -</p>
+            <p>Now we are at our first challenge. here the password is stored in a file called: -</p>
             <p>Cool, we read a file last time... just use cat? Ah... doesn't work.. what gives?</p>
             <p>When cat sees the "-" it does not interpret this as a file name, it interprets it as another way to represent stdin (standard input, basically where your computer receives input from, no need to worry about this to much at the moment).</p>
             <p>Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:</p>
@@ -101,7 +101,7 @@
         </div>
 
 
-        <button class="accordion">Bandit  2</button>
+        <button class="accordion">Bandit 2</button>
         <div class="panel">
             <p>So our next machine needs us to open a file with spaces in it. Luckily this is super easy. </p>
             <p>What makes opening a file with spaces different is that the terminal does not interpret the space as space character. It thinks you want to open another file. So:</p>
@@ -113,20 +113,24 @@
             <p>Would be asking the computer to:<br>
                 -cat the file: this<br>
                 -cat the file: file<br>
-                So the error we will get with this is telling us that the file name we put in to cat does not exist. As all of these treated as seperate file names and are thus not valid names of things that we can cat.
+                So the error we will get with this is telling us that the file name we put in to cat does not exist. As all of these treated as separate file names and are thus not valid names of things that we can cat.
             </p>
             <p>
                 How do we get around this? There are two ways we can go about this
             </p>
-            <p>Well we need to tell the terminal that the string of text we put in is the exact wording. And just as with english. We use qoutes! So we need:
+            <p>Well we need to tell the terminal that the string of text we put in is the exact wording. And just as with english. We use quotes! So we need:
             </p>
             <pre id="codeBlocks">
                 <code>
                 $ cat "spaces in this filename"
                 </code> 
             </pre>
-            <p>
-                Basically what this is saying is. Everything in the qoutes is the exact words and formating(spaces included) that I want.
+            <p><pre id="codeBlocks">
+                <code>
+                $ clear
+                </code> 
+            </pre>
+                Basically what this is saying is. Everything in the quotes is the exact words and formatting(spaces included) that I want.
             </p>
             <p>
                 Another way we can do this is with back slashes. What these do is they escape the function of the character being fed to the terminal. So by default it would mean "Hey here is a space, so things after this character is considered a new file.". By escaping this meaning we can have the space be what we are use to it being in text files. So it would look like:
@@ -141,7 +145,7 @@
                 Woah! That looks kinda funky! Do I need to remember how to format this? Luckily not! Linux has this super cool feature called tab complete.
             </p>
             <p>
-                What tab complete does is search for files or folders in the dierectory that you are currently in and try and match the name as best as possible. So try typing:
+                What tab complete does is search for files or folders in the directory that you are currently in and try and match the name as best as possible. So try typing:
             </p>
             <pre id="codeBlocks">
                 <code>
@@ -179,15 +183,54 @@
                 $ ls -la
                 </code> 
             </pre>
-            <p>This will list every thing in a long format (gets you extra juicy details) and will list all of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name ".hidden" .</p>
+            <p>This will list everything in a long format (gets you extra juicy details) and will list all of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name ".hidden" .</p>
             <p>Why the naming convention? Not sure really. Someone just decided that's the way (ah-ha ah-ha) they like it.</p>
-            <p>Any way you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level. See you in the 4th dimension!</p>
+            <p>Anyway you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level. See you in the 4th dimension!</p>
         </div>
 
 
         <button class="accordion">Bandit  4</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>The next password is in the only human readable file in the "inhere" directory. What does that mean?</p>
+            <p>
+                Well anything that isn't really data files. That definition should be good enough for now.
+                But to see what one looks like, after you <b>cd</b> into the inhere directory. Run an <b>ls</b> so that we can see all the files. let's open the first file. The are all dashed file names. Luckily we have also touched on these before. So run the command: 
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ cat ./file00
+                </code> 
+            </pre>
+            <p>
+                What just happened to the terminal? That is a mess! Luckily to clear up this mess all we have to do is well.. clear it. Run this command:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ clear
+                </code> 
+            </pre>
+            <p>
+                That looks better. Well how do we find the file we want?
+            </p>
+            <p>
+                Linux has this cool command called <b>file</b> we give it the name of a file we want to know the type of and it will tell us what the data in the file tells the program it is. (So if you make a text file, but change the extension to be .png, you won't be fooling file)
+            </p>
+            
+            <p>So we gotta run file on all of these until we get the right one? I mean... you can, I won't stop you. Or... we can do this:
+            </p>
+            
+            <pre id="codeBlocks">
+                <code>
+                $ file ./*
+                </code> 
+            </pre>
+            
+            <p>
+                So we know what <b>file</b> does... and we know what <b>./</b> means.... what is the asterisk (<b>*</b>) doing? It is a wild card symbol. It is a way to tell the terminal match anything. I don't care what it is or what it is called, it is a match. So *.txt would mean all text files. *.mp3 would be all mp3s.  
+            </p>
+            <p>
+                The above command is just saying use file on all things in this directory. You will see one of the files has a different file type. You can <b>cat</b> this file (remember how to cat things starting with a "-"? If not just scroll up to bandit 1). And we have the password for level 5. See you there!
+            </p>
         </div>
 
 
@@ -226,6 +269,7 @@
             <p>Lorem ipsum</p>
         </div>
     
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
