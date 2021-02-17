@@ -12,14 +12,18 @@
  
         <img src="wirerunner.gif"  id="wireRunner" height="150px"/> 
 
-    <p style="text-align: center;">Here you will find your guide to and explanation of Over The Wire challenges. All commands are run from the Linux bash terminal.</p>
+    <p style="text-align: center;">
+        Here you will find your guide to and explanation of Over The Wire challenges. All commands are run from the Linux bash terminal.
+    </p>
 
     <button class="accordion">Bandit  +</button>
     <div class="panel">
         <button class="accordion">Bandit  0</button>
         <div class="panel">
 
-            <p>For level 0 of over the wire we will just need to login The details are given for us. Login using the following:</p>
+            <p>
+                For level 0 of over the wire we will just need to login The details are given for us. Login using the following:
+            </p>
 
             <pre id="codeBlocks">
                 <code>
@@ -27,7 +31,9 @@
                 </code> 
             </pre>
             
-            <p>What does all the above letter soup mean you wonder? Let's break it down!</p>
+            <p>
+                What does all the above letter soup mean you wonder? Let's break it down!
+            </p>
 
             <p>
                 First with <b>ssh</b> we tell the computer. "Hey, you have this thing called <b>S</b>ecure <b>SH</b>ell. I want to use that command."
@@ -78,18 +84,29 @@
     
         <button class="accordion">Bandit  1</button>
         <div class="panel">
-            <p>Now we are at our first challenge. here the password is stored in a file called: <b>-</b></p>
-            <p>Cool, we read a file last time... just use <cat>cat</cat>? Ah... doesn't work.. what gives?</p>
-            <p>When cat sees the "-" it does not interpret this as a file name, it interprets it as another way to represent stdin (standard input, basically where your computer receives input from, no need to worry about this to much at the moment).</p>
-            <p>Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:</p>
+            <p>
+                Now we are at our first challenge. here the password is stored in a file called: <b>-</b>
+            </p>
+            <p>
+                Cool, we read a file last time... just use <cat>cat</cat>? Ah... doesn't work.. what gives?
+            </p>
+            <p>
+                When cat sees the "-" it does not interpret this as a file name, it interprets it as another way to represent stdin (standard input, basically where your computer receives input from, no need to worry about this to much at the moment).
+            </p>
+            <p>
+                Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:
+            </p>
             <pre id="codeBlocks">
                 <code>
                 $ ./ 
                 </code> 
             </pre>
-            <p>Well that looks really weird... what does it do? In linux this is a way to tell a command, or anything almost that "Hey, I want to to look for or do this thing in the directory that we currently are." Directories are the same thing as folders on Windows.</p>
+            <p>
+                Well that looks really weird... what does it do? In linux this is a way to tell a command, or anything almost that "Hey, I want to to look for or do this thing in the directory that we currently are." Directories are the same thing as folders on Windows.
+            </p>
 
-            <p>So to read the password file we would need to:
+            <p>
+                So to read the password file we would need to:
                 <pre id="codeBlocks">
                     <code>
                     $ cat ./- 
@@ -97,20 +114,27 @@
                 </pre>
             </p>
 
-            <p>Great! That was weird but not too hard. Ready for the next level? Let's go!</p>
+            <p>
+                Great! That was weird but not too hard. Ready for the next level? Let's go!
+            </p>
         </div>
 
 
         <button class="accordion">Bandit 2</button>
         <div class="panel">
-            <p>So our next machine needs us to open a file with spaces in it. Luckily this is super easy. </p>
-            <p>What makes opening a file with spaces different is that the terminal does not interpret the space as space character. It thinks you want to open another file. So:</p>
+            <p>
+                So our next machine needs us to open a file with spaces in it. Luckily this is super easy. 
+            </p>
+            <p>
+                What makes opening a file with spaces different is that the terminal does not interpret the space as space character. It thinks you want to open another file. So:
+            </p>
             <pre id="codeBlocks">
                 <code>
                 $ cat this file
                 </code> 
             </pre>
-            <p>Would be asking the computer to:<br>
+            <p>
+                Would be asking the computer to:<br>
                 -cat the file: this<br>
                 -cat the file: file<br>
                 So the error we will get with this is telling us that the file name we put in to cat does not exist. As all of these treated as separate file names and are thus not valid names of things that we can cat.
@@ -118,7 +142,8 @@
             <p>
                 How do we get around this? There are two ways we can go about this
             </p>
-            <p>Well we need to tell the terminal that the string of text we put in is the exact wording. And just as with english. We use quotes! So we need:
+            <p>
+                Well we need to tell the terminal that the string of text we put in is the exact wording. And just as with english. We use quotes! So we need:
             </p>
             <pre id="codeBlocks">
                 <code>
@@ -151,50 +176,76 @@
             <p> 
                 And now press tab. It will complete it all for you! Sweet! 
             </p>
-            <p>Submitting the command one of these two ways will get you the next password and we are on our way to level 3!</p>
+            <p>
+                Submitting the command one of these two ways will get you the next password and we are on our way to level 3!
+            </p>
         </div>
 
 
         <button class="accordion">Bandit  3</button>
         <div class="panel">
-            <p>Cool. Now we are in level 3. In this level our password is in a hidden file in a folder.</p>
-            <p>First, let's find our folder. How do we do this in the text based terminal Matrix? We use the command: </p>
+            <p>
+                Cool. Now we are in level 3. In this level our password is in a hidden file in a folder.
+            </p>
+            <p>
+                First, let's find our folder. How do we do this in the text based terminal Matrix? We use the command: 
+            </p>
             <pre id="codeBlocks">
                 <code>
                 $ ls
                 </code> 
             </pre>
-            <p>Well... what does this do? Simple, it just <b>L</b>i<b>S</b>ts everything in the directory that you are currently in. We will then see a directory named: <i>inhere</i></p>
-            <p>Well how do we get into "inhere" We use this command:</p>
+            <p>
+                Well... what does this do? Simple, it just <b>L</b>i<b>S</b>ts everything in the directory that you are currently in. We will then see a directory named: <i>inhere</i>
+            </p>
+            <p>
+                Well how do we get into "inhere" We use this command:
+            </p>
             <pre id="codeBlocks">
                 <code>
                 $ cd inhere
                 </code> 
             </pre>
-            <p>This means <b>C</b>hange <b>D</b>irectory and is a command you will use so much that you will feel like a CD with only one song on it.</p>
-            <p>New directory, new files and directories to find. <b>ls</b> time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?</p>
-            <p>Now we get to hidden files and folders. How do we see those? We use the command:</p>
+            <p>
+                This means <b>C</b>hange <b>D</b>irectory and is a command you will use so much that you will feel like a CD with only one song on it.
+            </p>
+            <p>
+                New directory, new files and directories to find. <b>ls</b> time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?
+            </p>
+            <p>
+                Now we get to hidden files and folders. How do we see those? We use the command:
+            </p>
             <pre id="codeBlocks">
                 <code>
                 $ ls -la
                 </code> 
             </pre>
-            <p>This will list everything in a <b>l</b>ong format (gets you extra juicy details) and will list <b>a</b>ll of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name "<i>.hidden</i>" .</p>
-            <p>Why the naming convention? Not sure really. Someone just decided that's the way (ah-ha ah-ha) they like it.</p>
-            <p>Anyway you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level.</p> 
+            <p>
+                This will list everything in a <b>l</b>ong format (gets you extra juicy details) and will list <b>a</b>ll of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name "<i>.hidden</i>" .
+            </p>
+            <p>
+                Why the naming convention? Not sure really. Someone just decided that's the way (ah-ha ah-ha) they like it.
+            </p>
+            <p>
+                Anyway you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level.
+            </p> 
             <pre id="codeBlocks">
                 <code>
                 $ cat .hidden
                 </code> 
             </pre>
 
-            <p>See you in the 4th dimension!</p>
+            <p>
+                See you in the 4th dimension!
+            </p>
         </div>
 
 
         <button class="accordion">Bandit  4</button>
         <div class="panel">
-            <p>The next password is in the only human readable file in the "<i>inhere</i>" directory. What does that mean?</p>
+            <p>
+                The next password is in the only human readable file in the "<i>inhere</i>" directory. What does that mean?
+            </p>
             <p>
                 Well anything that isn't really data files. That definition should be good enough for now.
                 But to see what one looks like, after you <b>cd</b> into the inhere directory. Run an <b>ls</b> so that we can see all the files. let's open the first file. The are all dashed file names. Luckily we have also touched on these before. So run the command: 
@@ -219,7 +270,8 @@
                 Linux has this cool command called <b>file</b> we give it the name of a file we want to know the type of and it will tell us what the data in the file tells the program it is. (So if you make a text file, but change the extension to be .png, you won't be fooling file)
             </p>
             
-            <p>So we gotta run file on all of these until we get the right one? I mean... you can, I won't stop you. Or... we can do this:
+            <p>S
+                o we gotta run file on all of these until we get the right one? I mean... you can, I won't stop you. Or... we can do this:
             </p>
             
             <pre id="codeBlocks">
@@ -239,7 +291,41 @@
 
         <button class="accordion">Bandit  5</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>So, we have made it to level 5 and now we get to start putting a lot of things together. In this challenge our file is one of many files in one of many folders, and has quite a few properties.</p>
+            <p>
+                It is human-readable, 1033 bytes in size and not executable. The only one we really care about is the file size. How will we find this file without going through each file?
+            </p>
+            <p>
+                Easy, Linux has a <b>find</b> command. Find works by default by starting from the directory you run it in and going down all the<pre id="codeBlocks">
+                    <code>
+                    $ find -size 1033c
+                    </code> 
+                </pre>
+                This will open a document that will explain the command and many of its potential uses and options to you. Enough about this though, let's get to finding that file!
+            </p>
+            <p>So we know we can use the <b>find</b> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So lets run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.</p>
+            <pre id="codeBlocks">
+                <code>
+                $ find -size 1033c
+                </code> 
+            </pre>
+            <p>
+                So the above command says we want to find. From where we are running the command in the directory tree and down, and we are looking for a file with the <b>size</b> of <b>1033c</b> The c is to denote bytes.
+            </p>
+            <p>
+                We will get one matching file. Now you can either <b>cd</b> to the directory the file is in, or copy the whole output of find and paste it after cat. So it will look like:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ cat ./inhere/maybehereXX/XXXX
+                </code> 
+            </pre>
+            <p>
+                I am omitting the correct path as not to spoil it.
+            </p>
+            <p>
+                Grab that password and we are on to level 6!
+            </p>
         </div>
 
 
