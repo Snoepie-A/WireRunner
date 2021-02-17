@@ -77,7 +77,7 @@
                 $ exit 
                 </code> 
             </pre>
-            <p>into your terminal. And you should be back to your home terminal.</p>
+            <p>...into your terminal. And you should be back to your home terminal.</p>
             <p>Sweet! We did it. Now we can go on to the next level. Ready?</p>
         </div>
 
@@ -248,11 +248,11 @@
             </p>
             <p>
                 Well anything that isn't really data files. That definition should be good enough for now.
-                But to see what one looks like, after you <b>cd</b> into the inhere directory. Run an <b>ls</b> so that we can see all the files. let's open the first file. The are all dashed file names. Luckily we have also touched on these before. So run the command: 
+                But to see what one looks like, after you <b>cd</b> into the inhere directory. Run an <b>ls</b> so that we can see all the files. let's open the first file. They are all dashed file names. Luckily we have also touched on these before. So run the command: 
             </p>
             <pre id="codeBlocks">
                 <code>
-                $ cat ./file00
+                $ cat ./-file00
                 </code> 
             </pre>
             <p>
@@ -270,8 +270,8 @@
                 Linux has this cool command called <b>file</b> we give it the name of a file we want to know the type of and it will tell us what the data in the file tells the program it is. (So if you make a text file, but change the extension to be .png, you won't be fooling file)
             </p>
             
-            <p>S
-                o we gotta run file on all of these until we get the right one? I mean... you can, I won't stop you. Or... we can do this:
+            <p>
+                So we gotta run file on all of these until we get the right one? I mean... you can, I won't stop you. Or... we can do this:
             </p>
             
             <pre id="codeBlocks">
@@ -291,26 +291,31 @@
 
         <button class="accordion">Bandit  5</button>
         <div class="panel">
-            <p>So, we have made it to level 5 and now we get to start putting a lot of things together. In this challenge our file is one of many files in one of many folders, and has quite a few properties.</p>
+            <p>
+                So, we have made it to level 5 and now we get to start putting a lot of things together. In this challenge our file is one of many files in one of many folders, and has quite a few properties.
+            </p>
             <p>
                 It is human-readable, 1033 bytes in size and not executable. The only one we really care about is the file size. How are we going to find this file without going through each file and directory?
             </p>
             <p>
-                Easy, Linux has a <b>find</b> command. Find works by default by starting from the directory you run it in and going down all the<pre id="codeBlocks">
+                Easy, Linux has a <b>find</b> command. Find works by default by starting from the directory you run it in and going down the directory tree. We can learn more about the command and its arguments by using the <b>man</b> command
+                <pre id="codeBlocks">
                     <code>
-                    $ find -size 1033c
+                    $ man find
                     </code> 
                 </pre>
                 This will open a document that will explain the command and many of its potential uses and options to you. Enough about this though, let's get to finding that file!
             </p>
-            <p>So we know we can use the <b>find</b> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So lets run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.</p>
+            <p>
+                So we know we can use the <b>find</b> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So let's run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.
+            </p>
             <pre id="codeBlocks">
                 <code>
                 $ find -size 1033c
                 </code> 
             </pre>
             <p>
-                So the above command says we want to find. From where we are running the command in the directory tree and down, and we are looking for a file with the <b>size</b> of <b>1033c</b> The c is to denote bytes.
+                So the above command says we want to use find from where we are running the command in the directory tree and down, and we are looking for a file with the <b>size</b> of <b>1033c</b> The <b>c</b> is to denote bytes.
             </p>
             <p>
                 We will get one matching file. Now you can either <b>cd</b> to the directory the file is in, or copy the whole output of find and paste it after cat. So it will look like:
