@@ -357,7 +357,7 @@
                 <b>user</b> is a new one. Not too hard to guess what it means though. It is just the name of the user that owns the file or directory.
             </p>
             <p>
-                Now the weird one. What is this <b>2>/dev/null</b> thing? This is not a part of find. This lets us manipulate the output we will get from find. So remember when I said <i>"At least everything your user has permission to access."</i> When we use find it will tell us when it cannot access a certain folder because it does not have permission, it does this mainly to inform you that, "hey, I couldn't look through this thing further, I'm just letting you know so that you can decide on what to do about that. Do you wanna give me permission? Cause your file might exist there.". This is where we get to the <b>2</b> this is a way to specify stderr (standard error). All outputs that are errors use this instead of stdout (standard out). No need to worry about what these are now. Basically the system just handles how it presents standard output and error output a little different, and we currently care about the errors to clean up our output. So 2 means error output. 
+                Now the weird one. What is this <b>2>/dev/null</b> thing? This is not a part of find. This lets us manipulate the output we will get from find. So remember when I said <i>"At least everything your user has permission to access."</i> When we use find it will tell us when it cannot access a certain directory because it does not have permission, it does this mainly to inform you that, "Hey, I couldn't look through this thing further, I'm just letting you know so that you can decide on what to do about that. Do you wanna give me permission? 'Cause your file might exist there.". This is where we get to the <b>2</b> this is a way to specify stderr (standard error). All outputs that are errors use this instead of stdout (standard out). No need to worry about what these are now. Basically the system just handles how it presents standard output and error output a little different, and we currently care about the errors to clean up our output. So 2 means error output. 
             </p>
             <p>
                 Now we have the <b>></b>. This is a redirect. It is what we use to tell output from things where to go if we do not want to use the defaults.
@@ -377,7 +377,7 @@
                 Looks kinda messy huh? Now you get all those errors cluttering up your screen. Let's run the one that does redirect again to get our less cluttered output.
             </p>
             <p>
-                You should now see two results. You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and cat it there or you can just cat it from where you are specifying the file path like this:
+                You should now see two results. You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and <b>cat</b> it there or you can just <b>cat</b> it from where you are specifying the file path like this:
             </p>
             <pre id="codeBlocks">
                 <code>
