@@ -336,7 +336,57 @@
 
         <button class="accordion">Bandit  6</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>
+                This level is pretty much the same thing as the last one. We will use <b>find</b> again. With a few more parameters. Our file has a few properties again. It is <i>somewhere</i> on the server, meaning we would need to search the whole directory tree. It is owned by group 6 (We won't really be using this info). It has a size of 33 bytes.
+            </p>
+            <p>
+                Sweet so from all that info we can do this:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ find / -size 33c -user bandit7 2>/dev/null
+                </code> 
+            </pre>
+            <p>
+                Looks kinda familiar... right? Let's look at what every part of that... incantation. We have used <b>find</b> so we know what that does. What's the  <b>/</b> doing? Well remember when I said that find works by search from where you are and down the directory tree? Here we are telling find where to start from. The / is a way of declaring the root of the directory tree, so it will search through <i>everything</i>... the whole system. At least everything your user has permission to access. More on that in a bit.
+            </p>
+            <p>
+                <b>size</b> we touched on, this just lets us specify how big the thing we want to find is.
+            </p>
+            <p>
+                <b>user</b> is a new one. Not too hard to guess what it means though. It is just the name of the user that owns the file or directory.
+            </p>
+            <p>
+                Now the weird one. What is this <b>2>/dev/null</b> thing? This is not a part of find. This lets us manipulate the output we will get from find. So remember when I said <i>At least everything your user has permission to access.</i> When we use find it will tell us when it cannot access a certain folder because it does not have permission, it does this mainly to inform you that, "hey, I couldn't look through this thing further, I'm just letting you know so that you can decide on what to do about that. Do you wanna give me permission? Cause your file might exist there.". This is where we get to the <b>2</b> this is a way to specify stderr (standard error). All outputs that are errors use this instead of stdout (standard out). No need to worry about what these are now. Basically the system just handles how it presents standard output and error output a little different, and we currently care about the errors to clean up our output. So 2 means error output. 
+            </p>
+            <p>
+                Now we have the <b>></b>. This is a redirect. It is what we use to tell output from things where to go if we do not want to use the defaults.
+            </p>
+            <p>
+                Then we have /dev/null . This is a directory path, no? Yes! Exactly we are redirecting it to what is essentially a black hole in Linux. Anything you send here will just vanish into the void.
+            </p>
+            <p>
+                You can run the command without the <b>2>/dev/null</b> and see what it did.
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ find / -size 33c -user bandit7
+                </code> 
+            </pre>
+            <p>
+                Looks kinda messy huh? Now you get all those errors cluttering up your screen. Let's run the one that does redirect again to get our less cluttered output.
+            </p>
+            <p>
+                You should now see two results. You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and cat it there or you can just cat it from where you are specifying the file path like this:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ /XXX/XXX/XXX/XXX/xxx.obviousFileName
+                </code> 
+            </pre>
+            <p>
+                Again I left out the file path and name so that I don't make it too easy for you. Grab that password and we are on our way to lucky number 7.
+            </p>
         </div>
 
 
