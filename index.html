@@ -377,7 +377,7 @@
                 Looks kinda messy huh? Now you get all those errors cluttering up your screen. Let's run the one that does redirect again to get our less cluttered output.
             </p>
             <p>
-                You should now see two results. You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and <b>cat</b> it there or you can just <b>cat</b> it from where you are specifying the file path like this:
+                You should now see two results. We could use the <b>-group bandit6</b> flag here as well, but I think this level of "perfect" command is not needed, and we will touch on this more in level 7 and beyond.  You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and <b>cat</b> it there or you can just <b>cat</b> it from where you are specifying the file path like this:
             </p>
             <pre id="codeBlocks">
                 <code>
@@ -392,7 +392,53 @@
 
         <button class="accordion">Bandit  7</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>
+                Lucky number 7. Here we get into the minefield known as <b>grep</b>. Before we continue with that. This is where things  will start getting really weird and there will start to be multiple ways to do things and finding the answer, this will just be what I did that was good enough. So now I want to stress the importance of not looking for a "perfect" answer. Grep and Regex have books written about them, and every language has it's own regex (regular expression) quirks. So again, do not worry about how to get a 100% correct answers so you only get the password output. Get something that is close enough, get the password and move on. Serious bit aside. Let's get started. Luckily the grep in this level is still pretty easy.
+            </p>
+            <p>
+                So what is grep and why is it so terrifying? GREP stands for Global Regular Expression Printer. What does this mean? What is a Regular Expression? A regular expression is a string of letters and symbols we can define so that we can match words in a text file. So I can use GREP to find the string of letters "cat" in a file of my choice, and every time I talk about cats (which is a lot), grep will return that instance of the word. Doesn't sound too hard, and that concept isn't. Where grep gets wild is we can use it to search for things that aren't explicit words. I can tell grep something like: 
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ grep -e [0-9][a-z][dD]f myfile.txt
+                </code> 
+            </pre>
+            <p>
+                Yeah.... what? How is that even a thing? What does that even mean? Let's take it piece by piece.
+            </p>
+            <p>
+                First we just have the command <b>grep</b>, which is just asking the terminal to use the command grep in all of its goodness.
+            </p>
+            <p>
+                Next we have <b>-e</b>. This lets grep know that whatever is following is the expression we want to use. The expression can also be put in single or double quotes. so: "expression" or 'expression', but I have seen instances where how different terminals interpret single or double quotes have had some weird results. So I tend to stick with <b>-e</b>, but you do you.
+            </p>
+            <p>
+                Now we have out expression <b>[0-9][a-z][dD]f</b>. What this is saying is:<br>
+                -<b>[0-9]</b> in the first position of the string (word) we have anything from the number 0 - 9. So it can be any single digit number.<br>
+                -<b>[a-z]</b> in the second position we have any lower case letter in the range a - z. So the whole lower case alphabet.<br>
+                -<b>[dD]</b> This says in the third position we can have either a lower or upper case d.<br>
+                -<b>f</b> in the last position we have the letter f.<br>
+            </p>
+            <p>
+                So a few strings that would match that search query would be:<br>
+                - 0qDf
+                - 9zdf
+                - 7bdf
+            </p>
+            <p>
+                Wow, that... was a lot and we haven't even done anything with bandit. But now that you have a very basic idea of grep and how it can be a text based super power. We can work on the challenge.
+            </p>
+            <p>
+                Our password is stored in a file <i>data.txt</i> and is next to the word <i>millionth</i>. So using <b>grep</b> we can find that pretty easily. Since grep will match the searched string (word) and print out the line the password is in. So if we do:
+            </p>
+            <pre id="codeBlocks">
+                <code>
+                $ grep -e millionth data.txt
+                </code> 
+            </pre>
+            <p>
+                We will get one line of output that has the password. Grab that and I will catch you on the 8th floor where grep, regex and everything will get weirder.
+            </p>
         </div>
 
 
