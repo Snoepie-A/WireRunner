@@ -12,8 +12,8 @@ html {
 
 h1 {
     text-align: center;
-    text-decoration: underline;
     background-color: black;
+    text-shadow: 0 0 10px #fff, 0 0 20px #020b36, 0 0 30px #020b36, 0 0 40px #020b36;
 }
 
 #wireRunner {
@@ -53,12 +53,10 @@ h1 {
       border-style: solid;
       padding-top: 10px;
       word-wrap: break-word;
-  }
-
-code {
+      margin-left: 0px;
+      text-align: left;
+      padding-left: 0px;
+      justify-content: left;
       white-space: pre-wrap;
-      white-space: -moz-pre-wrap;
-      white-space: -pre-wrap;
-      white-space: -o-pre-wrap;
-      word-wrap: break-word;
-  }
+      white-space: pre-line;
+    }

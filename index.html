@@ -27,7 +27,7 @@
 
             <pre id="codeBlocks">
                 <code>
-                $ ssh bandit0@bandit.labs.overthewire.org -p 2220 
+                $ ssh bandit0@bandit.labs.overthewire.org -p 2220
                 </code> 
             </pre>
             
@@ -96,10 +96,8 @@
             <p>
                 Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:
             </p>
-            <pre id="codeBlocks">
-                <code>
+            <pre id="codeBlocks"> 
                 $ ./ 
-                </code> 
             </pre>
             <p>
                 Well that looks really weird... what does it do? In linux this is a way to tell a command, or anything almost that "Hey, I want to to look for or do this thing in the directory that we currently are." Directories are the same thing as folders on Windows.
@@ -109,7 +107,7 @@
                 So to read the password file we would need to:
                 <pre id="codeBlocks">
                     <code>
-                    $ cat ./- 
+                $ cat ./- 
                     </code> 
                 </pre>
             </p>
@@ -178,65 +176,6 @@
             </p>
             <p>
                 Submitting the command one of these two ways will get you the next password and we are on our way to level 3!
-            </p>
-        </div>
-
-
-        <button class="accordion">Bandit  3</button>
-        <div class="panel">
-            <p>
-                Cool. Now we are in level 3. In this level our password is in a hidden file in a folder.
-            </p>
-            <p>
-                First, let's find our folder. How do we do this in the text based terminal Matrix? We use the command: 
-            </p>
-            <pre id="codeBlocks">
-                <code>
-                $ ls
-                </code> 
-            </pre>
-            <p>
-                Well... what does this do? Simple, it just <b>L</b>i<b>S</b>ts everything in the directory that you are currently in. We will then see a directory named: <i>inhere</i>
-            </p>
-            <p>
-                Well how do we get into "inhere" We use this command:
-            </p>
-            <pre id="codeBlocks">
-                <code>
-                $ cd inhere
-                </code> 
-            </pre>
-            <p>
-                This means <b>C</b>hange <b>D</b>irectory and is a command you will use so much that you will feel like a CD with only one song on it.
-            </p>
-            <p>
-                New directory, new files and directories to find. <b>ls</b> time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?
-            </p>
-            <p>
-                Now we get to hidden files and folders. How do we see those? We use the command:
-            </p>
-            <pre id="codeBlocks">
-                <code>
-                $ ls -la
-                </code> 
-            </pre>
-            <p>
-                This will list everything in a <b>l</b>ong format (gets you extra juicy details) and will list <b>a</b>ll of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name "<i>.hidden</i>" .
-            </p>
-            <p>
-                Why the naming convention? Not sure really. Someone just decided that's the way (ah-ha ah-ha) they like it.
-            </p>
-            <p>
-                Anyway you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level.
-            </p> 
-            <pre id="codeBlocks">
-                <code>
-                $ cat .hidden
-                </code> 
-            </pre>
-
-            <p>
-                See you in the 4th dimension!
             </p>
         </div>
 
