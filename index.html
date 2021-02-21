@@ -9,8 +9,7 @@
 </head>
 <body>
     <h1>Welcome to Wire Runner!</h1>
- 
-        <img src="wirerunner.gif"  id="wireRunner" height="150px"/> 
+        <img src="wirerunner.gif"  id="wireRunner" height="150px"/>
 
     <p style="text-align: center;">
         Here you will find your guide to and explanation of Over The Wire challenges. All commands are run from the Linux bash terminal.
@@ -25,7 +24,7 @@
                 For level 0 of over the wire we will just need to login The details are given for us. The little dollar sign is a terminal character that means the command is being run as the user you are logged in as. Login using the following:
             </p>
 
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ ssh bandit0@bandit.labs.overthewire.org -p 2220
                 </code> 
@@ -49,7 +48,7 @@
             <p>
                 Next we will be prompted for the password to login with. Luckily they give this to you!
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 bandit0  
                 </code> 
@@ -60,7 +59,7 @@
             <p>
                 The next instructions are also given to you this early in the game. The next password is in a file called <b>readme</b> and we use that password to login to the next level. To read it use the <b>cat</b> command.
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ cat readme 
                 </code> 
@@ -72,7 +71,7 @@
             <p>
                 Copy this weird long looking password. Exit your connection session by typing:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ exit 
                 </code> 
@@ -96,7 +95,7 @@
             <p>
                 Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:
             </p>
-            <pre id="codeBlocks"> 
+            <pre class="codeBlocks"> 
                 <code>$ ./ 
                 </code>
             </pre>
@@ -106,7 +105,7 @@
 
             <p>
                 So to read the password file we would need to:
-                <pre id="codeBlocks">
+                <pre class="codeBlocks">
                     <code>
                 $ cat ./- 
                     </code> 
@@ -190,7 +189,7 @@
                 Well anything that isn't really data files. That definition should be good enough for now.
                 But to see what one looks like, after you <b>cd</b> into the inhere directory. Run an <b>ls</b> so that we can see all the files. let's open the first file. They are all dashed file names. Luckily we have also touched on these before. So run the command: 
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ cat ./-file00
                 </code> 
@@ -198,7 +197,7 @@
             <p>
                 What just happened to the terminal? That is a mess! Luckily to clear up this mess all we have to do is well.. clear it. Run this command:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ clear
                 </code> 
@@ -214,7 +213,7 @@
                 So we gotta run file on all of these until we get the right one? I mean... you can, I won't stop you. Or... we can do this:
             </p>
             
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ file ./*
                 </code> 
@@ -239,7 +238,7 @@
             </p>
             <p>
                 Easy, Linux has a <b>find</b> command. Find works by default by starting from the directory you run it in and going down the directory tree. We can learn more about the command and its arguments by using the <b>man</b> command
-                <pre id="codeBlocks">
+                <pre class="codeBlocks">
                     <code>
                     $ man find
                     </code> 
@@ -249,7 +248,7 @@
             <p>
                 So we know we can use the <b>find</b> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So let's run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ find -size 1033c
                 </code> 
@@ -260,7 +259,7 @@
             <p>
                 We will get one matching file. Now you can either <b>cd</b> to the directory the file is in, or copy the whole output of find and paste it after cat. So it will look like:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ cat ./inhere/maybehereXX/XXXX
                 </code> 
@@ -282,7 +281,7 @@
             <p>
                 Sweet so from all that info we can do this:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ find / -size 33c -user bandit7 2>/dev/null
                 </code> 
@@ -308,7 +307,7 @@
             <p>
                 You can run the command without the <b>2>/dev/null</b> and see what it did.
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ find / -size 33c -user bandit7
                 </code> 
@@ -319,7 +318,7 @@
             <p>
                 You should now see two results. We could use the <b>-group bandit6</b> flag here as well, but I think this level of "perfect" command is not needed, and we will touch on this more in level 7 and beyond.  You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and <b>cat</b> it there or you can just <b>cat</b> it from where you are specifying the file path like this:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ /XXX/XXX/XXX/XXX/xxx.obviousFileName
                 </code> 
@@ -338,7 +337,7 @@
             <p>
                 So what is grep and why is it so terrifying? GREP stands for Global Regular Expression Printer. What does this mean? What is a Regular Expression? A regular expression is a string of letters and symbols we can define so that we can match words in a text file. So I can use GREP to find the string of letters "cat" in a file of my choice, and every time I talk about cats (which is a lot), grep will return that instance of the word. Doesn't sound too hard, and that concept isn't. Where grep gets wild is we can use it to search for things that aren't explicit words. I can tell grep something like: 
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ grep -e [0-9][a-z][dD]f myfile.txt
                 </code> 
@@ -371,7 +370,7 @@
             <p>
                 Our password is stored in a file <i>data.txt</i> and is next to the word <i>millionth</i>. So using <b>grep</b> we can find that pretty easily. Since grep will match the searched string (word) and print out the line the password is in. So if we do:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ grep -e millionth data.txt
                 </code> 
