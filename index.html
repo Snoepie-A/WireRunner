@@ -366,15 +366,7 @@
                 Then we have /dev/null . This is a directory path, no? Yes! Exactly we are redirecting it to what is essentially a black hole in Linux. Anything you send here will just vanish into the void.
             </p>
             <p>
-                You can run the command without the <b>2>/dev/null</b> and see what it did.
-            </p>
-            <pre class="codeBlocks">
-                <code>
-                $ find / -size 33c -user bandit7
-                </code> 
-            </pre>
-            <p>
-                Looks kinda messy huh? Now you get all those errors cluttering up your screen. Let's run the one that does redirect again to get our less cluttered output.
+                You can run the command without the 2>/dev/null, but that will fill up your screen. Let's run the one that does redirect again to get our less cluttered output.
             </p>
             <p>
                 You should now see two results. We could use the <b>-group bandit6</b> flag here as well, but I think this level of "perfect" command is not needed, and we will touch on this more in level 7 and beyond.  You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and <b>cat</b> it there or you can just <b>cat</b> it from where you are specifying the file path like this:
@@ -444,13 +436,74 @@
 
         <button class="accordion">Bandit  8</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>
+                In this challenge our password is stored in <i>data.txt</i> and is the only line that appears only once. So let's <b>cat</b> that file and see what we have to work with.
+            </p>
+            <p>
+                Yikes. That looks messy. How can we clean it up so that we get what we want?
+            </p>
+            <p>
+                We can do this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cat data.txt | sort | uniq -c
+                </code> 
+            </pre>
+            <p>
+                Well, some of that looks familiar some of it does not. Let's take it step by step.
+            </p>
+            <p>
+                <b>cat</b> just reads the file we give it as input.
+            </p>
+            <p>
+                Then we have this thing: <b>|</b>. What's this? This is a pipe. What it does is take the output from the command on the left of it and feeds it as input to the command on the right. So instead of cat's output going to the screen we send it to the next command <b>sort</b>.
+            </p>
+            <p>
+                So now we can talk about <b>sort</b>. What <b>sort</b> is doing here is reading the whole document. Looking for lines that are exactly the same and rearranges them so that they are one after another. 
+            </p>
+            <p>
+                Then we pipe it again to the next command <b>uniq -c</b>. What uniq does is look for lines that are exactly the same and then omits all but one of them. Important here is that <b>uniq</b> has to be run after <b>sort</b> because uniq will only omit duplicate lines that occur after each other. Lastly we have <b>-c</b>, All this does is show a count for each line, how many times it occurred in the document. 
+            </p>
+            <p>
+                Look for the only string that occurs just once based on the count on the left. Grab that and I will meet you in level 9.
+            </p>
         </div>
 
 
         <button class="accordion">Bandit  9</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>
+                This time our password is in the <i>data.txt</i> and is one of the few human-readable strings, preceded by several ‘=’ characters.
+            </p>
+            <p>
+                Cool so just: grep -e == data.txt (two == at least since we know it is multiple equals signs.)
+            </p>
+            <p>
+                Uhm... what? What does "Binary file data.txt matches" mean? From the grep man pages we can see "Normally, if the first few bytes of a file indicate that the file contains binary data, grep outputs only a message saying that the file matches the pattern" Since our file starts with binary we get this output. So what do we do?
+            </p>
+            <p>
+                We can do:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ grep -a -e == data.txt
+                </code> 
+            </pre>
+            <p>
+                We should know what most of that does. Jus the <b>-a</b> is new. This will let grep treat the binary as if it is text. But this output is very messy. You can still see the password, grab it and go or.... We could do this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ strings data.txt | grep -e ==
+                </code> 
+            </pre>
+            <p>
+                The only new command here is <b>strings</b> and basically all it does is print only all the text characters in a document. So none of the binary noise.
+            </p>
+            <p>
+                There are many lines of output here. Only one of them has the same format as the passwords we have been using. Copy it and I will catch you in our first double digit challenge! 
+            </p>
         </div>
 
 
