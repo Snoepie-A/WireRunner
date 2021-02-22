@@ -9,7 +9,8 @@
 </head>
 <body>
     <h1>Welcome to Wire Runner!</h1>
-        <img src="wirerunner.gif"  id="wireRunner" height="150px"/>
+ 
+        <img src="wirerunner.gif"  id="wireRunner" height="150px"/> 
 
     <p style="text-align: center;">
         Here you will find your guide to and explanation of Over The Wire challenges. All commands are run from the Linux bash terminal.
@@ -21,12 +22,12 @@
         <div class="panel">
 
             <p>
-                For level 0 of over the wire we will just need to login The details are given for us. The little dollar sign is a terminal character that means the command is being run as the user you are logged in as. Login using the following:
+                For level 0 of over the wire we will just need to login. The details are given to us. The little dollar sign is a terminal character that means the command is being run as the user you are logged in as. Login using the following:
             </p>
 
             <pre class="codeBlocks">
                 <code>
-                $ ssh bandit0@bandit.labs.overthewire.org -p 2220
+                $ ssh bandit0@bandit.labs.overthewire.org -p 2220 
                 </code> 
             </pre>
             
@@ -37,8 +38,8 @@
             <p>
                 First with <b>ssh</b> we tell the computer. "Hey, you have this thing called <b>S</b>ecure <b>SH</b>ell. I want to use that command."
                 <br/><br/>
-                Then we say where we want to ssh to. You will see the next part kinda looks like an email? It can be interpreted in the same way. The first part before the @ is the user we want to be. In this case bandit0. After the @ is the domain we want to be at. In this case: bandit.labs.overthewire.org. Neat! <br/><br/>
-                Lastly we have this weird <b>-p</b> thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communication streams separate.
+                Then we say where we want to ssh to. You will see the next part kinda looks like an email? It can be interpreted in the same way. The first part before the <b>@</b> is the user we want to be. In this case bandit0. After the <b>@</b> is the domain we want to be at. In this case: bandit.labs.overthewire.org. Neat! <br/><br/>
+                Lastly we have this weird <b>-p 2220</b> thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communication streams separate.
              </p>
             <p>
                 If you have never logged in to over the wire you will be prompted to accept a Key. Huh? What? Keys? <br/><br/>
@@ -93,21 +94,22 @@
                 When cat sees the "-" it does not interpret this as a file name, it interprets it as another way to represent stdin (standard input, basically where your computer receives input from, no need to worry about this to much at the moment).
             </p>
             <p>
-                Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in linux:
+                Well how do we get around this? We would need to tell cat to interpret this as a file name. To do this we need to use a special character combination in Linux:
             </p>
-            <pre class="codeBlocks"> 
-                <code>$ ./ 
-                </code>
+            <pre class="codeBlocks">
+                <code>
+                $ ./ 
+                </code> 
             </pre>
             <p>
-                Well that looks really weird... what does it do? In linux this is a way to tell a command, or anything almost that "Hey, I want to to look for or do this thing in the directory that we currently are." Directories are the same thing as folders on Windows.
+                Well that looks really weird... what does it do? In Linux this is a way to tell a command, or anything almost that "Hey, I want to to look for or do this thing in the directory that we currently are." Directories are the same thing as folders in Windows.
             </p>
 
             <p>
                 So to read the password file we would need to:
                 <pre class="codeBlocks">
                     <code>
-                $ cat ./- 
+                    $ cat ./- 
                     </code> 
                 </pre>
             </p>
@@ -126,7 +128,7 @@
             <p>
                 What makes opening a file with spaces different is that the terminal does not interpret the space as space character. It thinks you want to open another file. So:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ cat this file
                 </code> 
@@ -143,7 +145,7 @@
             <p>
                 Well we need to tell the terminal that the string of text we put in is the exact wording. And just as with english. We use quotes! So we need:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ cat "spaces in this filename"
                 </code> 
@@ -155,7 +157,7 @@
                 Another way we can do this is with back slashes. What these do is they escape the function of the character being fed to the terminal. So by default it would mean "Hey here is a space, so things after this character is considered a new file.". By escaping this meaning we can have the space be what we are use to it being in text files. So it would look like:
             </p>
 
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ cat spaces\ in\ this\ filename
                 </code> 
@@ -166,7 +168,7 @@
             <p>
                 What tab complete does is search for files or folders in the directory that you are currently in and try and match the name as best as possible. So try typing:
             </p>
-            <pre id="codeBlocks">
+            <pre class="codeBlocks">
                 <code>
                 $ cat sp
                 </code> 
@@ -176,6 +178,65 @@
             </p>
             <p>
                 Submitting the command one of these two ways will get you the next password and we are on our way to level 3!
+            </p>
+        </div>
+
+
+        <button class="accordion">Bandit  3</button>
+        <div class="panel">
+            <p>
+                Cool. Now we are in level 3. In this level our password is in a hidden file in a folder.
+            </p>
+            <p>
+                First, let's find our folder. How do we do this in the text based terminal Matrix? We use the command: 
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ls
+                </code> 
+            </pre>
+            <p>
+                Well... what does this do? Simple, it just <b>L</b>i<b>S</b>ts everything in the directory that you are currently in. We will then see a directory named: <i>inhere</i>
+            </p>
+            <p>
+                Well how do we get into "inhere" We use this command:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cd inhere
+                </code> 
+            </pre>
+            <p>
+                This means <b>C</b>hange <b>D</b>irectory and is a command you will use so much that you will feel like a CD with only one song on it.
+            </p>
+            <p>
+                New directory, new files and directories to find. <b>ls</b> time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?
+            </p>
+            <p>
+                Now we get to hidden files and folders. How do we see those? We use the command:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ls -la
+                </code> 
+            </pre>
+            <p>
+                This will list everything in a <b>l</b>ong format (gets you extra juicy details) and will list <b>a</b>ll of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name "<i>.hidden</i>" .
+            </p>
+            <p>
+                Why the naming convention? Not sure really. Someone just decided that's the way (ah-ha ah-ha) they like it.
+            </p>
+            <p>
+                Anyway you can now just cat the hidden file (be sure to include the period in the name) and you can read the password for the next level.
+            </p> 
+            <pre class="codeBlocks">
+                <code>
+                $ cat .hidden
+                </code> 
+            </pre>
+
+            <p>
+                See you in the 4th dimension!
             </p>
         </div>
 
@@ -246,7 +307,7 @@
                 This will open a document that will explain the command and many of its potential uses and options to you. Enough about this though, let's get to finding that file!
             </p>
             <p>
-                So we know we can use the <b>find</b> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So let's run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.
+                So we know we can use the <b>find</b> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So let's run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.)
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -320,7 +381,7 @@
             </p>
             <pre class="codeBlocks">
                 <code>
-                $ /XXX/XXX/XXX/XXX/xxx.obviousFileName
+                $ cat /XXX/XXX/XXX/XXX/xxx.obviousFileName
                 </code> 
             </pre>
             <p>
@@ -332,7 +393,7 @@
         <button class="accordion">Bandit  7</button>
         <div class="panel">
             <p>
-                Lucky number 7. Here we get into the minefield known as <b>grep</b>. Before we continue with that. This is where things  will start getting really weird and there will start to be multiple ways to do things and finding the answer, this will just be what I did that was good enough. So now I want to stress the importance of not looking for a "perfect" answer. Grep and Regex have books written about them, and every language has it's own regex (regular expression) quirks. So again, do not worry about how to get a 100% correct answer that will only get you the password as output. Get something that is close enough, get the password and move on. Serious bit aside. Let's get started. Luckily the grep in this level is still pretty easy.
+                Lucky number 7. Here we get into the minefield known as <b>grep</b>. Before we continue with that. This is where things  will start getting really weird and there will be multiple ways to do things and find the answer, this will just be what I did that was good enough. So now I want to stress the importance of not looking for a "perfect" answer. Grep and Regex have books written about them, and every language has it's own regex (regular expression) quirks. So again, do not worry about how to get a 100% correct answer that will only get you the password as output. Get something that is close enough, get the password and move on. Serious bit aside. Let's get started. Luckily the grep in this level is still pretty easy.
             </p>
             <p>
                 So what is grep and why is it so terrifying? GREP stands for Global Regular Expression Printer. What does this mean? What is a Regular Expression? A regular expression is a string of letters and symbols we can define so that we can match words in a text file. So I can use GREP to find the string of letters "cat" in a file of my choice, and every time I talk about cats (which is a lot), grep will return that instance of the word. Doesn't sound too hard, and that concept isn't. Where grep gets wild is we can use it to search for things that aren't explicit words. I can tell grep something like: 
