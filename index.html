@@ -55,7 +55,7 @@
                 </code> 
             </pre>
             <p>
-                Enter this password and you are now logged in as another user, on another computer, somewhere else completely on the earth. That's insane!
+                Enter this password and you are now logged in as another user, on another computer, somewhere else completely on earth. That's insane!
             </p>
             <p>
                 The next instructions are also given to you this early in the game. The next password is in a file called <b>readme</b> and we use that password to login to the next level. To read it use the <b>cat</b> command.
@@ -102,7 +102,7 @@
                 </code> 
             </pre>
             <p>
-                Well that looks really weird... what does it do? In Linux this is a way to tell a command, or anything almost that "Hey, I want to to look for or do this thing in the directory that we currently are." Directories are the same thing as folders in Windows.
+                Well that looks really weird... what does it do? In Linux this is a way to tell a command, or anything almost that "Hey, I want to look for or do this thing in the directory that we currently are." Directories are the same thing as folders in Windows.
             </p>
 
             <p>
@@ -126,7 +126,7 @@
                 So our next machine needs us to open a file with spaces in it. Luckily this is super easy. 
             </p>
             <p>
-                What makes opening a file with spaces different is that the terminal does not interpret the space as space character. It thinks you want to open another file. So:
+                What makes opening a file with spaces different is that cat does not interpret the space as space character. It thinks you want to open another file. So:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -143,7 +143,7 @@
                 How do we get around this? There are two ways we can go about this
             </p>
             <p>
-                Well we need to tell the terminal that the string of text we put in is the exact wording. And just as with english. We use quotes! So we need:
+                Well we need to tell cat that the string of text we put in is the exact wording. And just as with english. We use quotes! So we need:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -315,7 +315,7 @@
                 </code> 
             </pre>
             <p>
-                So the above command says we want to use find from where we are running the command in the directory tree and down, and we are looking for a file with the <b>size</b> of <b>1033c</b> The <b>c</b> is to denote bytes.
+                So the above command says we want to use find from where we are running the command in the directory tree and down, and we are looking for a file with the <b>size</b> of <b>1033c</b>. The <b>c</b> is to denote bytes.
             </p>
             <p>
                 We will get one matching file. Now you can either <b>cd</b> to the directory the file is in, or copy the whole output of find and paste it after cat. So it will look like:
@@ -491,7 +491,7 @@
                 </code> 
             </pre>
             <p>
-                We should know what most of that does. Jus the <b>-a</b> is new. This will let grep treat the binary as if it is text. But this output is very messy. You can still see the password, grab it and go or.... We could do this:
+                We should know what most of that does. Just the <b>-a</b> is new. This will let grep treat the binary as if it is text. But this output is very messy. You can still see the password, grab it and go or.... We could do this:
             </p>
             <pre class="codeBlocks">
                 <code>
