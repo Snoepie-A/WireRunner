@@ -509,7 +509,70 @@
 
         <button class="accordion">Bandit  10</button>
         <div class="panel">
-            <p>Lorem ipsum</p>
+            <p>
+                I am going to be honest with you here. This level feels like a downtick in difficulty. The password is stored in the <i>data.txt</i> file and the whole file is base64 encoded. What is base64? In short and very basically put, it is a way for us to represent binary data to an ASCII string.
+            </p>
+            <p>
+                Base64 is so popular that Linux has a built in command for working with it: <b>base64</b>. Reading through the man page will get us more info on what we can do with it. But we really just care about <b>--decode</b>. So:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ base64 --decode data.txt
+                </code> 
+            </pre>
+            <p>
+                Here we are saying we want to use base64, we want to use the decode functionality and we want to use it on the data.txt file. Pretty simple.
+            </p>
+            <p>
+                Grab that password and I will see you in the next level.
+            </p>
+        </div>
+
+        <button class="accordion">Bandit  11</button>
+        <div class="panel">
+            <p>
+                Here is another one where we can kind of be lazy. Or at least, there are very easy ways of doing this.</p>
+            <p>
+                Our password is stored in the <i>data.txt</i> file and all upper and lowercase letters have been rotated 13 positions. Basically the alphabet now starts from n and goes all the way around back to m as the last letter. We are replacing the letters of the alphabet with the 13th letter after it in the alphabet.
+            </p>
+            <p>
+                What makes this pretty simple is there are many decoders for this online. So a quick Google search for a ROT-13 decoder will get us a webpage where we can paste the text in and get our answer. Do that, get the answer and we can go to level 12.
+            </p>
+            <p>
+                If you really want to know how to do something like this in the terminal:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cat data.txt | tr [a-z] [n-za-m] |tr [A-Z] [N-ZA-M]
+                </code> 
+            </pre>
+            <p>
+                Let's break down what this is saying:
+            </p>
+            <p>
+                <b>cat</b> will read the file and push it through to <b>tr</b> command (translate).
+            </p>
+            <p>
+                Then we say: hey translate command (tr). I want to use this character set <b>[a-z]</b> and I want you to shift it so that it would work like <b>[n-za-m]</b> (the 14th letter of the alphabet to the 26th and then the 1st to the 13th), all only in lower case.
+            </p>
+            <p>
+                All of this is the: <b>tr [a-z] [n-za-m]</b>
+            </p>
+            <p>
+                We then take what that output would be and push it through to translate again, and do the same thing, but with upper case characters.That is the:
+                <b>tr [A-Z] [N-ZA-M]</b>. After which you will have your answer.This is also a very verbose way of going through it, but it can help keep your logic and readability clear.
+            </p>
+            <p>
+                A much more condensed version of the command would be:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat data.txt | tr [a-zA-Z] [n-za-mN-ZA-M]
+                </code> 
+            </pre>
+            <p>
+                Which does the same thing, we just give it both data sets and translation sets at once. Get the password and I will see you in level 12.
+            </p>
         </div>
     
     </div>
