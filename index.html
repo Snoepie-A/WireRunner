@@ -574,6 +574,138 @@
                 Which does the same thing, we just give it both data sets and translation sets at once. Get the password and I will see you in level 12.
             </p>
         </div>
+
+        <button class="accordion">Bandit  12</button>
+        <div class="panel">
+            <p>
+                Now, this one... is a jump in difficulty. It also just has a lot for us to do, so it will take a minute. 
+            </p>
+            <p>
+                So first they tell us. To do this box we should create a directory under /tmp in which you can work using mkdir. Why? Well because the file we are working with is a hex dump and has then been compressed multiple times. So using a copy of the file just seems like a really good idea since we might break or corrupt something.
+            </p>
+            <p>
+                What is a hex dump? A hex dump is a snapshot of what was in the computers memory. So in this case, a memory dump of what was the compressed file. 
+            </p>
+            <p>
+                But first that copy... how will we do that? Well with this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ mkdir /tmp/wireRunner
+                </code> 
+            </pre>
+            <p>
+                The <b>mkdir</b> means <i>make directory</i> and the <b>/tmp/wireRunner</b> specifies the absolute path, from root, of where we want the file to be made as well as its name. If you do not do it this way, you will probably just get a permission denied error from the bandit box. Just replace wireRunner with your name. 
+            </p>
+            <p>
+                Then we copy the file with the <b>cp</b> command. We specify first what we want to copy and then where we want to copy it to:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cp data.txt /tmp/wireRunner
+                </code> 
+            </pre>
+
+            <p>
+                Now we just <b>cd</b> to <b>/tmp/wireRunner</b> and we can get started!
+            </p>
+            <p>
+                Cool, so how can we work with and interact with this hex file? Linux has a command <b>xxd</b>. Which can be used to create or reverse hex dumps. So we need to do:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cat data.txt | xxd -r > data
+                </code> 
+            </pre>
+            <p>
+                So by now, some of that should make sense. <b>cat</b> reads the file and we pipe it to our <b>xxd</b> command. The <b>-r</b> tells xxd to reverse the hex dump and then lastly we redirect its output to a new file called <i>data</i> with <b>> data</b>.
+            </p>
+            <p>
+                Now we run <b>file</b> on the <i>data</i> file we got as output and it will tell us that this file is gzip compressed data. Gzip files have an extension of <b>.gz</b>. So we can rename the file and decompress it. How do we rename?
+                With the <b>mv</b> command. This command is used to move files, but can also be used to rename them.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ mv data data.gz
+                </code> 
+            </pre>
+            <p>
+                The above command is saying move (<b>mv</b>) the <i>data</i> file in our current directory to our current directory and then call it <i>data.gz</i>. Weird thing to wrap your head around I know. You are just moving the file to the exact same place and then just renaming it.
+            </p>
+            <p>
+                Now that it has the .gz extension we can interact with it with the <b>gzip</b> command and use its <b>-d</b> (decompress) flag to get the data decompressed.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ gzip -d data.gz
+                </code> 
+            </pre>
+            <p>
+                Now we have a data file again, we can see this with <b>ls</b>. So lets <b>file</b> it again to see what we are working with. Ahh.. a bzip2 file. These have the extension of <b>.bz</b>. We will need to rename it and then decompress it. This will be the theme until the file is ascii text again. Yay?
+            </p>
+            <p>
+                So move to rename:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ mv data data.bz
+                </code> 
+            </pre>
+            <p>
+                Now that we have the <b>.bz</b> how do we unzip it? If we look at the man page for bzip2, we can see that there is a bunzip2. Lets try that:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ bunzip2 data.bz
+                </code> 
+            </pre>
+            <p>
+                We have a data file again. <b>file</b> time. It is a gzip again. So move to rename with the <b>mv</b> command and give it the .gz extension. Then decompress with the <b>gzip -d</b>. Another data file. Run <b>file</b> on it and we have a... Oh? What is a posix tar archive? Just another compression standard, no need to worry about it too much. What is its extension? Just <b>.tar</b>
+            </p>
+            <p>
+                So move to rename:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ mv data data.tar
+                </code> 
+            </pre>
+            <p>
+                Now we need to decompress it again:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ tar -xf data.tar
+                </code> 
+            </pre>
+            <p>
+                <b>tar</b> uses the tar command and the <b>-xf</b> extracts the file archive.
+            </p>
+            <p>
+                Now if we <b>ls</b> we have a.. <i>data5.bin</i>? The <i>data.tar</i> is also still there. I mean ok.. sure. Lets file the data5.bin. Another .tar? Yep. So move to rename:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ mv data5.bin data.tar
+                </code> 
+            </pre>
+            <p>
+                What? We are renaming it with a name that already exists? Yep. In Linux this will not give you an error. It will just over write the file and since we are done with the previous <i>data.tar</i> we can do this.
+            </p>
+            <p>Another <b>tar -xf data.tar</b> time.</p>
+            <p>
+                This time we get <i>data6.bin</i>. Man this has been going on a while.... I promise we are almost done. <b>file</b> <i>data6.bin</i> and we have another bzip2. Rename and decompress time again. <b>.bz</b> extension and the bunzip2 command time. 
+            </p>
+            <p>
+                A new data file. <b>file</b> command. Another tar. Rename to a <b>.tar</b> and then <b>tar -xf</b> time
+            </p>
+            <p>
+                Now we have <i>data8.bin</i> was a gzip file. You guessed it. Rename to <b>.gz</b> and <b>gzip -d</b>.
+            </p>
+            <p>
+                <b>file</b> our data file again and.... oh my.... It is actually an ASCII file this time. We did it! We got through all this and now we finally have our password! Grab it and we are on to level 13 that shouldn't be this tedious again.
+            </p>
+        </div>
     
     </div>
     <script src="script.js"></script>
