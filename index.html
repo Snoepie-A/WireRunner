@@ -706,7 +706,63 @@
                 <b>file</b> our data file again and.... oh my.... It is actually an ASCII file this time. We did it! We got through all this and now we finally have our password! Grab it and we are on to level 13 that shouldn't be this tedious again.
             </p>
         </div>
+
+        <button class="accordion">Button 13</button>
+        <div class="panel">
+            <p>
+                So in this level we know what file the password is kept in. But it can only be read by user <i>Bandit 14</i>. Well how can we read it as user 13? We get a private SSH Key that we can use to log in to the bandit14 user. 
+            </p>
+            <p>
+                We can use <b>ls</b> to see the file is in our home directory. Awesome! How do we use it?
+            </p>
+            <p>
+                Like this:
+            </p> 
+            <pre class="codeBlocks">
+                <code>
+                $ ssh bandit14@localhost -i sshkey.private
+                </code> 
+            </pre>
+            <p>
+                Sweet, most of that looks familiar by now. Just two new things.
+            </p>
+            <p>
+                <b>localhost</b> is just a way to refer to the system you are currently working on.
+            </p>
+            <p>
+                <b>-i</b> lets you choose a file that validates your identity.
+            </p>
+            <p>
+                Awesome now we just need to get to that file in <i>/etc/bandit_pass</i> and then <b>cat</b> the <i>bandit14</i> file and we have the password!
+            </p>
+            <p>
+                See you in level 14!
+            </p>
+        </div>
     
+        <button class="accordion">Bandit 14</button>
+        <div class="panel">
+            <p>
+                Welcome to level 14. You have 2 options on how to proceed. If you are still logged on to bandit14 from the last level. Great! We can just continue. If not just ssh back into it and we can get going.
+            </p>
+            <p>
+                So here we are told we can get the password for <i>bandit15</i> by submitting the password for <i>bandit14</i> to port <i>30000</i> of the localhost.
+            </p>
+            <p>
+                That is a mouthful. Basically it is saying that we need to send information to a server that is set up on our localhost. This is doable with a command <b>nc</b> (netcat) to connect locally. netcat is a unix utility that sends and receives data across network connections. Including ones on our local machine. So we just have to give the password for  level 14 to this port on our local machine and it will return the password for level 15.  
+            </p>
+            <p>
+                This should do the trick:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ echo "4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e" | nc localhost 30000
+                </code> 
+            </pre>
+            <p>
+                <b>echo</b> literally just copies back as output what you gave it as input. The pipe symbol we have worked with. It takes output from the left and feeds it as input to the right. Then <b>nc</b> lets us use the network connection on <i>localhost</i> on port <i>30000</i>. You will then get the password for level 15 and we are on our way again!
+            </p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
