@@ -763,6 +763,51 @@
                 <b>echo</b> literally just copies back as output what you gave it as input. The pipe symbol we have worked with. It takes output from the left and feeds it as input to the right. Then <b>nc</b> lets us use the network connection on <i>localhost</i> on port <i>30000</i>. You will then get the password for level 15 and we are on our way again!
             </p>
         </div>
+
+        <button class="accordion">Bandit 15</button>
+        <div class="panel">
+            <p>
+                So things are getting harder and we might tend to start using commands or technologies that you can spend a lot of time on. We will only be touching on the very basic for what we need for the solution. If you ever feel like you want to spend more time investigating these technologies, please do. Just know that you can spend weeks and still not know everything you want. Google is your friend here. 
+            </p>
+            <p>
+                Why the speech? We are going to use <b>openSSL</b>. This lets us use TLS protocols for secure connections and communications in computer networks. TLS is a set of cryptographic protocols. Yes these descriptions are pretty vague. I believe it is all we need. It gives us enough to have utility. Basically openSSL is a technology that lets us encrypt our connections. You know when your web browser says httpS vs just http? This is what provides the S (secure). 
+            </p>
+            <p>
+                Our challenge states we can get our password for <i>bandit16</i> by submitting the <i>password</i> for <i>bandit15</i> to port <i>30001</i> to the local machine with ssl encryption.
+            </p>
+            <p>
+                Mouthful again. Basically we just need to use an ssl connection (<b>openssl</b> can do this) to connect to a different port on the machine we are currently using and submit the password of the current level as input.
+            </p>
+            <p>
+                How?
+            </p>
+            <p>
+                Like this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ echo "BfMYroe26WYalil77FoDi9qh59eK5xNr" | openssl s_client -connect localhost:30001 -ign_eof
+                </code> 
+            </pre>
+            <p>
+                Sweet, the only really new thing here is the <b>openssl</b> stuff. The echo and pipe we have touched on in the last challenge. 
+            </p>
+            <p>
+                <b>openssl</b> just says we want to use the openssl command
+            </p>
+            <p>
+                <b>s_client</b> creates a generic ssl/tls client that we can use to connect to a server that is running ssl/tls to communicate. This is what allows us to connect to the secure server. This is only used for testing however.
+            </p>
+            <p>
+                <b>-connect localhost:30001</b>. This tells openssl where we want to connect to and on which port.
+            </p>
+            <p>
+                <b>-ign_eof</b> all this is doing is keeps the communication stream open after it has been established. Why do we need this? When setting up the connection we get a whole bunch of info back from the ssl/tls server. After this information is received the connection appears to close before we can send our information from echo so that we can get the password for bandit16. As a side note you can omit some of the extra output with <b>-quiet</b>. You will just lessen the amount of output. The password will still appear at the bottom of your output.
+            </p>
+            <p>
+                Grab that password and get ready for more weirdness.
+            </p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
