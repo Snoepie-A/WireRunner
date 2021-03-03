@@ -808,6 +808,97 @@
                 Grab that password and get ready for more weirdness.
             </p>
         </div>
+
+        <button class="accordion">Bandit 16</button>
+        <div class="panel">
+            <p>
+                Not gonna lie, another funny one. It combines some things we have done before, but also requires us to use new tools. Most notably <b>nmap</b>. But I am getting ahead of myself. Here our password can be retrieved by submitting the password of the current level to a ssl server on a port in the range 31000 to 32000 on our local machine. Only one of these will give us the password. How can we narrow this down? 
+            </p>
+            <p>
+                Meet one of your best friends in the world of networking, info-sec and administration. <b>nmap</b>. It is a network mapper. You will use it to see which IPs are up, what ports are open and what services they run. It is honestly worth investing time into learning this beautiful tool. We will not be going that in-depth with it here though. So what we want with nmap is:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ nmap -sV localhost -p31000-32000 | grep -e ssl
+                </code> 
+            </pre>
+            <p>
+                So that is just saying we want to use <b>nmap</b>. With <b>-sV</b> we are telling nmap to do a detailed scan on the ports and what services they may be running. Then we say the device we want to scan, in this case <b>localhost</b> (which we know means the machine we are working on). And then the ports we want to scan. This is declared with the <b>-p31000-32000</b>. This will take a moment to scan. So get up, get some water.. maybe a good stretch? It is good for you.
+            </p>
+            <p>
+                We then pipe the output to <b>grep</b> and only look for the pattern ssl with: <b>grep -e ssl</b>. We know we are looking for an ssl service and nmap will report this back to us if it is running on a port. grep is just removing a lot of noise from the nmap output. If you have the time, or you just want to, you can run this without grep and look at everything you get. This is why grep is so nice and so powerful. 
+            </p>
+            <p>
+                Great now with just the two possible ports our job has gotten a lot easier. One of these is running an ssl/echo service and the other is an ssl/unknown. I'm gonna go ahead and guess that the ssl/echo is just gonna send back what we send it. So let us try the other port:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ echo "cluFn7wTiGryunymYOu4RcffSxQluehd" | openssl s_client -connect localhost:31790 -ign_eof
+                </code> 
+            </pre>
+            <p>
+                Cool. Here we echo the password into the connection. We use openssl with s_client to say we want to be the client side of things. (Remember this from the last level?). We tell openssl where we want to connect to. In this case the port we found with nmap (<b>31790</b>) and we use our <b>-ign_epf</b> to keep that connection open... 
+            </p>
+            <p>
+                Ok what gives? We don't get a password. Should we try the other port? Nope. We get the RSA private key. A few levels ago we use a private key to connect to another user on the same machine. So let us save this private key in a file so we can use it to authenticate as user bandit17.
+            </p>
+            <p>
+                Copy everything above and below the dashed lines. It is a lot yes. Now where to save it? If you recall when we worked on the decompression issue we cannot just create files anywhere on bandit. We can only use <b>/tmp</b>.
+            </p>
+            <p>
+                Make another folder in tmp with:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ mkdir /tmp/rsaWireRunner
+                </code> 
+            </pre>
+            <p>
+                All of that should make sense at this point. But as a quick reminder. <b>mkdir</b> means make directory. Then we give it the path as well as the directory we want to make with <b>/tmp/rsaWireRunner</b>. Just use your own directory name. (Not rsaWireRunner). 
+            </p>
+            <p>
+                Cool the directory exists. Now we cd to it. Once in the directory we can create the file we want. We can do this with:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ vim rsaKey
+                </code> 
+            </pre>
+            <p>
+                This will create the file named <b>rsaKey</b> and open it in the vim editor. If you have never used vim, it is a weird text editor, but a great one. To start being able to type something or paste something, first press <b>i</b> to insert. Now you can paste the copied key with <b>right click and paste</b> or with <b>ctrl+shift+v</b>. Sweet. Now to save and quit. First press <b>Esc</b> to exit insert mode. Then press <b>:</b> so that you can enter new commands. Then you enter <b>wq</b> (this will appear at the bottom left of your screen after the colon).
+            </p>
+            <p>
+                And you are out of there with the file you need. 
+            </p>
+            <p>
+                Now we need to use this to authenticate ourself as bandit17. However... there is an issue if you try it as is. This key file is too accessible to users on this device. The <b>ssh</b> command will pick up on this and tell you it is ignoring the file. So we need to change it so that the file is more private and ssh can be satisfied. So we use:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ chmod 400 rsaKey
+                </code> 
+            </pre>
+            <p>
+                What is this? In short we use <b>chmod</b> to change file permissions. The <b>400</b> means only root users can read and execute the file (this will keep ssh happy) and <b>rsaKey</b> is the file we want to change the permissions of. Sweet now we can: 
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ssh -i rsaKey bandit17@localhost
+                </code> 
+            </pre>
+            <p>
+                Sweet. We are finally in bandit17. You can stay here and move on to bandit 18. Or you can take a stretch and water break and come back. In that case we are going to want to save the password for bandit 17. We can find it here:
+            </p>
+            
+            <pre class="codeBlocks">
+                <code>
+                $ cat /etc/bandit_pass/bandit17
+                </code> 
+            </pre>
+            <p>
+                Save that somewhere and we are on our way. 
+            </p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
