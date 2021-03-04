@@ -13,7 +13,7 @@
         <img src="wirerunner.gif"  id="wireRunner" height="150px"/> 
 
     <p style="text-align: center;">
-        Here you will find your guide to and explanation of Over The Wire challenges. All commands are run from the Linux bash terminal.
+        Here you will find your guide to and explanation of Over The Wire challenges. All commands are run from the Linux bash terminal. Please start with Bandit. The challenges and systems are in the order I believe they make sense. 
     </p>
 
     <button class="accordion">Bandit  +</button>
@@ -897,6 +897,57 @@
             </pre>
             <p>
                 Save that somewhere and we are on our way. 
+            </p>
+        </div>
+    </div>
+
+    <button class="accordion">Leviathan  +</button>
+    <div class="panel">
+        <button class="accordion">Leviathan 0</button>
+        <div class="panel">
+            <p>
+                Awesome, we made it to Leviathan on over the wire! Heck yeah. Or you decided to check this out somewhere in your bandit journey. That is cool too. How do we go about this one? Simple! To connect we:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ssh leviathan0@leviathan.labs.overthewire.org -p 2223
+                </code> 
+            </pre>
+            <p>
+                We covered this in Bandit0, but all we are saying here is we want to use <b>ssh</b> and we want to authenticate as user: <b>leviathan0</b> at the domain: <b>leviathan.labs.overthewire.org</b> to port <b>-p 2223</b>
+            </p>
+            <p>
+                Nice! And we use the password <b>leviathan0</b> and we are golden! We get the same key prompt we did with bandit0, say yes again. We are in. Let's see what we have to work with:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ls -la
+                </code> 
+            </pre>
+            <p>
+                Ok we have a hidden folder called <i>.backup</i>
+            </p>
+            <p>
+                <b>cd</b> into it and we can see what it has with another <b>ls</b>. An .html file,  nice. We can <b>cat</b> it to see what it says:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cat bookmarks.html
+                </code> 
+            </pre>
+            <p>
+                Wow that is a lot. I'd rather not read all of that. So... I wanna see if maybe they mention anything about leviathan in that document, since that is the system we are working with. I can use <b>grep</b> for that:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat bookmarks.html | grep -e leviathan
+                </code>
+            </pre>
+            <p>
+                All of that should make sense to you at this point. <b>cat</b> reads the file <i>bookmarks.html</i> and pipe redirects that output to <b>grep</b>. <b>grep -e leviathan</b> says we want to use the program <b>grep</b>, <b>-e</b> says what follows is the expression we want to match and <i>leviathan</i> is the string.
+            </p>
+            <p>
+                Now we have much less output. If we read that string we will see it tells us the password for <i>leviathan1</i>. Grab it and I will see you there.
             </p>
         </div>
     </div>
