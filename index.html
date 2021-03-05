@@ -843,7 +843,7 @@
                 Ok what gives? We don't get a password. Should we try the other port? Nope. We get the RSA private key. A few levels ago we use a private key to connect to another user on the same machine. So let us save this private key in a file so we can use it to authenticate as user bandit17.
             </p>
             <p>
-                Copy everything above and below the dashed lines. It is a lot yes. Now where to save it? If you recall when we worked on the decompression issue we cannot just create files anywhere on bandit. We can only use <b>/tmp</b>.
+                Copy everything including the begin and end private key parts. It is a lot yes. Now where to save it? If you recall when we worked on the decompression issue we cannot just create files anywhere on bandit. We can only use <b>/tmp</b>.
             </p>
             <p>
                 Make another folder in tmp with:
@@ -895,8 +895,27 @@
                 $ cat /etc/bandit_pass/bandit17
                 </code> 
             </pre>
+            <!--kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd-->
             <p>
                 Save that somewhere and we are on our way. 
+            </p>
+        </div>
+        
+        <button class="accordion">Bandit 17</button>
+        <div class="panel">
+            <p>
+                Bandit 17 is a bit of a dip in difficulty again. We have 2 files. <i>passwords.new</i> and <i>passwords.old</i> and the password is the only line that has been changed between the two. How can we find this?
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ diff password.old password.new
+                </code> 
+            </pre>
+            <p>
+                Cool, <b>diff</b> just takes two files, compares them and then tells you what lines are different. Simple enough. Only not here would be that the order matters. The first files different lines will be the top output. The second files different line will be the bottom output. So if you put <i>.old</i> first you want the bottom password. If you put <i>.new</i> first you want the top line.
+            </p>
+            <p>
+                Well that was... oddly easy. See you in Bandit 18.
             </p>
         </div>
     </div>
