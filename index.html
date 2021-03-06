@@ -895,7 +895,6 @@
                 $ cat /etc/bandit_pass/bandit17
                 </code> 
             </pre>
-            <!--kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd-->
             <p>
                 Save that somewhere and we are on our way. 
             </p>
@@ -916,6 +915,49 @@
             </p>
             <p>
                 Well that was... oddly easy. See you in Bandit 18.
+            </p>
+        </div>
+
+        <button class="accordion">Bandit 18</button>
+        <div class="panel">
+            <p>
+                Ok, I am not gonna lie here. This challenge is weird. To be able to log in you need to be in one of the bandit machines already, if you are still in 17 sweet! If not you can log back in to bandit0 as that is the easiest to do in my opinion, just <b>bandit0</b> with password <b>bandit0</b>
+            </p>
+            <p>
+                Cool so now the basic:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ssh bandit18@bandit.labs.overthewire.org -p 2220
+                </code> 
+            </pre>
+            <p>
+                Uhm.. It says goodbye then kicks us out. What gives. As stated in the challenge on the website, someone modified the .bashrc file to close ssh connections. How do we go about getting a connection then? 
+            </p>
+            <p>
+                We will need to look a little closer at <b>ssh</b> and its options then.
+            </p>
+            <p>
+                The configuration in the .bashrc is telling ssh to close the <i>pseudo-terminal</i> that <b>ssh</b> requests and creates the. What is that? A terminal that has the functions of a physical terminal without actually being one. Basically it is part of what makes this whole ssh things work. We "fake" the terminal on our end and it sends its data to the terminal on the actual devices side.
+            </p>
+            <p>
+                We need to force this to open. With ssh we can force this to happen by using <b>-t</b>. From the ssh man page : <i>Force pseudo-terminal allocation.  This can be used to execute
+                    arbitrary screen-based programs on a remote machine, which can be
+                    very useful, e.g. when implementing menu services.</i>
+            </p>
+            <p>
+                And then we need to tell it what terminal to emulate, we can do this with: <b>/bin/sh</b>. In short this means in the <i>binaries</i> directory, use the binaries needed to give me a <b>sh</b>ell.
+            </p>
+            <p>
+                All of that means we do this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ssh -t bandit18@localhost /bin/sh
+                </code> 
+            </pre>
+            <p>
+                Now we are in a terminal that just shows a <b>$</b>. We can verify that we are bandit18 by using the command <b>whoami</b>. Use an <b>ls</b>, we see we have a readme. <b>cat</b> it and we have the password for 19. Awesome! Well that was a bit, and maybe a lil weird. Re-reading and re-doing this part will not be a bad thing. See you in 19!
             </p>
         </div>
     </div>
