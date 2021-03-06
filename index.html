@@ -941,9 +941,7 @@
                 The configuration in the .bashrc is telling ssh to close the <i>pseudo-terminal</i> that <b>ssh</b> requests and creates. What is that? A terminal that has the functions of a physical terminal without actually being one. Basically it is part of what makes this whole ssh things work. We "fake" the terminal on our end and it sends its data to the terminal on the actual devices side.
             </p>
             <p>
-                We need to force this to open. With ssh we can force this to happen by using <b>-t</b>. From the ssh man page : <i>Force pseudo-terminal allocation.  This can be used to execute
-                    arbitrary screen-based programs on a remote machine, which can be
-                    very useful, e.g. when implementing menu services.</i>
+                We need to force this to open. With ssh we can force this to happen by using <b>-t</b>. From the ssh man page : <i>Force pseudo-terminal allocation.  This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services.</i>
             </p>
             <p>
                 And then we need to tell it what terminal to emulate, we can do this with: <b>/bin/sh</b>. In short this means in the <i>binaries</i> directory, use the binaries needed to give me a <b>sh</b>ell.
