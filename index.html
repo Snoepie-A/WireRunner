@@ -935,7 +935,7 @@
                 Uhm.. It says goodbye then kicks us out. What gives. As stated in the challenge on the website, someone modified the .bashrc file to close ssh connections. How do we go about getting a connection then? 
             </p>
             <p>
-                We will need to look a little closer at <b>ssh</b> and its options then.
+                We will need to look a little closer at <b>ssh</b> and its options.
             </p>
             <p>
                 The configuration in the .bashrc is telling ssh to close the <i>pseudo-terminal</i> that <b>ssh</b> requests and creates. What is that? A terminal that has the functions of a physical terminal without actually being one. Basically it is part of what makes this whole ssh things work. We "fake" the terminal on our end and it sends its data to the terminal on the actual devices side.
