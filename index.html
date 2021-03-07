@@ -958,6 +958,27 @@
                 Now we are in a terminal that just shows a <b>$</b>. We can verify that we are bandit18 by using the command <b>whoami</b>. Use an <b>ls</b>, we see we have a readme. <b>cat</b> it and we have the password for 19. Awesome! Well that was a bit, and maybe a lil weird. Re-reading and re-doing this part will not be a bad thing. See you in 19!
             </p>
         </div>
+
+        <button class="accordion">Bandit 19</button>
+        <div class="panel">
+            <p>
+                This level is a bit easier. Here we get an executable called <i>bandit20-do</i>. To run it we need to put a <b>./</b> before it. Let's run it to see what it does:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ ./bandit20-do
+                </code> 
+            </pre>
+            <p>
+                This is telling us we can use this program to run a command as user bandit20. Sweet, so we can use this to read the password for bandit20
+            </p>
+            <p>
+                As we have learnt in other levels we can find passwords in <i>/etc/bandit_pass/</i>
+            </p>
+            <p>
+                <b>cat</b> the file for bandit20 and we can move on to bandit20! 
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
