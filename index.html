@@ -979,6 +979,41 @@
                 <b>cat</b> the file for bandit20 and we can move on to bandit20! 
             </p>
         </div>
+
+        <button class="accordion">Bandit 20</button>
+        <div class="panel">
+            <p>
+                In this level we are given a binary file <i>suconnect</i>. What this does is make a connection to a port on the local machine (that we specify). Reads a line of text from that connection and if it matches the expected input (in this case the password for level 20). We will get back the password for level 21.
+            </p>
+            <p>
+                Ok... How do we set up this port? With <b>nc</b> otherwise known as netcat. This is another tool you would want to get really familiar with. It allows you to make network connections for all kinds of reasons. We will be using it here to set up a server that listens on a port. With something like <b>nc localhost 30000</b>. But wait, we also need to get the suconnect executable to read a string on the server we setup, how will we give the server this string to represent?
+            </p>
+            <p>
+                We can echo that string to the server when we create it. <b>echo "string"</b>
+            </p>
+            <p>
+                All of this means we want to do:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -l localhost -p 30000 &
+                </code> 
+            </pre>
+            <p>
+                Here <b>echo</b> will set the password for level 20 as a string in the server we will set up with <b>nc</b>. <b>nc -l localhost -p 30000</b>. This creates the server on the <i>localhost</i> on port <i>30000</i>. Any port number above 30000 and below 65000 should be fine to use here. Lastly the <b>&</b> tells the terminal to execute this command in the background. This will let us get our terminal prompt back so that we can run the executable.
+            </p>
+            <p>
+                We then run:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    ./suconnect 30000
+                </code>
+            </pre>
+            <p>
+                This will run the binary to the port we tell it to and it will then give us the password for bandit 21. Copy it and let's go!
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
