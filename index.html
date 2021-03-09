@@ -1014,6 +1014,37 @@
                 This will run the binary to the port we tell it to and it will then give us the password for bandit 21. Copy it and let's go!
             </p>
         </div>
+
+        <button class="accordion">Bandit 21</button>
+        <div class="panel">
+            <p>
+                In this level we get a little taste of automation. We have a program that runs at regular intervals that is doing something that we can use to get the next level's password. We can look in <i>/etc/cron.d/</i> to find and read this file to see what it does.  
+            </p>
+            <p>
+                An <b>ls</b> in that directory will get us a file named: <i>cronjob_bandit22</i>. Well, what is this cron word that we keep seeing? It is a program we use in Linux to schedule things we want the system to do. So if every time you start up the system you want it to launch a few programs, make a few internet connections or anything really. You can create a <b>cronjob</b> to do this. So:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cd /etc/cron.d/
+
+                $ cat cronjob_bandit22
+                </code> 
+            </pre>
+            <p>
+                This output tells us it is executing a file located in <i>/usr/bin/cronjob_bandit22.sh</i>. Let's <b>cat</b> that file and see what it is doing.
+            </p>
+            <p>
+                Ok, this is creating a file in <i>/tmp</i> called <i>t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</i> with permissions that means we can read it (<b>chmod 644</b>, we have not touched on chmod yet, but this basically means anyone can read this file). After it has created this file, it reads the file: <i>/etc/bandit_pass/bandit22</i> and redirects its output (with the <b>></b>) to the file it created int he previous step. If we read that file we can then get the password to bandit22
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                $ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+                </code> 
+            </pre>
+            <p>
+                Sweet, got it. On to 22!
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
