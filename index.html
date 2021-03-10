@@ -1045,6 +1045,42 @@
                 Sweet, got it. On to 22!
             </p>
         </div>
+
+        <button class="accordion">Bandit 22</button>
+        <div class="panel">
+            <p>
+                This level is roughly the same as the last one. We have another script that runs at certain time intervals and we need to read it to see what it does so that we can get the password for the next level. Let's go read that file.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cd /etc/cron.d/
+
+                    $ cat cronjob_bandit23
+                </code>
+            </pre>
+            <p>
+                Ok this is running a script <i>/usr/bin/cronjob_bandit23.sh</i>. Lets <b>cat</b> to read it and see what we have.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat /usr/bin/cronjob_bandit23.sh
+                </code>
+            </pre>
+            <p>
+                Quite a bit going on here. In short what this script is doing is finding the password file for our current user and then outputs it to a new file with a name that comes from running the string "Iamuserbandit22" through an md5 hash. No need to worry about this too much. If we run the file we will get the name of the output file.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ /usr/bin/cronjob_bandit23.sh
+                </code>
+            </pre>
+            <p>
+                The above will just run the file. The output will then tell us that it is "copying passwordfile /etc/bandit_pass/bandit22 to /tmp/8169b67bd894ddbb4412f91573b38db3"
+            </p>
+            <p>
+                <b>cat</b> that and we will have the password for bandit23. We didn't go to deep into reading and understanding each line of the bash script. That is another thing that is a course on its own. Maybe we will make a tutorial for that beast some day. See you in bandit 23!
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
