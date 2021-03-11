@@ -1081,6 +1081,70 @@
                 <b>cat</b> that and we will have the password for bandit23. We didn't go to deep into reading and understanding each line of the bash script. That is another thing that is a course on its own. Maybe we will make a tutorial for that beast some day. See you in bandit 23!
             </p>
         </div>
+        <button class="accordion">Bandit 23</button>
+        <div class="panel">
+            <p>
+                So here we will need to write our first bash script. Exiting! Anyway we have another scheduled job that we need to figure out what it does and how we can use it to get the password for bandit 24. Lets go look at that file:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cd /etc/cron.d/
+                    
+                    $ cat cronjob_bandit24
+                </code>
+            </pre>
+            <p>
+                Another pretty big file.... What this script is doing is executing all scripts that are in the <i>/var/spool/$myname</i>. <b>$myname</b> is a variable and we want it to be the user we want to execute the script.
+            </p>
+            <p>
+                Sweet lets make that script. First lets create folder that we can work in:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ mkdir /tmp/wireScript
+                </code>
+            </pre>
+            <p>
+                We know from previous bandits that we can make a directory in the tmp dir on the system so this is where we will put the password once we get it. <b>cd</b> into this directory (btw use your own directory and file names, mine are just examples) and make a file called password.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ touch password
+                </code>
+            </pre>
+            <p>
+                The touch command will make an empty file. Next we need to change permissions to this password file so that any user can write information to it (we will need bandit 24 to be able to write to this file).
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ chmod 666 password
+                </code>
+            </pre>
+            <p>
+                Finally script time! Do not worry it will not be as hardcore of a script. <b>cd</b> to <i>/var/spool/bandit24/</i> and we will make this script here. <b>vim script.sh</b> will make this file and open it for us to edit. The <b>.sh</b> extensions tells the system that it is a bash shell script. In the script we want:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    #!/bin/bash
+
+                    cat /etc/bandit_pass/bandit24 > /tmp/wireScript/password
+                </code>
+            </pre>
+            <p>
+                Write and quit out of vim. The <b>#!/bin/bash</b> tells your terminal what program to interpret the script with. The whole <b>cat /etc/bandit_pass/bandit24 > /tmp/wireScript/password</b> should make sense by now.
+            </p>
+            <p>
+                When the script has been made you will quickly need to run:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ chmod 777 script.sh
+                </code>
+            </pre>
+            <p>
+                this will allow the script to be executed by user <i>bandit24</i>. Wait a few seconds and if you <b>cat</b> the password file in your /tmp/wireScript/ directory, you will have the password for bandit 24! That was fun right? A lot, but fun! See you in bandit 24.
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
