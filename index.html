@@ -1145,6 +1145,62 @@
                 this will allow the script to be executed by user <i>bandit24</i>. Wait a few seconds and if you <b>cat</b> the password file in your /tmp/wireScript/ directory, you will have the password for bandit 24! That was fun right? A lot, but fun! See you in bandit 24.
             </p>
         </div>
+
+        <button class="accordion">Bandit 24</button>
+        <div class="panel">
+            <p>
+                Our password here will be given to us if we provide the password for <i>bandit 24</i> to port <i>30002</i> along with a 4 digit pin. This pin cannot be retrieved, it can only be guessed. Now, if you really want to and have nothing better to do you can manually type in every thing from 0000  to 9999. Retyping that command 10000 times seems like a crazy kind of hell. OR. We could write a script and make the computer do it for us. I like the sound of that option better. So let's make a bash script!
+            </p>
+            <p>
+                First we make a directory to work in:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    mkdir /tmp/wireBrute
+                </code>
+            </pre>
+            <p>
+                We know we can make folders in <i>/tmp</i>. Call it what you want. I just chose the word Brute since this kind of thing is known as brute forcing (where you guess every possible value 'till you get the right one.) <b>cd</b> into your dir and then <b>vim brute.sh</b> to create and open your shell script file. (if you know other languages feel free to use them. This guide will be using bash scripting)
+            </p>
+            <p>
+                <span style="text-decoration: underline;"><b>NOTE:</b></span><br> The things after # are comments (except #!/bin/bash, we covered what this does in the last bandit level) that are used to just explain the code, they can be ignored and omitted from your script. It is however good practice to comment your code, it allows others and your future self to understand what you were doing if and when you need to troubleshoot something.
+            </p>
+            <p>
+                Our script will be:
+            </p>
+
+            <pre class="codeBlocks">
+                <code>
+                    #!/bin/bash
+
+                    #The bellow line creates a variable password and assigns the password of bandit24 as its value
+                    password=UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+                    #The for here creates a loop that will do some thing FOR every value in a set range
+                    #The i declares a variable that we want to assign the value in the range to as the loop is occurring (i for integer)
+                    #in {0000..9999} is the range we want. In this case all possible 4 digit values
+
+                    for i in {0000..9999}
+                    do #this do starts the loop
+                    <span style="visibility: hidden;">aa</span> echo $password $i #this tells the script to echo out the value of the two variables password and i. Variables are denoted with the '$'
+                    done #this ends the loop when completed
+                </code>
+            </pre>
+            <p>
+                That is quite a bit. Feel good that you wrote such a script. No need to worry about being a bash wizard. You will always be able to look for code snippets or examples online. Searching for a 4 digit counter in bash should get you something akin to that code. Feel free to try searching for a 4 digit counter in any other programming language that interests you and see if you can do it with that! Best way to learn. 
+            </p>
+            <p>
+                Now we just need to execute the script and send it to the port:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ ./brute.sh | nc localhost 30002 | grep -e pass
+                </code>
+            </pre>
+            <p>
+                I hope all of that makes sense to you at this point. We run the script, pipe it to the port we want and we use grep just to clean the output. I am using pass since I assume that the line we get with the password in it will contain the string "pass". If it doesn't I can just edit my grep or omit it. See you in the next level!
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
