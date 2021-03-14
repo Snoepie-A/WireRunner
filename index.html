@@ -1201,6 +1201,73 @@
                 I hope all of that makes sense to you at this point. We run the script, pipe it to the port we want and we use grep just to clean the output. I am using pass since I assume that the line we get with the password in it will contain the string "pass". If it doesn't I can just edit my grep or omit it. See you in the next level!
             </p>
         </div>
+
+        <button class="accordion">Bandit 25</button>
+        <div class="panel">
+            <p>
+                Here we get another sshkey to connect to bandit 26, however trying to log on to bandit 26 gets us kicked out. Lets see what we can do. We get some info from the bandit website. Firstly that it is not running a bash shell. 
+                So lets see what is happening there.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat /etc/passwd | grep -e bandit26
+                </code>
+            </pre>
+            <p>
+                In this file we will be able to see information of all the users in plain text. We only care about <i>bandit26</i> so we <b>grep</b> for that.
+            </p>
+            <p>
+                The output here will point us to: <i>/usr/bin/showtext</i>. Let's cat that to see what it is telling us.
+            </p>
+            <p>
+                Ok, this is telling us that it is executes <i>more</i> on a text file and then closes out... so we need to force <i>mroe</i> into a command view. To do this make your terminal window as small as possible horizontally. Then we can <b>ssh</b>
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ ssh bandit26@localhost -i bandit26.sshkey
+                </code>
+            </pre>
+            <p>
+                Now you will see a little % view in the bottom left. Make the screen a <i>little</i> bigger and press <b>v</b>. Now we are in a vim editor for bandit26! Weird right? But now we can do somethings on bandit26. We most importantly want a shell. We can tell vim to set a certain shell for us:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    :set shell=/bin/bash
+                </code>
+            </pre>
+            <p>
+                So to get the colons press <b>Esc</b> then press the <b>:</b> and you will be able to start giving vim commands. We then tell vim to set the <b>shell</b> equal to a <b>bash</b> terminal. Press enter and that will change those settings.
+            </p>
+            <p>
+                Then we just tell vim to execute a shell for us with:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    :shell
+                </code>
+            </pre>
+            <p>
+                Bam! We are in bandit 26. We haven't gotten a password yet? Should we find one for bandit26? I mean you can go get it in  <i>/etc/bandit_pass/bandit26</i>, the issue is you will still need to do this exact same dance to get the shell for 26. I recommend staying in this shell and solving 26 - 27. It is SSSSOOOOOO easy compared to what we just did. See you there!
+            </p>
+        </div>
+        
+        <button class="accordion">Bandit 26</button>
+        <div class="panel">
+            <p>
+                So... you decided to stay? Or... I knew you'd be back! Either or, welcome. This level is super easy. A quick <b>ls</b> will tell us there is an executable <i>bandit27-do</i>. Bet you can guess what this does.
+            </p>
+            <p>
+                If not just run a <b>./bandit27-do</b>, it will tell you that it lets you run a command as another user, bandit27 in this case. Lets just use that to read the password file for bandit27.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ ./bandit27-do cat /etc/bandit_pass/bandit27
+                </code>
+            </pre>
+            <p>
+                And we have the password! See you in bandit27!
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
