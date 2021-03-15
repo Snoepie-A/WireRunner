@@ -1268,6 +1268,37 @@
                 And we have the password! See you in bandit27!
             </p>
         </div>
+
+        <button class="accordion">Bandit 27</button>
+        <div class="panel">
+            <p>
+                Now we get to start using <i>git</i>. This is a version control software package that lets you keep track of changes made to you projects as they evolve as well as work on separate versions and then merge all the changes you like and reject the ones you don't. It really is a backbone of any kind of development. Learning how to use it in a basic way is very useful and there are many resources for this. So the next few challenges will all be using git and will teach some basic ideas of what to do and not to do for the security conscious. This one will teach you not to leave a password lying around. Let's get started.
+            </p>
+            <p>
+                Once in the bandit 27 box we need to <i>clone</i> the repository they give us on the bandit website. <i>clone</i> is a git function that will copy an entire project for you in the directory that you are running the command in. We know that we can only create directories in the <i>/tmp</i> directory and then create our working directory.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ mkdir /tmp/wireGit
+
+                    $ cd /tmp/wireGit
+                </code>
+            </pre>
+            <p>
+                In this directory we will then run the following command:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+                </code>
+            </pre>
+            <p>
+                This command instructs <b>git</b> to <b>clone</b> that exact repo. It will ask you to accept an ssh key, we covered this in bandit 0 so just say yes. You will then need to re-enter the password for bandit 27 and you will have the new <i>repo</i> dir.
+            </p>
+            <p>
+                <b>cd</b> into the <i>repo</i>, run and <b>ls</b> and we will see a <i>README</i>, <b>cat</b> it and we have the password for bandit 28. Sweet and easy. Catch you in 28.
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
