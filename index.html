@@ -36,10 +36,10 @@
             </p>
 
             <p>
-                First with <b>ssh</b> we tell the computer. "Hey, you have this thing called <b>S</b>ecure <b>SH</b>ell. I want to use that command."
+                First with <strong>ssh</strong> we tell the computer. "Hey, you have this thing called <strong>S</strong>ecure <strong>SH</strong>ell. I want to use that command."
                 <br/><br/>
-                Then we say where we want to ssh to. You will see the next part kinda looks like an email? It can be interpreted in the same way. The first part before the <b>@</b> is the user we want to be. In this case bandit0. After the <b>@</b> is the domain we want to be at. In this case: bandit.labs.overthewire.org. Neat! <br/><br/>
-                Lastly we have this weird <b>-p 2220</b> thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communication streams separate.
+                Then we say where we want to ssh to. You will see the next part kinda looks like an email? It can be interpreted in the same way. The first part before the <strong>@</strong> is the user we want to be. In this case bandit0. After the <strong>@</strong> is the domain we want to be at. In this case: bandit.labs.overthewire.org. Neat! <br/><br/>
+                Lastly we have this weird <strong>-p 2220</strong> thing... what's that about? Long story short this specifies the network port you want to connect to. Web servers use ports to keep their services and communication streams separate.
              </p>
             <p>
                 If you have never logged in to over the wire you will be prompted to accept a Key. Huh? What? Keys? <br/><br/>
@@ -58,7 +58,7 @@
                 Enter this password and you are now logged in as another user, on another computer, somewhere else completely on earth. That's insane!
             </p>
             <p>
-                The next instructions are also given to you this early in the game. The next password is in a file called <b>readme</b> and we use that password to login to the next level. To read it use the <b>cat</b> command.
+                The next instructions are also given to you this early in the game. The next password is in a file called <strong>readme</strong> and we use that password to login to the next level. To read it use the <strong>cat</strong> command.
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -67,7 +67,7 @@
             </pre>
 
             <p>
-                The <b>cat</b> command just reads some text and prints it out to the terminal for you to read. I still personally like to imagine that the floating cat head from Alice in wonderland is reading it to me.
+                The <strong>cat</strong> command just reads some text and prints it out to the terminal for you to read. I still personally like to imagine that the floating cat head from Alice in wonderland is reading it to me.
             </p>
             <p>
                 Copy this weird long looking password. Exit your connection session by typing:
@@ -85,7 +85,7 @@
         <button class="accordion">Bandit  1</button>
         <div class="panel">
             <p>
-                Now we are at our first challenge. here the password is stored in a file called: <b>-</b>
+                Now we are at our first challenge. here the password is stored in a file called: <strong>-</strong>
             </p>
             <p>
                 Cool, we read a file last time... just use <cat>cat</cat>? Ah... doesn't work.. what gives?
@@ -196,7 +196,7 @@
                 </code> 
             </pre>
             <p>
-                Well... what does this do? Simple, it just <b>L</b>i<b>S</b>ts everything in the directory that you are currently in. We will then see a directory named: <i>inhere</i>
+                Well... what does this do? Simple, it just <strong>L</strong>i<strong>S</strong>ts everything in the directory that you are currently in. We will then see a directory named: <i>inhere</i>
             </p>
             <p>
                 Well how do we get into "inhere" We use this command:
@@ -207,10 +207,10 @@
                 </code> 
             </pre>
             <p>
-                This means <b>C</b>hange <b>D</b>irectory and is a command you will use so much that you will feel like a CD with only one song on it.
+                This means <strong>C</strong>hange <strong>D</strong>irectory and is a command you will use so much that you will feel like a CD with only one song on it.
             </p>
             <p>
-                New directory, new files and directories to find. <b>ls</b> time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?
+                New directory, new files and directories to find. <strong>ls</strong> time! What? Huh? ls didn't work? Or the directory is empty? Did I and over the wire just lie to you?
             </p>
             <p>
                 Now we get to hidden files and folders. How do we see those? We use the command:
@@ -221,7 +221,7 @@
                 </code> 
             </pre>
             <p>
-                This will list everything in a <b>l</b>ong format (gets you extra juicy details) and will list <b>a</b>ll of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name "<i>.hidden</i>" .
+                This will list everything in a <strong>l</strong>ong format (gets you extra juicy details) and will list <strong>a</strong>ll of the files and directories. These can be spotted with the "." (dot) that the file or directory name starts with. In this case the file with the name "<i>.hidden</i>" .
             </p>
             <p>
                 Why the naming convention? Not sure really. Someone just decided that's the way (ah-ha ah-ha) they like it.
@@ -248,7 +248,7 @@
             </p>
             <p>
                 Well anything that isn't really data files. That definition should be good enough for now.
-                But to see what one looks like, after you <b>cd</b> into the inhere directory. Run an <b>ls</b> so that we can see all the files. let's open the first file. They are all dashed file names. Luckily we have also touched on these before. So run the command: 
+                But to see what one looks like, after you <strong>cd</strong> into the inhere directory. Run an <strong>ls</strong> so that we can see all the files. let's open the first file. They are all dashed file names. Luckily we have also touched on these before. So run the command: 
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -267,7 +267,7 @@
                 That looks better. Well how do we find the file we want?
             </p>
             <p>
-                Linux has this cool command called <b>file</b> we give it the name of a file we want to know the type of and it will tell us what the data in the file tells the program it is. (So if you make a text file, but change the extension to be .png, you won't be fooling file)
+                Linux has this cool command called <strong>file</strong> we give it the name of a file we want to know the type of and it will tell us what the data in the file tells the program it is. (So if you make a text file, but change the extension to be .png, you won't be fooling file)
             </p>
             
             <p>
@@ -281,10 +281,10 @@
             </pre>
             
             <p>
-                So we know what <b>file</b> does... and we know what <b>./</b> means.... what is the asterisk (<b>*</b>) doing? It is a wild card symbol. It is a way to tell the terminal match anything. I don't care what it is or what it is called, it is a match. So *.txt would mean all text files. *.mp3 would be all mp3s.  
+                So we know what <strong>file</strong> does... and we know what <strong>./</strong> means.... what is the asterisk (<strong>*</strong>) doing? It is a wild card symbol. It is a way to tell the terminal match anything. I don't care what it is or what it is called, it is a match. So *.txt would mean all text files. *.mp3 would be all mp3s.  
             </p>
             <p>
-                The above command is just saying use file on all things in this directory. You will see one of the files has a different file type. You can <b>cat</b> this file (remember how to cat things starting with a "-"? If not just scroll up to bandit 1). And we have the password for level 5. See you there!
+                The above command is just saying use file on all things in this directory. You will see one of the files has a different file type. You can <strong>cat</strong> this file (remember how to cat things starting with a "-"? If not just scroll up to bandit 1). And we have the password for level 5. See you there!
             </p>
         </div>
 
@@ -298,7 +298,7 @@
                 It is human-readable, 1033 bytes in size and not executable. The only one we really care about is the file size. How are we going to find this file without going through each file and directory?
             </p>
             <p>
-                Easy, Linux has a <b>find</b> command. Find works by default by starting from the directory you run it in and going down the directory tree. We can learn more about the command and its arguments by using the <b>man</b> command
+                Easy, Linux has a <strong>find</strong> command. Find works by default by starting from the directory you run it in and going down the directory tree. We can learn more about the command and its arguments by using the <strong>man</strong> command
                 <pre class="codeBlocks">
                     <code>
                     $ man find
@@ -307,7 +307,7 @@
                 This will open a document that will explain the command and many of its potential uses and options to you. Enough about this though, let's get to finding that file!
             </p>
             <p>
-                So we know we can use the <b>find</b> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So let's run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.)
+                So we know we can use the <strong>find</strong> command and we have some details about the properties of the file we want to find, most notably its size. We can use this to narrow down the amount of files it could be. So let's run this from the home directory (not in any subdirectories such as any of the <i>maybehere</i> directories.)
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -315,10 +315,10 @@
                 </code> 
             </pre>
             <p>
-                So the above command says we want to use find from where we are running the command in the directory tree and down, and we are looking for a file with the <b>size</b> of <b>1033c</b>. The <b>c</b> is to denote bytes.
+                So the above command says we want to use find from where we are running the command in the directory tree and down, and we are looking for a file with the <strong>size</strong> of <strong>1033c</strong>. The <strong>c</strong> is to denote bytes.
             </p>
             <p>
-                We will get one matching file. Now you can either <b>cd</b> to the directory the file is in, or copy the whole output of find and paste it after cat. So it will look like:
+                We will get one matching file. Now you can either <strong>cd</strong> to the directory the file is in, or copy the whole output of find and paste it after cat. So it will look like:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -337,7 +337,7 @@
         <button class="accordion">Bandit  6</button>
         <div class="panel">
             <p>
-                This level is pretty much the same thing as the last one. We will use <b>find</b> again. With a few more parameters. Our file has a few properties again. It is <i>somewhere</i> on the server, meaning we would need to search the whole directory tree. It is owned by group 6 (We won't really be using this info). It has a size of 33 bytes.
+                This level is pretty much the same thing as the last one. We will use <strong>find</strong> again. With a few more parameters. Our file has a few properties again. It is <i>somewhere</i> on the server, meaning we would need to search the whole directory tree. It is owned by group 6 (We won't really be using this info). It has a size of 33 bytes.
             </p>
             <p>
                 Sweet so from all that info we can do this:
@@ -348,19 +348,19 @@
                 </code> 
             </pre>
             <p>
-                Looks kinda familiar... right? Let's look at what every part of that... incantation means. We have used <b>find</b> so we know what that does. What's the  <b>/</b> doing? Well remember when I said that find works by search from where you are and down the directory tree? Here we are telling find where to start from. The / is a way of declaring the root of the directory tree, so it will search through <i>everything</i>... the whole system. At least everything your user has permission to access. More on that in a bit.
+                Looks kinda familiar... right? Let's look at what every part of that... incantation means. We have used <strong>find</strong> so we know what that does. What's the  <strong>/</strong> doing? Well remember when I said that find works by search from where you are and down the directory tree? Here we are telling find where to start from. The / is a way of declaring the root of the directory tree, so it will search through <i>everything</i>... the whole system. At least everything your user has permission to access. More on that in a bit.
             </p>
             <p>
-                <b>size</b> we touched on, this just lets us specify how big the thing we want to find is.
+                <strong>size</strong> we touched on, this just lets us specify how big the thing we want to find is.
             </p>
             <p>
-                <b>user</b> is a new one. Not too hard to guess what it means though. It is just the name of the user that owns the file or directory.
+                <strong>user</strong> is a new one. Not too hard to guess what it means though. It is just the name of the user that owns the file or directory.
             </p>
             <p>
-                Now the weird one. What is this <b>2>/dev/null</b> thing? This is not a part of find. This lets us manipulate the output we will get from find. So remember when I said <i>"At least everything your user has permission to access."</i> When we use find it will tell us when it cannot access a certain directory because it does not have permission, it does this mainly to inform you that, "Hey, I couldn't look through this thing further, I'm just letting you know so that you can decide on what to do about that. Do you wanna give me permission? 'Cause your file might exist there.". This is where we get to the <b>2</b> this is a way to specify stderr (standard error). All outputs that are errors use this instead of stdout (standard out). No need to worry about what these are now. Basically the system just handles how it presents standard output and error output a little different, and we currently care about the errors to clean up our output. So 2 means error output. 
+                Now the weird one. What is this <strong>2>/dev/null</strong> thing? This is not a part of find. This lets us manipulate the output we will get from find. So remember when I said <i>"At least everything your user has permission to access."</i> When we use find it will tell us when it cannot access a certain directory because it does not have permission, it does this mainly to inform you that, "Hey, I couldn't look through this thing further, I'm just letting you know so that you can decide on what to do about that. Do you wanna give me permission? 'Cause your file might exist there.". This is where we get to the <strong>2</strong> this is a way to specify stderr (standard error). All outputs that are errors use this instead of stdout (standard out). No need to worry about what these are now. Basically the system just handles how it presents standard output and error output a little different, and we currently care about the errors to clean up our output. So 2 means error output. 
             </p>
             <p>
-                Now we have the <b>></b>. This is a redirect. It is what we use to tell output from things where to go if we do not want to use the defaults.
+                Now we have the <strong>></strong>. This is a redirect. It is what we use to tell output from things where to go if we do not want to use the defaults.
             </p>
             <p>
                 Then we have /dev/null . This is a directory path, no? Yes! Exactly we are redirecting it to what is essentially a black hole in Linux. Anything you send here will just vanish into the void.
@@ -369,7 +369,7 @@
                 You can run the command without the 2>/dev/null, but that will fill up your screen. Let's run the one that does redirect again to get our less cluttered output.
             </p>
             <p>
-                You should now see two results. We could use the <b>-group bandit6</b> flag here as well, but I think this level of "perfect" command is not needed, and we will touch on this more in level 7 and beyond.  You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <b>cd</b> all the way to the directory that the file is in and <b>cat</b> it there or you can just <b>cat</b> it from where you are specifying the file path like this:
+                You should now see two results. We could use the <strong>-group bandit6</strong> flag here as well, but I think this level of "perfect" command is not needed, and we will touch on this more in level 7 and beyond.  You can either cat both or just the one, should be pretty clear by the file name which one it would be. Again you can either <strong>cd</strong> all the way to the directory that the file is in and <strong>cat</strong> it there or you can just <strong>cat</strong> it from where you are specifying the file path like this:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -385,7 +385,7 @@
         <button class="accordion">Bandit  7</button>
         <div class="panel">
             <p>
-                Lucky number 7. Here we get into the minefield known as <b>grep</b>. Before we continue with that. This is where things  will start getting really weird and there will be multiple ways to do things and find the answer, this will just be what I did that was good enough. So now I want to stress the importance of not looking for a "perfect" answer. Grep and Regex have books written about them, and every language has it's own regex (regular expression) quirks. So again, do not worry about how to get a 100% correct answer that will only get you the password as output. Get something that is close enough, get the password and move on. Serious bit aside. Let's get started. Luckily the grep in this level is still pretty easy.
+                Lucky number 7. Here we get into the minefield known as <strong>grep</strong>. Before we continue with that. This is where things  will start getting really weird and there will be multiple ways to do things and find the answer, this will just be what I did that was good enough. So now I want to stress the importance of not looking for a "perfect" answer. Grep and Regex have books written about them, and every language has it's own regex (regular expression) quirks. So again, do not worry about how to get a 100% correct answer that will only get you the password as output. Get something that is close enough, get the password and move on. Serious bit aside. Let's get started. Luckily the grep in this level is still pretty easy.
             </p>
             <p>
                 So what is grep and why is it so terrifying? GREP stands for Global Regular Expression Printer. What does this mean? What is a Regular Expression? A regular expression is a string of letters and symbols we can define so that we can match words in a text file. So I can use GREP to find the string of letters "cat" in a file of my choice, and every time I talk about cats (which is a lot), grep will return that instance of the word. Doesn't sound too hard, and that concept isn't. Where grep gets wild is we can use it to search for things that aren't explicit words. I can tell grep something like: 
@@ -399,17 +399,17 @@
                 Yeah.... what? How is that even a thing? What does that even mean? Let's take it piece by piece.
             </p>
             <p>
-                First we just have the command <b>grep</b>, which is just asking the terminal to use the command grep in all of its goodness.
+                First we just have the command <strong>grep</strong>, which is just asking the terminal to use the command grep in all of its goodness.
             </p>
             <p>
-                Next we have <b>-e</b>. This lets grep know that whatever is following is the expression we want to use. The expression can also be put in single or double quotes. so: "expression" or 'expression', but I have seen instances where how different terminals interpret single or double quotes have had some weird results. So I tend to stick with <b>-e</b>, but you do you.
+                Next we have <strong>-e</strong>. This lets grep know that whatever is following is the expression we want to use. The expression can also be put in single or double quotes. so: "expression" or 'expression', but I have seen instances where how different terminals interpret single or double quotes have had some weird results. So I tend to stick with <strong>-e</strong>, but you do you.
             </p>
             <p>
-                Now we have out expression <b>[0-9][a-z][dD]f</b>. What this is saying is:<br>
-                -<b>[0-9]</b> in the first position of the string (word) we have anything from the number 0 - 9. So it can be any single digit number.<br>
-                -<b>[a-z]</b> in the second position we have any lower case letter in the range a - z. So the whole lower case alphabet.<br>
-                -<b>[dD]</b> This says in the third position we can have either a lower or upper case d.<br>
-                -<b>f</b> in the last position we have the letter f.<br>
+                Now we have out expression <strong>[0-9][a-z][dD]f</strong>. What this is saying is:<br>
+                -<strong>[0-9]</strong> in the first position of the string (word) we have anything from the number 0 - 9. So it can be any single digit number.<br>
+                -<strong>[a-z]</strong> in the second position we have any lower case letter in the range a - z. So the whole lower case alphabet.<br>
+                -<strong>[dD]</strong> This says in the third position we can have either a lower or upper case d.<br>
+                -<strong>f</strong> in the last position we have the letter f.<br>
             </p>
             <p>
                 So a few strings that would match that search query would be:<br>
@@ -421,7 +421,7 @@
                 Wow, that... was a lot and we haven't even done anything with bandit. But now that you have a very basic idea of grep and how it can be a text based super power. We can work on the challenge.
             </p>
             <p>
-                Our password is stored in a file <i>data.txt</i> and is next to the word <i>millionth</i>. So using <b>grep</b> we can find that pretty easily. Since grep will match the searched string (word) and print out the line the password is in. So if we do:
+                Our password is stored in a file <i>data.txt</i> and is next to the word <i>millionth</i>. So using <strong>grep</strong> we can find that pretty easily. Since grep will match the searched string (word) and print out the line the password is in. So if we do:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -437,7 +437,7 @@
         <button class="accordion">Bandit  8</button>
         <div class="panel">
             <p>
-                In this challenge our password is stored in <i>data.txt</i> and is the only line that appears only once. So let's <b>cat</b> that file and see what we have to work with.
+                In this challenge our password is stored in <i>data.txt</i> and is the only line that appears only once. So let's <strong>cat</strong> that file and see what we have to work with.
             </p>
             <p>
                 Yikes. That looks messy. How can we clean it up so that we get what we want?
@@ -454,16 +454,16 @@
                 Well, some of that looks familiar some of it does not. Let's take it step by step.
             </p>
             <p>
-                <b>cat</b> just reads the file we give it as input.
+                <strong>cat</strong> just reads the file we give it as input.
             </p>
             <p>
-                Then we have this thing: <b>|</b>. What's this? This is a pipe. What it does is take the output from the command on the left of it and feeds it as input to the command on the right. So instead of cat's output going to the screen we send it to the next command <b>sort</b>.
+                Then we have this thing: <strong>|</strong>. What's this? This is a pipe. What it does is take the output from the command on the left of it and feeds it as input to the command on the right. So instead of cat's output going to the screen we send it to the next command <strong>sort</strong>.
             </p>
             <p>
-                So now we can talk about <b>sort</b>. What <b>sort</b> is doing here is reading the whole document. Looking for lines that are exactly the same and rearranges them so that they are one after another. 
+                So now we can talk about <strong>sort</strong>. What <strong>sort</strong> is doing here is reading the whole document. Looking for lines that are exactly the same and rearranges them so that they are one after another. 
             </p>
             <p>
-                Then we pipe it again to the next command <b>uniq -c</b>. What uniq does is look for lines that are exactly the same and then omits all but one of them. Important here is that <b>uniq</b> has to be run after <b>sort</b> because uniq will only omit duplicate lines that occur after each other. Lastly we have <b>-c</b>, All this does is show a count for each line, how many times it occurred in the document. 
+                Then we pipe it again to the next command <strong>uniq -c</strong>. What uniq does is look for lines that are exactly the same and then omits all but one of them. Important here is that <strong>uniq</strong> has to be run after <strong>sort</strong> because uniq will only omit duplicate lines that occur after each other. Lastly we have <strong>-c</strong>, All this does is show a count for each line, how many times it occurred in the document. 
             </p>
             <p>
                 Look for the only string that occurs just once based on the count on the left. Grab that and I will meet you in level 9.
@@ -491,7 +491,7 @@
                 </code> 
             </pre>
             <p>
-                We should know what most of that does. Just the <b>-a</b> is new. This will let grep treat the binary as if it is text. But this output is very messy. You can still see the password, grab it and go or.... We could do this:
+                We should know what most of that does. Just the <strong>-a</strong> is new. This will let grep treat the binary as if it is text. But this output is very messy. You can still see the password, grab it and go or.... We could do this:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -499,7 +499,7 @@
                 </code> 
             </pre>
             <p>
-                The only new command here is <b>strings</b> and basically all it does is print only all the text characters in a document. So none of the binary noise.
+                The only new command here is <strong>strings</strong> and basically all it does is print only all the text characters in a document. So none of the binary noise.
             </p>
             <p>
                 There are many lines of output here. Only one of them has the same format as the passwords we have been using. Copy it and I will catch you in our first double digit challenge! 
@@ -513,7 +513,7 @@
                 I am going to be honest with you here. This level feels like a downtick in difficulty. The password is stored in the <i>data.txt</i> file and the whole file is base64 encoded. What is base64? In short and very basically put, it is a way for us to represent binary data to an ASCII string.
             </p>
             <p>
-                Base64 is so popular that Linux has a built in command for working with it: <b>base64</b>. Reading through the man page will get us more info on what we can do with it. But we really just care about <b>--decode</b>. So:
+                Base64 is so popular that Linux has a built in command for working with it: <strong>base64</strong>. Reading through the man page will get us more info on what we can do with it. But we really just care about <strong>--decode</strong>. So:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -550,17 +550,17 @@
                 Let's break down what this is saying:
             </p>
             <p>
-                <b>cat</b> will read the file and push it through to <b>tr</b> command (translate).
+                <strong>cat</strong> will read the file and push it through to <strong>tr</strong> command (translate).
             </p>
             <p>
-                Then we say: hey translate command (tr). I want to use this character set <b>[a-z]</b> and I want you to shift it so that it would work like <b>[n-za-m]</b> (the 14th letter of the alphabet to the 26th and then the 1st to the 13th), all only in lower case.
+                Then we say: hey translate command (tr). I want to use this character set <strong>[a-z]</strong> and I want you to shift it so that it would work like <strong>[n-za-m]</strong> (the 14th letter of the alphabet to the 26th and then the 1st to the 13th), all only in lower case.
             </p>
             <p>
-                All of this is the: <b>tr [a-z] [n-za-m]</b>
+                All of this is the: <strong>tr [a-z] [n-za-m]</strong>
             </p>
             <p>
                 We then take what that output would be and push it through to translate again, and do the same thing, but with upper case characters.That is the:
-                <b>tr [A-Z] [N-ZA-M]</b>. After which you will have your answer.This is also a very verbose way of going through it, but it can help keep your logic and readability clear.
+                <strong>tr [A-Z] [N-ZA-M]</strong>. After which you will have your answer.This is also a very verbose way of going through it, but it can help keep your logic and readability clear.
             </p>
             <p>
                 A much more condensed version of the command would be:
@@ -595,10 +595,10 @@
                 </code> 
             </pre>
             <p>
-                The <b>mkdir</b> means <i>make directory</i> and the <b>/tmp/wireRunner</b> specifies the absolute path, from root, of where we want the file to be made as well as its name. If you do not do it this way, you will probably just get a permission denied error from the bandit box. Just replace wireRunner with your name. 
+                The <strong>mkdir</strong> means <i>make directory</i> and the <strong>/tmp/wireRunner</strong> specifies the absolute path, from root, of where we want the file to be made as well as its name. If you do not do it this way, you will probably just get a permission denied error from the bandit box. Just replace wireRunner with your name. 
             </p>
             <p>
-                Then we copy the file with the <b>cp</b> command. We specify first what we want to copy and then where we want to copy it to:
+                Then we copy the file with the <strong>cp</strong> command. We specify first what we want to copy and then where we want to copy it to:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -607,10 +607,10 @@
             </pre>
 
             <p>
-                Now we just <b>cd</b> to <b>/tmp/wireRunner</b> and we can get started!
+                Now we just <strong>cd</strong> to <strong>/tmp/wireRunner</strong> and we can get started!
             </p>
             <p>
-                Cool, so how can we work with and interact with this hex file? Linux has a command <b>xxd</b>. Which can be used to create or reverse hex dumps. So we need to do:
+                Cool, so how can we work with and interact with this hex file? Linux has a command <strong>xxd</strong>. Which can be used to create or reverse hex dumps. So we need to do:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -618,11 +618,11 @@
                 </code> 
             </pre>
             <p>
-                So by now, some of that should make sense. <b>cat</b> reads the file and we pipe it to our <b>xxd</b> command. The <b>-r</b> tells xxd to reverse the hex dump and then lastly we redirect its output to a new file called <i>data</i> with <b>> data</b>.
+                So by now, some of that should make sense. <strong>cat</strong> reads the file and we pipe it to our <strong>xxd</strong> command. The <strong>-r</strong> tells xxd to reverse the hex dump and then lastly we redirect its output to a new file called <i>data</i> with <strong>> data</strong>.
             </p>
             <p>
-                Now we run <b>file</b> on the <i>data</i> file we got as output and it will tell us that this file is gzip compressed data. Gzip files have an extension of <b>.gz</b>. So we can rename the file and decompress it. How do we rename?
-                With the <b>mv</b> command. This command is used to move files, but can also be used to rename them.
+                Now we run <strong>file</strong> on the <i>data</i> file we got as output and it will tell us that this file is gzip compressed data. Gzip files have an extension of <strong>.gz</strong>. So we can rename the file and decompress it. How do we rename?
+                With the <strong>mv</strong> command. This command is used to move files, but can also be used to rename them.
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -630,10 +630,10 @@
                 </code> 
             </pre>
             <p>
-                The above command is saying move (<b>mv</b>) the <i>data</i> file in our current directory to our current directory and then call it <i>data.gz</i>. Weird thing to wrap your head around I know. You are just moving the file to the exact same place and then just renaming it.
+                The above command is saying move (<strong>mv</strong>) the <i>data</i> file in our current directory to our current directory and then call it <i>data.gz</i>. Weird thing to wrap your head around I know. You are just moving the file to the exact same place and then just renaming it.
             </p>
             <p>
-                Now that it has the .gz extension we can interact with it with the <b>gzip</b> command and use its <b>-d</b> (decompress) flag to get the data decompressed.
+                Now that it has the .gz extension we can interact with it with the <strong>gzip</strong> command and use its <strong>-d</strong> (decompress) flag to get the data decompressed.
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -641,7 +641,7 @@
                 </code> 
             </pre>
             <p>
-                Now we have a data file again, we can see this with <b>ls</b>. So lets <b>file</b> it again to see what we are working with. Ahh.. a bzip2 file. These have the extension of <b>.bz</b>. We will need to rename it and then decompress it. This will be the theme until the file is ascii text again. Yay?
+                Now we have a data file again, we can see this with <strong>ls</strong>. So lets <strong>file</strong> it again to see what we are working with. Ahh.. a bzip2 file. These have the extension of <strong>.bz</strong>. We will need to rename it and then decompress it. This will be the theme until the file is ascii text again. Yay?
             </p>
             <p>
                 So move to rename:
@@ -652,7 +652,7 @@
                 </code> 
             </pre>
             <p>
-                Now that we have the <b>.bz</b> how do we unzip it? If we look at the man page for bzip2, we can see that there is a bunzip2. Lets try that:
+                Now that we have the <strong>.bz</strong> how do we unzip it? If we look at the man page for bzip2, we can see that there is a bunzip2. Lets try that:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -660,7 +660,7 @@
                 </code> 
             </pre>
             <p>
-                We have a data file again. <b>file</b> time. It is a gzip again. So move to rename with the <b>mv</b> command and give it the .gz extension. Then decompress with the <b>gzip -d</b>. Another data file. Run <b>file</b> on it and we have a... Oh? What is a posix tar archive? Just another compression standard, no need to worry about it too much. What is its extension? Just <b>.tar</b>
+                We have a data file again. <strong>file</strong> time. It is a gzip again. So move to rename with the <strong>mv</strong> command and give it the .gz extension. Then decompress with the <strong>gzip -d</strong>. Another data file. Run <strong>file</strong> on it and we have a... Oh? What is a posix tar archive? Just another compression standard, no need to worry about it too much. What is its extension? Just <strong>.tar</strong>
             </p>
             <p>
                 So move to rename:
@@ -679,10 +679,10 @@
                 </code> 
             </pre>
             <p>
-                <b>tar</b> uses the tar command and the <b>-xf</b> extracts the file archive.
+                <strong>tar</strong> uses the tar command and the <strong>-xf</strong> extracts the file archive.
             </p>
             <p>
-                Now if we <b>ls</b> we have a.. <i>data5.bin</i>? The <i>data.tar</i> is also still there. I mean ok.. sure. Lets file the data5.bin. Another .tar? Yep. So move to rename:
+                Now if we <strong>ls</strong> we have a.. <i>data5.bin</i>? The <i>data.tar</i> is also still there. I mean ok.. sure. Lets file the data5.bin. Another .tar? Yep. So move to rename:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -692,18 +692,18 @@
             <p>
                 What? We are renaming it with a name that already exists? Yep. In Linux this will not give you an error. It will just over write the file and since we are done with the previous <i>data.tar</i> we can do this.
             </p>
-            <p>Another <b>tar -xf data.tar</b> time.</p>
+            <p>Another <strong>tar -xf data.tar</strong> time.</p>
             <p>
-                This time we get <i>data6.bin</i>. Man this has been going on a while.... I promise we are almost done. <b>file</b> <i>data6.bin</i> and we have another bzip2. Rename and decompress time again. <b>.bz</b> extension and the bunzip2 command time. 
+                This time we get <i>data6.bin</i>. Man this has been going on a while.... I promise we are almost done. <strong>file</strong> <i>data6.bin</i> and we have another bzip2. Rename and decompress time again. <strong>.bz</strong> extension and the bunzip2 command time. 
             </p>
             <p>
-                A new data file. <b>file</b> command. Another tar. Rename to a <b>.tar</b> and then <b>tar -xf</b> time
+                A new data file. <strong>file</strong> command. Another tar. Rename to a <strong>.tar</strong> and then <strong>tar -xf</strong> time
             </p>
             <p>
-                Now we have <i>data8.bin</i> was a gzip file. You guessed it. Rename to <b>.gz</b> and <b>gzip -d</b>.
+                Now we have <i>data8.bin</i> was a gzip file. You guessed it. Rename to <strong>.gz</strong> and <strong>gzip -d</strong>.
             </p>
             <p>
-                <b>file</b> our data file again and.... oh my.... It is actually an ASCII file this time. We did it! We got through all this and now we finally have our password! Grab it and we are on to level 13 that shouldn't be this tedious again.
+                <strong>file</strong> our data file again and.... oh my.... It is actually an ASCII file this time. We did it! We got through all this and now we finally have our password! Grab it and we are on to level 13 that shouldn't be this tedious again.
             </p>
         </div>
 
@@ -713,7 +713,7 @@
                 So in this level we know what file the password is kept in. But it can only be read by user <i>Bandit 14</i>. Well how can we read it as user 13? We get a private SSH Key that we can use to log in to the bandit14 user. 
             </p>
             <p>
-                We can use <b>ls</b> to see the file is in our home directory. Awesome! How do we use it?
+                We can use <strong>ls</strong> to see the file is in our home directory. Awesome! How do we use it?
             </p>
             <p>
                 Like this:
@@ -727,13 +727,13 @@
                 Sweet, most of that looks familiar by now. Just two new things.
             </p>
             <p>
-                <b>localhost</b> is just a way to refer to the system you are currently working on.
+                <strong>localhost</strong> is just a way to refer to the system you are currently working on.
             </p>
             <p>
-                <b>-i</b> lets you choose a file that validates your identity.
+                <strong>-i</strong> lets you choose a file that validates your identity.
             </p>
             <p>
-                Awesome now we just need to get to that file in <i>/etc/bandit_pass</i> and then <b>cat</b> the <i>bandit14</i> file and we have the password!
+                Awesome now we just need to get to that file in <i>/etc/bandit_pass</i> and then <strong>cat</strong> the <i>bandit14</i> file and we have the password!
             </p>
             <p>
                 See you in level 14!
@@ -749,7 +749,7 @@
                 So here we are told we can get the password for <i>bandit15</i> by submitting the password for <i>bandit14</i> to port <i>30000</i> of the localhost.
             </p>
             <p>
-                That is a mouthful. Basically it is saying that we need to send information to a server that is set up on our localhost. This is doable with a command <b>nc</b> (netcat) to connect locally. netcat is a unix utility that sends and receives data across network connections. Including ones on our local machine. So we just have to give the password for  level 14 to this port on our local machine and it will return the password for level 15.  
+                That is a mouthful. Basically it is saying that we need to send information to a server that is set up on our localhost. This is doable with a command <strong>nc</strong> (netcat) to connect locally. netcat is a unix utility that sends and receives data across network connections. Including ones on our local machine. So we just have to give the password for  level 14 to this port on our local machine and it will return the password for level 15.  
             </p>
             <p>
                 This should do the trick:
@@ -760,7 +760,7 @@
                 </code> 
             </pre>
             <p>
-                <b>echo</b> literally just copies back as output what you gave it as input. The pipe symbol we have worked with. It takes output from the left and feeds it as input to the right. Then <b>nc</b> lets us use the network connection on <i>localhost</i> on port <i>30000</i>. You will then get the password for level 15 and we are on our way again!
+                <strong>echo</strong> literally just copies back as output what you gave it as input. The pipe symbol we have worked with. It takes output from the left and feeds it as input to the right. Then <strong>nc</strong> lets us use the network connection on <i>localhost</i> on port <i>30000</i>. You will then get the password for level 15 and we are on our way again!
             </p>
         </div>
 
@@ -770,13 +770,13 @@
                 So things are getting harder and we might tend to start using commands or technologies that you can spend a lot of time on. We will only be touching on the very basic for what we need for the solution. If you ever feel like you want to spend more time investigating these technologies, please do. Just know that you can spend weeks and still not know everything you want. Google is your friend here. 
             </p>
             <p>
-                Why the speech? We are going to use <b>openSSL</b>. This lets us use TLS protocols for secure connections and communications in computer networks. TLS is a set of cryptographic protocols. Yes these descriptions are pretty vague. I believe it is all we need. It gives us enough to have utility. Basically openSSL is a technology that lets us encrypt our connections. You know when your web browser says httpS vs just http? This is what provides the S (secure). 
+                Why the speech? We are going to use <strong>openSSL</strong>. This lets us use TLS protocols for secure connections and communications in computer networks. TLS is a set of cryptographic protocols. Yes these descriptions are pretty vague. I believe it is all we need. It gives us enough to have utility. Basically openSSL is a technology that lets us encrypt our connections. You know when your web browser says httpS vs just http? This is what provides the S (secure). 
             </p>
             <p>
                 Our challenge states we can get our password for <i>bandit16</i> by submitting the <i>password</i> for <i>bandit15</i> to port <i>30001</i> to the local machine with ssl encryption.
             </p>
             <p>
-                Mouthful again. Basically we just need to use an ssl connection (<b>openssl</b> can do this) to connect to a different port on the machine we are currently using and submit the password of the current level as input.
+                Mouthful again. Basically we just need to use an ssl connection (<strong>openssl</strong> can do this) to connect to a different port on the machine we are currently using and submit the password of the current level as input.
             </p>
             <p>
                 How?
@@ -790,19 +790,19 @@
                 </code> 
             </pre>
             <p>
-                Sweet, the only really new thing here is the <b>openssl</b> stuff. The echo and pipe we have touched on in the last challenge. 
+                Sweet, the only really new thing here is the <strong>openssl</strong> stuff. The echo and pipe we have touched on in the last challenge. 
             </p>
             <p>
-                <b>openssl</b> just says we want to use the openssl command
+                <strong>openssl</strong> just says we want to use the openssl command
             </p>
             <p>
-                <b>s_client</b> creates a generic ssl/tls client that we can use to connect to a server that is running ssl/tls to communicate. This is what allows us to connect to the secure server. This is only used for testing however.
+                <strong>s_client</strong> creates a generic ssl/tls client that we can use to connect to a server that is running ssl/tls to communicate. This is what allows us to connect to the secure server. This is only used for testing however.
             </p>
             <p>
-                <b>-connect localhost:30001</b>. This tells openssl where we want to connect to and on which port.
+                <strong>-connect localhost:30001</strong>. This tells openssl where we want to connect to and on which port.
             </p>
             <p>
-                <b>-ign_eof</b> all this is doing is keeps the communication stream open after it has been established. Why do we need this? When setting up the connection we get a whole bunch of info back from the ssl/tls server. After this information is received the connection appears to close before we can send our information from echo so that we can get the password for bandit16. As a side note you can omit some of the extra output with <b>-quiet</b>. You will just lessen the amount of output. The password will still appear at the bottom of your output.
+                <strong>-ign_eof</strong> all this is doing is keeps the communication stream open after it has been established. Why do we need this? When setting up the connection we get a whole bunch of info back from the ssl/tls server. After this information is received the connection appears to close before we can send our information from echo so that we can get the password for bandit16. As a side note you can omit some of the extra output with <strong>-quiet</strong>. You will just lessen the amount of output. The password will still appear at the bottom of your output.
             </p>
             <p>
                 Grab that password and get ready for more weirdness.
@@ -812,10 +812,10 @@
         <button class="accordion">Bandit 16</button>
         <div class="panel">
             <p>
-                Not gonna lie, another funny one. It combines some things we have done before, but also requires us to use new tools. Most notably <b>nmap</b>. But I am getting ahead of myself. Here our password can be retrieved by submitting the password of the current level to a ssl server on a port in the range 31000 to 32000 on our local machine. Only one of these will give us the password. How can we narrow this down? 
+                Not gonna lie, another funny one. It combines some things we have done before, but also requires us to use new tools. Most notably <strong>nmap</strong>. But I am getting ahead of myself. Here our password can be retrieved by submitting the password of the current level to a ssl server on a port in the range 31000 to 32000 on our local machine. Only one of these will give us the password. How can we narrow this down? 
             </p>
             <p>
-                Meet one of your best friends in the world of networking, info-sec and administration. <b>nmap</b>. It is a network mapper. You will use it to see which IPs are up, what ports are open and what services they run. It is honestly worth investing time into learning this beautiful tool. We will not be going that in-depth with it here though. So what we want with nmap is:
+                Meet one of your best friends in the world of networking, info-sec and administration. <strong>nmap</strong>. It is a network mapper. You will use it to see which IPs are up, what ports are open and what services they run. It is honestly worth investing time into learning this beautiful tool. We will not be going that in-depth with it here though. So what we want with nmap is:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -823,10 +823,10 @@
                 </code> 
             </pre>
             <p>
-                So that is just saying we want to use <b>nmap</b>. With <b>-sV</b> we are telling nmap to do a detailed scan on the ports and what services they may be running. Then we say the device we want to scan, in this case <b>localhost</b> (which we know means the machine we are working on). And then the ports we want to scan. This is declared with the <b>-p31000-32000</b>. This will take a moment to scan. So get up, get some water.. maybe a good stretch? It is good for you.
+                So that is just saying we want to use <strong>nmap</strong>. With <strong>-sV</strong> we are telling nmap to do a detailed scan on the ports and what services they may be running. Then we say the device we want to scan, in this case <strong>localhost</strong> (which we know means the machine we are working on). And then the ports we want to scan. This is declared with the <strong>-p31000-32000</strong>. This will take a moment to scan. So get up, get some water.. maybe a good stretch? It is good for you.
             </p>
             <p>
-                We then pipe the output to <b>grep</b> and only look for the pattern ssl with: <b>grep -e ssl</b>. We know we are looking for an ssl service and nmap will report this back to us if it is running on a port. grep is just removing a lot of noise from the nmap output. If you have the time, or you just want to, you can run this without grep and look at everything you get. This is why grep is so nice and so powerful. 
+                We then pipe the output to <strong>grep</strong> and only look for the pattern ssl with: <strong>grep -e ssl</strong>. We know we are looking for an ssl service and nmap will report this back to us if it is running on a port. grep is just removing a lot of noise from the nmap output. If you have the time, or you just want to, you can run this without grep and look at everything you get. This is why grep is so nice and so powerful. 
             </p>
             <p>
                 Great now with just the two possible ports our job has gotten a lot easier. One of these is running an ssl/echo service and the other is an ssl/unknown. I'm gonna go ahead and guess that the ssl/echo is just gonna send back what we send it. So let us try the other port:
@@ -837,13 +837,13 @@
                 </code> 
             </pre>
             <p>
-                Cool. Here we echo the password into the connection. We use openssl with s_client to say we want to be the client side of things. (Remember this from the last level?). We tell openssl where we want to connect to. In this case the port we found with nmap (<b>31790</b>) and we use our <b>-ign_epf</b> to keep that connection open... 
+                Cool. Here we echo the password into the connection. We use openssl with s_client to say we want to be the client side of things. (Remember this from the last level?). We tell openssl where we want to connect to. In this case the port we found with nmap (<strong>31790</strong>) and we use our <strong>-ign_epf</strong> to keep that connection open... 
             </p>
             <p>
                 Ok what gives? We don't get a password. Should we try the other port? Nope. We get the RSA private key. A few levels ago we use a private key to connect to another user on the same machine. So let us save this private key in a file so we can use it to authenticate as user bandit17.
             </p>
             <p>
-                Copy everything including the begin and end private key parts. It is a lot yes. Now where to save it? If you recall when we worked on the decompression issue we cannot just create files anywhere on bandit. We can only use <b>/tmp</b>.
+                Copy everything including the begin and end private key parts. It is a lot yes. Now where to save it? If you recall when we worked on the decompression issue we cannot just create files anywhere on bandit. We can only use <strong>/tmp</strong>.
             </p>
             <p>
                 Make another folder in tmp with:
@@ -854,7 +854,7 @@
                 </code> 
             </pre>
             <p>
-                All of that should make sense at this point. But as a quick reminder. <b>mkdir</b> means make directory. Then we give it the path as well as the directory we want to make with <b>/tmp/rsaWireRunner</b>. Just use your own directory name. (Not rsaWireRunner). 
+                All of that should make sense at this point. But as a quick reminder. <strong>mkdir</strong> means make directory. Then we give it the path as well as the directory we want to make with <strong>/tmp/rsaWireRunner</strong>. Just use your own directory name. (Not rsaWireRunner). 
             </p>
             <p>
                 Cool the directory exists. Now we cd to it. Once in the directory we can create the file we want. We can do this with:
@@ -865,13 +865,13 @@
                 </code> 
             </pre>
             <p>
-                This will create the file named <b>rsaKey</b> and open it in the vim editor. If you have never used vim, it is a weird text editor, but a great one. To start being able to type something or paste something, first press <b>i</b> to insert. Now you can paste the copied key with <b>right click and paste</b> or with <b>ctrl+shift+v</b>. Sweet. Now to save and quit. First press <b>Esc</b> to exit insert mode. Then press <b>:</b> so that you can enter new commands. Then you enter <b>wq</b> (this will appear at the bottom left of your screen after the colon).
+                This will create the file named <strong>rsaKey</strong> and open it in the vim editor. If you have never used vim, it is a weird text editor, but a great one. To start being able to type something or paste something, first press <strong>i</strong> to insert. Now you can paste the copied key with <strong>right click and paste</strong> or with <strong>ctrl+shift+v</strong>. Sweet. Now to save and quit. First press <strong>Esc</strong> to exit insert mode. Then press <strong>:</strong> so that you can enter new commands. Then you enter <strong>wq</strong> (this will appear at the bottom left of your screen after the colon).
             </p>
             <p>
                 And you are out of there with the file you need. 
             </p>
             <p>
-                Now we need to use this to authenticate ourself as bandit17. However... there is an issue if you try it as is. This key file is too accessible to users on this device. The <b>ssh</b> command will pick up on this and tell you it is ignoring the file. So we need to change it so that the file is more private and ssh can be satisfied. So we use:
+                Now we need to use this to authenticate ourself as bandit17. However... there is an issue if you try it as is. This key file is too accessible to users on this device. The <strong>ssh</strong> command will pick up on this and tell you it is ignoring the file. So we need to change it so that the file is more private and ssh can be satisfied. So we use:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -879,7 +879,7 @@
                 </code> 
             </pre>
             <p>
-                What is this? In short we use <b>chmod</b> to change file permissions. The <b>400</b> means only root users can read and execute the file (this will keep ssh happy) and <b>rsaKey</b> is the file we want to change the permissions of. Sweet now we can: 
+                What is this? In short we use <strong>chmod</strong> to change file permissions. The <strong>400</strong> means only root users can read and execute the file (this will keep ssh happy) and <strong>rsaKey</strong> is the file we want to change the permissions of. Sweet now we can: 
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -911,7 +911,7 @@
                 </code> 
             </pre>
             <p>
-                Cool, <b>diff</b> just takes two files, compares them and then tells you what lines are different. Simple enough. Only not here would be that the order matters. The first files different lines will be the top output. The second files different line will be the bottom output. So if you put <i>.old</i> first you want the bottom password. If you put <i>.new</i> first you want the top line.
+                Cool, <strong>diff</strong> just takes two files, compares them and then tells you what lines are different. Simple enough. Only not here would be that the order matters. The first files different lines will be the top output. The second files different line will be the bottom output. So if you put <i>.old</i> first you want the bottom password. If you put <i>.new</i> first you want the top line.
             </p>
             <p>
                 Well that was... oddly easy. See you in Bandit 18.
@@ -921,7 +921,7 @@
         <button class="accordion">Bandit 18</button>
         <div class="panel">
             <p>
-                Ok, I am not gonna lie here. This challenge is weird. To be able to log in you need to be in one of the bandit machines already, if you are still in 17 sweet! If not you can log back in to bandit0 as that is the easiest to do in my opinion, just <b>bandit0</b> with password <b>bandit0</b>
+                Ok, I am not gonna lie here. This challenge is weird. To be able to log in you need to be in one of the bandit machines already, if you are still in 17 sweet! If not you can log back in to bandit0 as that is the easiest to do in my opinion, just <strong>bandit0</strong> with password <strong>bandit0</strong>
             </p>
             <p>
                 Cool so now the basic:
@@ -935,16 +935,16 @@
                 Uhm.. It says goodbye then kicks us out. What gives. As stated in the challenge on the website, someone modified the .bashrc file to close ssh connections. How do we go about getting a connection then? 
             </p>
             <p>
-                We will need to look a little closer at <b>ssh</b> and its options.
+                We will need to look a little closer at <strong>ssh</strong> and its options.
             </p>
             <p>
-                The configuration in the .bashrc is telling ssh to close the <i>pseudo-terminal</i> that <b>ssh</b> requests and creates. What is that? A terminal that has the functions of a physical terminal without actually being one. Basically it is part of what makes this whole ssh things work. We "fake" the terminal on our end and it sends its data to the terminal on the actual devices side.
+                The configuration in the .bashrc is telling ssh to close the <i>pseudo-terminal</i> that <strong>ssh</strong> requests and creates. What is that? A terminal that has the functions of a physical terminal without actually being one. Basically it is part of what makes this whole ssh things work. We "fake" the terminal on our end and it sends its data to the terminal on the actual devices side.
             </p>
             <p>
-                We need to force this to open. With ssh we can force this to happen by using <b>-t</b>. From the ssh man page : <i>Force pseudo-terminal allocation.  This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services.</i>
+                We need to force this to open. With ssh we can force this to happen by using <strong>-t</strong>. From the ssh man page : <i>Force pseudo-terminal allocation.  This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services.</i>
             </p>
             <p>
-                And then we need to tell it what terminal to emulate, we can do this with: <b>/bin/sh</b>. In short this means in the <i>binaries</i> directory, use the binaries needed to give me a <b>sh</b>ell.
+                And then we need to tell it what terminal to emulate, we can do this with: <strong>/bin/sh</strong>. In short this means in the <i>binaries</i> directory, use the binaries needed to give me a <strong>sh</strong>ell.
             </p>
             <p>
                 All of that means we do this:
@@ -955,14 +955,14 @@
                 </code> 
             </pre>
             <p>
-                Now we are in a terminal that just shows a <b>$</b>. We can verify that we are bandit18 by using the command <b>whoami</b>. Use an <b>ls</b>, we see we have a readme. <b>cat</b> it and we have the password for 19. Awesome! Well that was a bit, and maybe a lil weird. Re-reading and re-doing this part will not be a bad thing. See you in 19!
+                Now we are in a terminal that just shows a <strong>$</strong>. We can verify that we are bandit18 by using the command <strong>whoami</strong>. Use an <strong>ls</strong>, we see we have a readme. <strong>cat</strong> it and we have the password for 19. Awesome! Well that was a bit, and maybe a lil weird. Re-reading and re-doing this part will not be a bad thing. See you in 19!
             </p>
         </div>
 
         <button class="accordion">Bandit 19</button>
         <div class="panel">
             <p>
-                This level is a bit easier. Here we get an executable called <i>bandit20-do</i>. To run it we need to put a <b>./</b> before it. Let's run it to see what it does:
+                This level is a bit easier. Here we get an executable called <i>bandit20-do</i>. To run it we need to put a <strong>./</strong> before it. Let's run it to see what it does:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -976,7 +976,7 @@
                 As we have learnt in other levels we can find passwords in <i>/etc/bandit_pass/</i>
             </p>
             <p>
-                <b>cat</b> the file for bandit20 and we can move on to bandit20! 
+                <strong>cat</strong> the file for bandit20 and we can move on to bandit20! 
             </p>
         </div>
 
@@ -986,10 +986,10 @@
                 In this level we are given a binary file <i>suconnect</i>. What this does is make a connection to a port on the local machine (that we specify). Reads a line of text from that connection and if it matches the expected input (in this case the password for level 20). We will get back the password for level 21.
             </p>
             <p>
-                Ok... How do we set up this port? With <b>nc</b> otherwise known as netcat. This is another tool you would want to get really familiar with. It allows you to make network connections for all kinds of reasons. We will be using it here to set up a server that listens on a port. With something like <b>nc localhost 30000</b>. But wait, we also need to get the suconnect executable to read a string on the server we setup, how will we give the server this string to represent?
+                Ok... How do we set up this port? With <strong>nc</strong> otherwise known as netcat. This is another tool you would want to get really familiar with. It allows you to make network connections for all kinds of reasons. We will be using it here to set up a server that listens on a port. With something like <strong>nc localhost 30000</strong>. But wait, we also need to get the suconnect executable to read a string on the server we setup, how will we give the server this string to represent?
             </p>
             <p>
-                We can echo that string to the server when we create it. <b>echo "string"</b>
+                We can echo that string to the server when we create it. <strong>echo "string"</strong>
             </p>
             <p>
                 All of this means we want to do:
@@ -1000,7 +1000,7 @@
                 </code> 
             </pre>
             <p>
-                Here <b>echo</b> will set the password for level 20 as a string in the server we will set up with <b>nc</b>. <b>nc -l localhost -p 30000</b>. This creates the server on the <i>localhost</i> on port <i>30000</i>. Any port number above 30000 and below 65000 should be fine to use here. Lastly the <b>&</b> tells the terminal to execute this command in the background. This will let us get our terminal prompt back so that we can run the executable.
+                Here <strong>echo</strong> will set the password for level 20 as a string in the server we will set up with <strong>nc</strong>. <strong>nc -l localhost -p 30000</strong>. This creates the server on the <i>localhost</i> on port <i>30000</i>. Any port number above 30000 and below 65000 should be fine to use here. Lastly the <strong>&</strong> tells the terminal to execute this command in the background. This will let us get our terminal prompt back so that we can run the executable.
             </p>
             <p>
                 We then run:
@@ -1021,7 +1021,7 @@
                 In this level we get a little taste of automation. We have a program that runs at regular intervals that is doing something that we can use to get the next level's password. We can look in <i>/etc/cron.d/</i> to find and read this file to see what it does.  
             </p>
             <p>
-                An <b>ls</b> in that directory will get us a file named: <i>cronjob_bandit22</i>. Well, what is this cron word that we keep seeing? It is a program we use in Linux to schedule things we want the system to do. So if every time you start up the system you want it to launch a few programs, make a few internet connections or anything really. You can create a <b>cronjob</b> to do this. So:
+                An <strong>ls</strong> in that directory will get us a file named: <i>cronjob_bandit22</i>. Well, what is this cron word that we keep seeing? It is a program we use in Linux to schedule things we want the system to do. So if every time you start up the system you want it to launch a few programs, make a few internet connections or anything really. You can create a <strong>cronjob</strong> to do this. So:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1031,10 +1031,10 @@
                 </code> 
             </pre>
             <p>
-                This output tells us it is executing a file located in <i>/usr/bin/cronjob_bandit22.sh</i>. Let's <b>cat</b> that file and see what it is doing.
+                This output tells us it is executing a file located in <i>/usr/bin/cronjob_bandit22.sh</i>. Let's <strong>cat</strong> that file and see what it is doing.
             </p>
             <p>
-                Ok, this is creating a file in <i>/tmp</i> called <i>t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</i> with permissions that means we can read it (<b>chmod 644</b>, we have not touched on chmod yet, but this basically means anyone can read this file). After it has created this file, it reads the file: <i>/etc/bandit_pass/bandit22</i> and redirects its output (with the <b>></b>) to the file it created int he previous step. If we read that file we can then get the password to bandit22
+                Ok, this is creating a file in <i>/tmp</i> called <i>t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</i> with permissions that means we can read it (<strong>chmod 644</strong>, we have not touched on chmod yet, but this basically means anyone can read this file). After it has created this file, it reads the file: <i>/etc/bandit_pass/bandit22</i> and redirects its output (with the <strong>></strong>) to the file it created int he previous step. If we read that file we can then get the password to bandit22
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1059,7 +1059,7 @@
                 </code>
             </pre>
             <p>
-                Ok this is running a script <i>/usr/bin/cronjob_bandit23.sh</i>. Lets <b>cat</b> to read it and see what we have.
+                Ok this is running a script <i>/usr/bin/cronjob_bandit23.sh</i>. Lets <strong>cat</strong> to read it and see what we have.
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1078,7 +1078,7 @@
                 The above will just run the file. The output will then tell us that it is "copying passwordfile /etc/bandit_pass/bandit22 to /tmp/8169b67bd894ddbb4412f91573b38db3"
             </p>
             <p>
-                <b>cat</b> that and we will have the password for bandit23. We didn't go to deep into reading and understanding each line of the bash script. That is another thing that is a course on its own. Maybe we will make a tutorial for that beast some day. See you in bandit 23!
+                <strong>cat</strong> that and we will have the password for bandit23. We didn't go to deep into reading and understanding each line of the bash script. That is another thing that is a course on its own. Maybe we will make a tutorial for that beast some day. See you in bandit 23!
             </p>
         </div>
         <button class="accordion">Bandit 23</button>
@@ -1094,7 +1094,7 @@
                 </code>
             </pre>
             <p>
-                Another pretty big file.... What this script is doing is executing all scripts that are in the <i>/var/spool/$myname</i>. <b>$myname</b> is a variable and we want it to be the user we want to execute the script.
+                Another pretty big file.... What this script is doing is executing all scripts that are in the <i>/var/spool/$myname</i>. <strong>$myname</strong> is a variable and we want it to be the user we want to execute the script.
             </p>
             <p>
                 Sweet lets make that script. First lets create folder that we can work in:
@@ -1105,7 +1105,7 @@
                 </code>
             </pre>
             <p>
-                We know from previous bandits that we can make a directory in the tmp dir on the system so this is where we will put the password once we get it. <b>cd</b> into this directory (btw use your own directory and file names, mine are just examples) and make a file called password.
+                We know from previous bandits that we can make a directory in the tmp dir on the system so this is where we will put the password once we get it. <strong>cd</strong> into this directory (btw use your own directory and file names, mine are just examples) and make a file called password.
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1121,7 +1121,7 @@
                 </code>
             </pre>
             <p>
-                Finally script time! Do not worry it will not be as hardcore of a script. <b>cd</b> to <i>/var/spool/bandit24/</i> and we will make this script here. <b>vim script.sh</b> will make this file and open it for us to edit. The <b>.sh</b> extensions tells the system that it is a bash shell script. In the script we want:
+                Finally script time! Do not worry it will not be as hardcore of a script. <strong>cd</strong> to <i>/var/spool/bandit24/</i> and we will make this script here. <strong>vim script.sh</strong> will make this file and open it for us to edit. The <strong>.sh</strong> extensions tells the system that it is a bash shell script. In the script we want:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1131,7 +1131,7 @@
                 </code>
             </pre>
             <p>
-                Write and quit out of vim. The <b>#!/bin/bash</b> tells your terminal what program to interpret the script with. The whole <b>cat /etc/bandit_pass/bandit24 > /tmp/wireScript/password</b> should make sense by now.
+                Write and quit out of vim. The <strong>#!/bin/bash</strong> tells your terminal what program to interpret the script with. The whole <strong>cat /etc/bandit_pass/bandit24 > /tmp/wireScript/password</strong> should make sense by now.
             </p>
             <p>
                 When the script has been made you will quickly need to run:
@@ -1142,7 +1142,7 @@
                 </code>
             </pre>
             <p>
-                this will allow the script to be executed by user <i>bandit24</i>. Wait a few seconds and if you <b>cat</b> the password file in your /tmp/wireScript/ directory, you will have the password for bandit 24! That was fun right? A lot, but fun! See you in bandit 24.
+                this will allow the script to be executed by user <i>bandit24</i>. Wait a few seconds and if you <strong>cat</strong> the password file in your /tmp/wireScript/ directory, you will have the password for bandit 24! That was fun right? A lot, but fun! See you in bandit 24.
             </p>
         </div>
 
@@ -1160,10 +1160,10 @@
                 </code>
             </pre>
             <p>
-                We know we can make folders in <i>/tmp</i>. Call it what you want. I just chose the word Brute since this kind of thing is known as brute forcing (where you guess every possible value 'till you get the right one.) <b>cd</b> into your dir and then <b>vim brute.sh</b> to create and open your shell script file. (if you know other languages feel free to use them. This guide will be using bash scripting)
+                We know we can make folders in <i>/tmp</i>. Call it what you want. I just chose the word Brute since this kind of thing is known as brute forcing (where you guess every possible value 'till you get the right one.) <strong>cd</strong> into your dir and then <strong>vim brute.sh</strong> to create and open your shell script file. (if you know other languages feel free to use them. This guide will be using bash scripting)
             </p>
             <p>
-                <span style="text-decoration: underline;"><b>NOTE:</b></span><br> The things after # are comments (except #!/bin/bash, we covered what this does in the last bandit level) that are used to just explain the code, they can be ignored and omitted from your script. It is however good practice to comment your code, it allows others and your future self to understand what you were doing if and when you need to troubleshoot something.
+                <span style="text-decoration: underline;"><strong>NOTE:</strong></span><br> The things after # are comments (except #!/bin/bash, we covered what this does in the last bandit level) that are used to just explain the code, they can be ignored and omitted from your script. It is however good practice to comment your code, it allows others and your future self to understand what you were doing if and when you need to troubleshoot something.
             </p>
             <p>
                 Our script will be:
@@ -1214,13 +1214,13 @@
                 </code>
             </pre>
             <p>
-                In this file we will be able to see information of all the users in plain text. We only care about <i>bandit26</i> so we <b>grep</b> for that.
+                In this file we will be able to see information of all the users in plain text. We only care about <i>bandit26</i> so we <strong>grep</strong> for that.
             </p>
             <p>
                 The output here will point us to: <i>/usr/bin/showtext</i>. Let's cat that to see what it is telling us.
             </p>
             <p>
-                Ok, this is telling us that it is executes <i>more</i> on a text file and then closes out... so we need to force <i>mroe</i> into a command view. To do this make your terminal window as small as possible horizontally. Then we can <b>ssh</b>
+                Ok, this is telling us that it is executes <i>more</i> on a text file and then closes out... so we need to force <i>mroe</i> into a command view. To do this make your terminal window as small as possible horizontally. Then we can <strong>ssh</strong>
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1228,7 +1228,7 @@
                 </code>
             </pre>
             <p>
-                Now you will see a little % view in the bottom left. Make the screen a <i>little</i> bigger and press <b>v</b>. Now we are in a vim editor for bandit26! Weird right? But now we can do somethings on bandit26. We most importantly want a shell. We can tell vim to set a certain shell for us:
+                Now you will see a little % view in the bottom left. Make the screen a <i>little</i> bigger and press <strong>v</strong>. Now we are in a vim editor for bandit26! Weird right? But now we can do somethings on bandit26. We most importantly want a shell. We can tell vim to set a certain shell for us:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1236,7 +1236,7 @@
                 </code>
             </pre>
             <p>
-                So to get the colons press <b>Esc</b> then press the <b>:</b> and you will be able to start giving vim commands. We then tell vim to set the <b>shell</b> equal to a <b>bash</b> terminal. Press enter and that will change those settings.
+                So to get the colons press <strong>Esc</strong> then press the <strong>:</strong> and you will be able to start giving vim commands. We then tell vim to set the <strong>shell</strong> equal to a <strong>bash</strong> terminal. Press enter and that will change those settings.
             </p>
             <p>
                 Then we just tell vim to execute a shell for us with:
@@ -1254,10 +1254,10 @@
         <button class="accordion">Bandit 26</button>
         <div class="panel">
             <p>
-                So... you decided to stay? Or... I knew you'd be back! Either or, welcome. This level is super easy. A quick <b>ls</b> will tell us there is an executable <i>bandit27-do</i>. Bet you can guess what this does.
+                So... you decided to stay? Or... I knew you'd be back! Either or, welcome. This level is super easy. A quick <strong>ls</strong> will tell us there is an executable <i>bandit27-do</i>. Bet you can guess what this does.
             </p>
             <p>
-                If not just run a <b>./bandit27-do</b>, it will tell you that it lets you run a command as another user, bandit27 in this case. Lets just use that to read the password file for bandit27.
+                If not just run a <strong>./bandit27-do</strong>, it will tell you that it lets you run a command as another user, bandit27 in this case. Lets just use that to read the password file for bandit27.
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1293,10 +1293,10 @@
                 </code>
             </pre>
             <p>
-                This command instructs <b>git</b> to <b>clone</b> that exact repo. It will ask you to accept an ssh key, we covered this in bandit 0 so just say yes. You will then need to re-enter the password for bandit 27 and you will have the new <i>repo</i> dir.
+                This command instructs <strong>git</strong> to <strong>clone</strong> that exact repo. It will ask you to accept an ssh key, we covered this in bandit 0 so just say yes. You will then need to re-enter the password for bandit 27 and you will have the new <i>repo</i> dir.
             </p>
             <p>
-                <b>cd</b> into the <i>repo</i>, run and <b>ls</b> and we will see a <i>README</i>, <b>cat</b> it and we have the password for bandit 28. Sweet and easy. Catch you in 28.
+                <strong>cd</strong> into the <i>repo</i>, run and <strong>ls</strong> and we will see a <i>README</i>, <strong>cat</strong> it and we have the password for bandit 28. Sweet and easy. Catch you in 28.
             </p>
         </div>
     </div>
@@ -1314,10 +1314,10 @@
                 </code> 
             </pre>
             <p>
-                We covered this in Bandit0, but all we are saying here is we want to use <b>ssh</b> and we want to authenticate as user: <b>leviathan0</b> at the domain: <b>leviathan.labs.overthewire.org</b> to port <b>-p 2223</b>
+                We covered this in Bandit0, but all we are saying here is we want to use <strong>ssh</strong> and we want to authenticate as user: <strong>leviathan0</strong> at the domain: <strong>leviathan.labs.overthewire.org</strong> to port <strong>-p 2223</strong>
             </p>
             <p>
-                Nice! And we use the password <b>leviathan0</b> and we are golden! We get the same key prompt we did with bandit0, say yes again. We are in. Let's see what we have to work with:
+                Nice! And we use the password <strong>leviathan0</strong> and we are golden! We get the same key prompt we did with bandit0, say yes again. We are in. Let's see what we have to work with:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1328,7 +1328,7 @@
                 Ok we have a hidden folder called <i>.backup</i>
             </p>
             <p>
-                <b>cd</b> into it and we can see what it has with another <b>ls</b>. An .html file,  nice. We can <b>cat</b> it to see what it says:
+                <strong>cd</strong> into it and we can see what it has with another <strong>ls</strong>. An .html file,  nice. We can <strong>cat</strong> it to see what it says:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1336,7 +1336,7 @@
                 </code> 
             </pre>
             <p>
-                Wow that is a lot. I'd rather not read all of that. So... I wanna see if maybe they mention anything about leviathan in that document, since that is the system we are working with. I can use <b>grep</b> for that:
+                Wow that is a lot. I'd rather not read all of that. So... I wanna see if maybe they mention anything about leviathan in that document, since that is the system we are working with. I can use <strong>grep</strong> for that:
             </p>
             <pre class="codeBlocks">
                 <code>
@@ -1344,7 +1344,7 @@
                 </code>
             </pre>
             <p>
-                All of that should make sense to you at this point. <b>cat</b> reads the file <i>bookmarks.html</i> and pipe redirects that output to <b>grep</b>. <b>grep -e leviathan</b> says we want to use the program <b>grep</b>, <b>-e</b> says what follows is the expression we want to match and <i>leviathan</i> is the string.
+                All of that should make sense to you at this point. <strong>cat</strong> reads the file <i>bookmarks.html</i> and pipe redirects that output to <strong>grep</strong>. <strong>grep -e leviathan</strong> says we want to use the program <strong>grep</strong>, <strong>-e</strong> says what follows is the expression we want to match and <i>leviathan</i> is the string.
             </p>
             <p>
                 Now we have much less output. If we read that string we will see it tells us the password for <i>leviathan1</i>. Grab it and I will see you there.
