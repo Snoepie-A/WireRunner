@@ -1299,6 +1299,35 @@
                 <strong>cd</strong> into the <i>repo</i>, run and <strong>ls</strong> and we will see a <i>README</i>, <strong>cat</strong> it and we have the password for bandit 28. Sweet and easy. Catch you in 28.
             </p>
         </div>
+
+        <button class="accordion">Bandit 28</button>
+        <div class="panel">
+            <p>
+                Another git one! Sweet, make another directory for your self in <strong>/tmp</strong> and clone down the repo linked on the website. Same recipe as the last bandit level
+            </p>
+            <p>
+            Cool in the <i>repo</i> directory we see a <i>README.md</i>, <strong>cat</strong> that and..... oh... the password is a bunch of x? Uhm is this some kind of weird curve ball to teach us not to overthink? Trying it doesn't seem to work so I guess not. 
+            </p>
+            <p>
+                Remember when I said <strong>git</strong> is a version control software? It keeps track of all the changes we make to files, well  because of this it keeps a log of previous versions of our files and the changes we made. If we run:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git log
+                </code>
+            </pre>
+            <p>
+                We will get a log of changes. And oh my... the latest one talks about an info leak. How can we see the changes made in that latest update? With this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git log -p -1
+                </code>
+            </pre>
+            <p>
+                This will run the git log and tell it to generate the <strong>p</strong>atch. The -1 will limit it just to one output (the latest one). And there we have the password. Sweet see you in bandit 29!
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
