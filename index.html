@@ -1328,6 +1328,43 @@
                 This will run the git log and tell it to generate the <strong>p</strong>atch. The -1 will limit it just to one output (the latest one). And there we have the password. Sweet see you in bandit 29!
             </p>
         </div>
+
+        <button class="accordion">Bandit 29</button>
+        <div class="panel">
+            <p>
+                Another git round. Same recipe as before. Make your dir in tmp and then clone the repo and let's get crackin'
+            </p>
+            <p>
+                Cool, another read me. <strong>cat</strong> it and we see... <i>no passwords in production</i>. Mmm... well lets check our history like we did before. 
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git log -p
+                </code>
+            </pre>
+            <p>
+                Ok I see that the user name was changed.Does that mean that the user the password for bandit 30 could be the same as the password for bandit 29? Worth a look to see if it is a simple misconfiguration error. Fire up another terminal and try to log in with bandit 29's password on bandit 3. SPOILERS: It doesn't work. But it really is a quick thing to check and simple errors like this do happen. Not everything is an intensive technical issue. 
+            </p>
+            <p>
+                Anyway that line: <i>no passwords in production</i>. Since git is a version control software we can use git to work on different things called <strong>branches</strong>. This is a clone of your code base that will allow you to make changes to your code or projects without affecting the main or production code. So that line makes me think maybe we have another branch? Let's run the next command and see what we get:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git branch -r
+                </code>
+            </pre>
+            <p>
+                That command will list all the branches we have for our current project. And nice, we see a few other branches. I'm gonna check the top one <i>dev</i>. How do we work in other branches? Same way you borrow a book from a library, you <strong>checkout</strong> the book!
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git checkout dev
+                </code>
+            </pre>
+            <p>
+                Now we are working in the dev branch. Neat! A simple <strong>ls</strong> will show us a new README.md. <strong>cat</strong> it and we have our next password. Awesome! See you in bandit 30.
+            </p>
+        </div>
     </div>
 
     <button class="accordion">Leviathan  +</button>
