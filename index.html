@@ -1343,7 +1343,7 @@
                 </code>
             </pre>
             <p>
-                Ok I see that the user name was changed.Does that mean that the user the password for bandit 30 could be the same as the password for bandit 29? Worth a look to see if it is a simple misconfiguration error. Fire up another terminal and try to log in with bandit 29's password on bandit 3. SPOILERS: It doesn't work. But it really is a quick thing to check and simple errors like this do happen. Not everything is an intensive technical issue. 
+                Ok I see that the user name was changed.Does that mean that the user the password for bandit 30 could be the same as the password for bandit 29? Worth a look to see if it is a simple misconfiguration error. Fire up another terminal and try to log in with bandit 29's password on bandit 30. SPOILERS: It doesn't work. But it really is a quick thing to check and simple errors like this do happen. Not everything is an intensive technical issue. 
             </p>
             <p>
                 Anyway that line: <i>no passwords in production</i>. Since git is a version control software we can use git to work on different things called <strong>branches</strong>. This is a clone of your code base that will allow you to make changes to your code or projects without affecting the main or production code. So that line makes me think maybe we have another branch? Let's run the next command and see what we get:
@@ -1364,6 +1364,35 @@
             <p>
                 Now we are working in the dev branch. Neat! A simple <strong>ls</strong> will show us a new README.md. <strong>cat</strong> it and we have our next password. Awesome! See you in bandit 30.
             </p>
+        </div>
+        <button class="accordion">Bandit 30</button>
+        <div class="panel">
+            <p>
+                Bandit 30.. Wow we have made it far... And it is another git bandit. Awesome! So same recipe. Make your directory to work in in <strong>/tmp</strong>, clone the repo and let's see what we have to work with.
+            </p>
+            <p>
+                We have a <i>README.md</i> that just says it is an empty file... well that's great. Let's check the git history... Uhm no... nothing there this is the initial commit of the file. Maybe we have another branch again? No, that also does not appear to be it. Uhmm... if we run <strong>git</strong> we get this weird string next to the word <i>commit</i>. Maybe they want us to think kinda laterally and we can try and use that as the password for 31? No that didn't work either. Uhm maybe they want us to run a base64 on this file and use that string? Also no. Man what gives, anything else on git we can check? Well there are these things called <strong>tags</strong>. 
+            </p>
+            <p>
+                They are used to mark important points in a repository's history. They don't change and do not keep a history. Most people use them to mark release points (v1.0, v1.1.4 etc.). Maybe they hid something for us in a tag? To see them we use:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git tag
+                </code>
+            </pre>
+            <p>
+                Oh? We have one called secret. To read it we do this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git show secret
+                </code>
+            </pre>
+            <p>
+                Nice, we got it! See you in bandit 31!
+            </p>
+            <i><sub>Side note, here I decided to write out some of the things I thought it could be or just decided to check. I want you to know that trying a lot of things that probably won't work will happen all the time. This is fine, completely fine, especially when you have as little info as they provide. I really hope you are still enjoying these so deep in!</sub></i>
         </div>
     </div>
 
