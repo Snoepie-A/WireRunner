@@ -1371,7 +1371,7 @@
                 Bandit 30.. Wow we have made it far... And it is another git bandit. Awesome! So same recipe. Make your directory to work in in <strong>/tmp</strong>, clone the repo and let's see what we have to work with.
             </p>
             <p>
-                We have a <i>README.md</i> that just says it is an empty file... well that's great. Let's check the git history... Uhm no... nothing there this is the initial commit of the file. Maybe we have another branch again? No, that also does not appear to be it. Uhmm... if we run <strong>git</strong> we get this weird string next to the word <i>commit</i>. Maybe they want us to think kinda laterally and we can try and use that as the password for 31? No that didn't work either. Uhm maybe they want us to run a base64 on this file and use that string? Also no. Man what gives, anything else on git we can check? Well there are these things called <strong>tags</strong>. 
+                We have a <i>README.md</i> that just says it is an empty file... well that's great. Let's check the git history... Uhm no... nothing there this is the initial commit of the file. Maybe we have another branch again? No, that also does not appear to be it. Uhmm... if we run <strong>git log</strong> we get this weird string next to the word <i>commit</i>. Maybe they want us to think kinda laterally and we can try and use that as the password for 31? No that didn't work either. Uhm maybe they want us to run a base64 on this file and use that string? Also no. Man what gives, anything else on git we can check? Well there are these things called <strong>tags</strong>. 
             </p>
             <p>
                 They are used to mark important points in a repository's history. They don't change and do not keep a history. Most people use them to mark release points (v1.0, v1.1.4 etc.). Maybe they hid something for us in a tag? To see them we use:
@@ -1393,6 +1393,62 @@
                 Nice, we got it! See you in bandit 31!
             </p>
             <i><sub>Side note, here I decided to write out some of the things I thought it could be or just decided to check. I want you to know that trying a lot of things that probably won't work will happen all the time. This is fine, completely fine, especially when you have as little info as they provide. I really hope you are still enjoying these so deep in!</sub></i>
+        </div>
+
+        <button class="accordion">Bandit 31</button>
+        <div class="panel">
+            <p>
+                You guessed it. More git! <b>/tmp</b> directory and then then clone down the repo and lets get to work.
+            </p>
+            <p>
+                Cool a read me that tells us we need to create and upload a specific file and what it contents should be. Pretty easy. To create the file with its contents we just:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ echo "May I come in?" > key.txt
+                </code>
+            </pre>
+            <p>
+                <strong>echo</strong> will just copy out a string. The <strong>&gt</strong> just redirects the output to a new file. The <strong>key.txt</strong> is the file we redirect the output to and write it in the file.  
+            </p>
+            <p>
+                Now we need to send this file to the git repo we cloned. To do this we first need to tell git what files we want to <strong>add</strong>
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git add key.txt
+                </code>
+            </pre>
+            <p>
+                Mmmm it tells us that the file is being excluded by .gitignore and we need to use the <strong>-f</strong> option to force it.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git add -f key.txt
+                </code>
+            </pre>
+            <p>
+                Now we need to make a <strong>commit</strong>. This is just a final seal on the package you want to add to the upstream git branch. We do this with:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git commit -m "add key.txt"
+                </code>
+            </pre>
+            <p>
+                The <strong>-m</strong> is specifies the message to add to the commit. git etiquette is do write all your messages in the present tense.  
+            </p>
+            <p>
+                Now we just need to <strong>push</strong> the changes we want to make up to the main branch.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ git push
+                </code>
+            </pre>
+            <p>
+                Sweet! It rejects our commit, but we got the password! See you in bandit 32.
+            </p>
         </div>
     </div>
 
