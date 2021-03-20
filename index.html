@@ -1409,7 +1409,7 @@
                 </code>
             </pre>
             <p>
-                <strong>echo</strong> will just copy out a string. The <strong>&gt</strong> just redirects the output to a new file. The <strong>key.txt</strong> is the file we redirect the output to and write it in the file.  
+                <strong>echo</strong> will just copy out a string. The <strong>&gt;</strong> just redirects the output to a new file. The <strong>key.txt</strong> is the file we redirect the output to and write it in the file.  
             </p>
             <p>
                 Now we need to send this file to the git repo we cloned. To do this we first need to tell git what files we want to <strong>add</strong>
@@ -1449,6 +1449,29 @@
             <p>
                 Sweet! It rejects our commit, but we got the password! See you in bandit 32.
             </p>
+        </div>
+
+        <button class="accordion">Bandit 32</button>
+        <div class="panel">
+            <p>
+                Bandit 32. This one is kinda quick and interesting. When we are logged in to a shell we are just told welcome to uppercase hell. So everything we enter as input gets converted to uppercase. That kind of sucks since none of these things are commands that the terminal can interpret.
+            </p>
+            <p>
+                You may also wonder why the terminal icon is <strong>&gt;&gt;</strong>. This means that the bash command line is in interpret mode. No need to worry about this too much, all we care about is that we need to get out of it. And with bash we have an escape sequence that will let us do this: 
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    >> $0
+                </code>
+            </pre>
+            <p>
+                The above line just invokes a bash shell for us. Yay! we have our terminal back. If we type <strong>whoami</strong> we will be told we are bandit 33. We can get the password for bandit 33 in the /etc/ path. See you in bandit33!
+            </p>
+        </div>
+
+        <button class="accordion">bandit 33</button>
+        <div class="panel">
+            <p>Welp.. there isn't much to do here since bandit 34 does not exist yet. So congratulations on completing bandit! Hope to see you in Leviathan if you have not already peeked there! Thanks for sticking around. </p>
         </div>
     </div>
 
