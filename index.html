@@ -1524,6 +1524,37 @@
                 Now we have much less output. If we read that string we will see it tells us the password for <i>leviathan1</i>. Grab it and I will see you there.
             </p>
         </div>
+
+
+        <button class="accordion">Leviathan 1</button>
+        <div class="panel">
+            <p>
+                Now that we are in Leviathan 1, if we run <strong>ls</strong> we will see a file called <em>check.</em> Running this file we will see that it asks us for a password. Uhm... not sure on where we are supposed to get that form.. 
+            </p>
+            <p>
+                We get this cool tool called <strong>ltrace</strong> though, this is a debugger and what it basically does is intercept all the commands and system calls that a program uses while it is executing until it is done.If we run <strong>ltrace</strong> we can thus see what this program is doing.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ ltrace ./check
+                </code>
+            </pre>
+            <p>
+                Press enter again a few times and we will get to the <strong>exited</strong> which tells us the program stopped. Now we get to see some interesting things. Most importantly: <strong>getchar</strong> is what the system uses to get input from us. <strong>strcmp</strong> is a string compare that will compare out input to some other value. In this case "<strong>sex</strong>", and then lastly we have the <strong>puts</strong> that will just print out a message to us. 
+            </p>
+            <p>
+                Anyway, so we know what password the program wants based on the strcmp. We can then execute <strong>./check</strong>, give it the password of "sex" and we will get a new prompt. Running <strong>whoami</strong> will tell us we are leviathan2. You can then grab the password for leviathan2 by running:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat /etc/leviathan_pass/leviathan2
+                </code>
+            </pre>
+            <p>
+                See you in the next level!
+            </p>
+        </div>
+        
     </div>
     <script src="script.js"></script>
 </body>
