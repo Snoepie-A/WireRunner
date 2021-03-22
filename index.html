@@ -1554,6 +1554,60 @@
                 See you in the next level!
             </p>
         </div>
+
+        <button class="accordion">Leviathan 2</button>
+        <div class="panel">
+            <p>
+                This is a pretty fun one. When we ls we get a binary <em>printfile</em> if we run it we will see that it let's us print files with different privileges. running it, it just tells us to give it a file name. So lets give it something to read and run ltrace on it to see what is happening:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ ltrace ./printfile /etc/passwd
+                </code>
+            </pre>
+            <p>
+                So here we are running <strong>ltrace</strong> on the <strong>./printfile /etc/passwd</strong> since this is a file we can read. We will see that basically all this is doing is running <strong>cat</strong> on the file name we give it. <em>But</em>.. this lets us do something really interesting. We can do a command injection.  
+            </p>
+            <p>
+                What we are going to do here is create a file to read and then end the name in <strong>;bash</strong>. Well why? First remember how cat works. <strong>cat</strong> takes a file name and will print out the files contents. Magic right? Remember what happens if we say "<strong>cat this file</strong>"? Yep, cat wants to read two files. One called <em>this</em> and one called <em>file</em>. Ok, we are getting somewhere. Next thing to know is that the <strong>;</strong> means <em>end this statement/command</em>.  
+            </p>
+            <p>
+                If we look at the code for the <strong>snprintf</strong> in the ltrace we will see that it is telling us it will grab the file name we give it and append it to the cat command it is programmed to run. Why does this matter? Well since it is taking the string and not keeping the file name in quotes (or escaping some functions that could be invoked) we can inject commands into this program by adding <strong>;</strong> in a file name. 
+            </p>
+            <p>
+                So now let's make a tmp folder for us to work in. 
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ mkdir /tmp/wireInject
+                </code>
+            </pre>
+            <p>
+                Now we make a file that will be used to inject our command:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ touch "test;bash"
+                </code>
+            </pre>
+            <p>
+                Here your file name needs to be in quotes. If it is not you will just make a file called test and then execute the command <em>bash</em>, since the <strong>;</strong> denotes end of line and run the next command. And now we can run our attack:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ ~/./printfile test\;bash
+                </code>
+            </pre>
+            <p>
+                So some new things here. Since we are in a different folder and want to run a command that is in our home folder we need to specify that path. <strong>~</strong> is the symbol for home. The next <strong>/</strong> puts us in that directory and the <strong>./printfile</strong> we know will execute the command. The we have the name of the file we want to give to printfile. No, the <strong>\</strong> is not wrong there and you should not include it in your file name when making the file, that is just how the input to the <em>printfile</em> program wants it. Run this and you will get an error. That is fine, but if you look at your prompt you will now see that you are leviathan3.
+            </p>
+            <p>
+                So what happened? Basically what we eluded to at the start. We exploited how the binary interprets the file name we give it. After we created the file <em>test;bash</em> and fed it to the program, the program read it as: <em>first I should <strong>cat</strong> the file <strong>test</strong> then there is the <strong>;</strong> which means this command is done.</em> At this point we are still running commands as leviathan 3 as this is what this binary lets us do. (it does however check user ids, which is why you can't use it to just read the password file for leviathan 3). Then the program interprets the command after the <strong>;</strong> which is a simple <strong>bash</strong>, this will invoke a bash for leviathan 3 and we can now get the password for leviathan 3 in the <strong>/etc/leviathan_pass/leviathan3</strong>. 
+            </p>
+            <p>
+                Sweet that was a bit, but so cool and I hope you learned a lot. Or at least an idea of how whacky some things can get, but still fun and interesting. Also why you should understand how certain programs interpret input. As command and code injections will be your bread and butter. See you in the next level! 
+            </p>
+        </div>
         
     </div>
     <script src="script.js"></script>
