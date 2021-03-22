@@ -1599,10 +1599,21 @@
                 </code>
             </pre>
             <p>
-                So some new things here. Since we are in a different folder and want to run a command that is in our home folder we need to specify that path. <strong>~</strong> is the symbol for home. The next <strong>/</strong> puts us in that directory and the <strong>./printfile</strong> we know will execute the command. The we have the name of the file we want to give to printfile. No, the <strong>\</strong> is not wrong there and you should not include it in your file name when making the file, that is just how the input to the <em>printfile</em> program wants it. Run this and you will get an error. That is fine, but if you look at your prompt you will now see that you are leviathan3.
+                So some new things here. Since we are in a different folder and want to run a command that is in our home folder we need to specify that path. <strong>~</strong> is the symbol for home. The next <strong>/</strong> puts us in that directory and the <strong>./printfile</strong> we know will execute the command. Then we have the name of the file we want to give to printfile. No, the <strong>\</strong> is not wrong there and you should not include it in your file name when making the file, that is just how the input to the <em>printfile</em> program wants it. Run this and you will get an error. That is fine, but if you look at your prompt you will now see that you are leviathan3.
             </p>
             <p>
-                So what happened? Basically what we eluded to at the start. We exploited how the binary interprets the file name we give it. After we created the file <em>test;bash</em> and fed it to the program, the program read it as: <em>first I should <strong>cat</strong> the file <strong>test</strong> then there is the <strong>;</strong> which means this command is done.</em> At this point we are still running commands as leviathan 3 as this is what this binary lets us do. (it does however check user ids, which is why you can't use it to just read the password file for leviathan 3). Then the program interprets the command after the <strong>;</strong> which is a simple <strong>bash</strong>, this will invoke a bash for leviathan 3 and we can now get the password for leviathan 3 in the <strong>/etc/leviathan_pass/leviathan3</strong>. 
+                So what happened? Basically what we eluded to at the start. We exploited how the binary interprets the file name we give it. After we created the file <em>test;bash</em> and fed it to the program, the program read it as:
+                <ul> 
+                    <li>
+                        <em>first I should <strong>cat</strong> the file <strong>test</strong> then there is the <strong>;</strong> which means this command is done.</em>
+                    </li> 
+                    <li>
+                        At this point we are still running commands as leviathan 3 as this is what this binary lets us do. (it does however check user ids, which is why you can't use it to just read the password file for leviathan 3).
+                    </li> 
+                    <li>
+                        Then the program interprets the command after the <strong>;</strong> which is a simple <strong>bash</strong>, this will invoke a bash for leviathan 3 and we can now get the password for leviathan 3 in the <strong>/etc/leviathan_pass/leviathan3</strong>.
+                    </li>
+                </ul>
             </p>
             <p>
                 Sweet that was a bit, but so cool and I hope you learned a lot. Or at least an idea of how whacky some things can get, but still fun and interesting. Also why you should understand how certain programs interpret input. As command and code injections will be your bread and butter. See you in the next level! 
