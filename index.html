@@ -1619,6 +1619,46 @@
                 Sweet that was a bit, but so cool and I hope you learned a lot. Or at least an idea of how whacky some things can get, but still fun and interesting. Also why you should understand how certain programs interpret input. As command and code injections will be your bread and butter. See you in the next level! 
             </p>
         </div>
+
+        <button class="accordion">Leviathan 3</button>
+        <div class="panel">
+            <p>
+                Well, this one is gonna be pretty easy. It just really builds on the last few levels. We have a binary called <em>level3</em>. If we run it we get a prompt for a password. Just type anything in there and we get an error. Guess it is ltrace time?
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    __libc_start_main(0x8048618, 1, 0xffffd784, 0x80486d0 <unfinished ...>
+                        strcmp("h0no33", "kakaka")                       = -1
+                        printf("Enter the password> ")                   = 20
+                        fgets(Enter the password> tets
+                        "tets\n", 256, 0xf7fc55a0)                 = 0xffffd590
+                        strcmp("tets\n", "snlprintf\n")                  = 1
+                        puts("bzzzzzzzzap. WRONG"bzzzzzzzzap. WRONG
+                        )                       = 19
+                        +++ exited (status 0) +++
+                        
+                </code>
+            </pre>
+            <p>
+                <ul>
+                    <li>
+                        Mmm... ok, so it starts with a <em>strcmp</em> that is comparing two strings that won't match? Not really sure why that is there or what it is doing.
+                    </li>
+                    <li> 
+                        Then we have our <em>printf</em> that prints the output of "enter the password" to the screen.
+                    </li> 
+                    <li>
+                        The <em>fgets</em> is what will take our input and give it back to the program to compare later.
+                    </li> 
+                    <li>
+                        Then we get the <em>strcmp</em> that is comparing our input to the input we really want. <strong>snlprintf</strong>. And there is our password.
+                    </li>
+                </ul>
+            </p>
+            <p>
+                Now if we run the program again and we give it the password <strong>snlprintf</strong> we will get a new shell. Running a <strong>whoami</strong> will tell us we are leviathan4. Now we can just go read the password file in: <em>/etc/leviathan_pass/leviathan4</em> and I will see you in the next level!
+            </p>
+        </div>
         
     </div>
     <script src="script.js"></script>
