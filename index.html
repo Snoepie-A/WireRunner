@@ -1525,7 +1525,6 @@
             </p>
         </div>
 
-
         <button class="accordion">Leviathan 1</button>
         <div class="panel">
             <p>
@@ -1657,6 +1656,27 @@
             </p>
             <p>
                 Now if we run the program again and we give it the password <strong>snlprintf</strong> we will get a new shell. Running a <strong>whoami</strong> will tell us we are leviathan4. Now we can just go read the password file in: <em>/etc/leviathan_pass/leviathan4</em> and I will see you in the next level!
+            </p>
+        </div>
+
+        <button class="accordion">Leviathan 4</button>
+        <div class="panel">
+            <p>
+                This one is pretty basic. After you are in the box and run and <strong>ls -la</strong> you will see a hidden folder named <em>.trash</em>. <strong>cd</strong> into it and you will see there is a <strong>bin</strong>. Run it and it will... Just print out a bunch of binary? Any tools to reverse it? There are quite a few ways to approach getting this back into a string, but I just recommend using the cybercheff website, it allows you to convert from almost any type of input to almost any type of out put.  
+            </p>
+            <p>
+                Copy and paste it into the website with input being binary and output being ASCII and you are good to go. 
+            </p>
+            <p>
+                Looking into ways to do this in the terminal only there are many ways to skin this cat. The quickest one is perl one liner we can use in the command line. So you would want this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ echo 01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 | perl -lape '$_=pack"(B8)*",@F'
+                </code>
+            </pre>
+            <p>
+                I am no expert on perl and I found this solution online. That is fine for you to do. This is just if you want a command line way. There is just too much to learn and know to expect yourself to master everything. In looking for ways to solve this I saw a lot of different approaches. Bash scripts, c programs, you can even do this by hand if you wanted. But honestly, use cybercheff. It will save you hours. If you want to write these scripts and programs as a challenge to yourself, great! But don't overwhelm yourself. See you in the next level!
             </p>
         </div>
         
