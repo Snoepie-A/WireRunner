@@ -1662,7 +1662,7 @@
         <button class="accordion">Leviathan 4</button>
         <div class="panel">
             <p>
-                This one is pretty basic. After you are in the box and run and <strong>ls -la</strong> you will see a hidden folder named <em>.trash</em>. <strong>cd</strong> into it and you will see there is a <strong>bin</strong>. Run it and it will... Just print out a bunch of binary? Any tools to reverse it? There are quite a few ways to approach getting this back into a string, but I just recommend using the cybercheff website, it allows you to convert from almost any type of input to almost any type of out put.  
+                This one is pretty basic. After you are in the box and run and <strong>ls -la</strong> you will see a hidden folder named <em>.trash</em>. <strong>cd</strong> into it and you will see there is a <strong>bin</strong>. Run it and it will... Just print out a bunch of binary? Any tools to reverse it? There are quite a few ways to approach getting this back into a string, but I just recommend using the cyber chef website, it allows you to convert from almost any type of input to almost any type of out put.  
             </p>
             <p>
                 Copy and paste it into the website with input being binary and output being ASCII and you are good to go. 
@@ -1676,7 +1676,41 @@
                 </code>
             </pre>
             <p>
-                I am no expert on perl and I found this solution online. That is fine for you to do. This is just if you want a command line way. There is just too much to learn and know to expect yourself to master everything. In looking for ways to solve this I saw a lot of different approaches. Bash scripts, c programs, you can even do this by hand if you wanted. But honestly, use cybercheff. It will save you hours. If you want to write these scripts and programs as a challenge to yourself, great! But don't overwhelm yourself. See you in the next level!
+                I am no expert on perl and I found this solution online. That is fine for you to do. This is just if you want a command line way. There is just too much to learn and know to expect yourself to master everything. In looking for ways to solve this I saw a lot of different approaches. Bash scripts, c programs, you can even do this by hand if you wanted. But honestly, use cyber chef. It will save you hours. If you want to write these scripts and programs as a challenge to yourself, great! But don't overwhelm yourself. See you in the next level!
+            </p>
+        </div>
+
+        <button class="accordion">Leviathan 5</button>
+        <div class="panel">
+            <p>
+                Ok this one is kinda weird. Running an ls -la we will see we have a bim <em>leviathan5</em>. If we run it, it tells us the file <em>/tmp/file/log</em> does not exist. Ok... let's run <strong>ltrace</strong> to see what is happening.
+            </p>
+            <p>
+                Ok... so it wants to use <strong>fopen</strong> to read a file. Mmmm... Back to that <strong>ls -la</strong>. We can see that <em>leviathan5</em> is owned by leviathan 6. So... maybe we can try and link the password file for leviathan 6 to the file.log and then read the password that way?
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+                </code>
+            </pre>
+            <p>
+                <ul>
+                    <li>
+                        <strong>ln</strong> says we want to create a link
+                    </li>
+                    <li>
+                        <strong>-s</strong> says that we want a symbolic link, basically the same thing as a Windows shortcut. They point to a file. If you edit the link file, the original file will be edited as well, but if you delete this linked file the original file remains.
+                    </li>
+                    <li>
+                        Then we have the file we want to link, the source file
+                    </li>
+                    <li>
+                        Lastly we have the file we want to link to. The file should not be made before hand. The ln command will make this for us. 
+                    </li>
+                </ul>
+            </p>
+            <p>
+                Sweet, now that all of that has been done we can execute the binary and get the password. Nice! See you in the next level!
             </p>
         </div>
         
