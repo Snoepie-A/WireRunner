@@ -1713,7 +1713,68 @@
                 Sweet, now that all of that has been done we can execute the binary and get the password. Nice! See you in the next level!
             </p>
         </div>
+
+        <button class="accordion">Leviathan 6</button>
+        <div class="panel">
+            <p>
+                With this one we have done a similar box in bandit. When we log in to the box we see a bin <em>leviathan6</em>. Run it and it says we use it by running the binary with a 4 digit pin. Well, we do not know this pin and I don't think it is retrievable. Brute force time!
+            </p>
+            <p>
+                If you remember how to do this from our bandit box. First we make out working directory in <em>tmp</em> and then <strong>cd</strong> to it:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ mkdir /tmp/wireBrute && cd /tmp/wireBrute
+                </code>
+            </pre>
+            <p>
+                The only potentially new thing there is the <strong>&&</strong> this is a logical and operator. What this means is, if the command on the left succeeded, execute the command on the right. So you should now also be in the directory you made. 
+            </p>
+            <p>
+                Now for the brute force script. As stated we already did something similar in a previous bandit box, so you should definitely be able to do this. But here is the code if you need a quick review.    
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    #!/bin/bash
+
+                    for number in {0000..9999}
+                    do 
+                    <span style="visibility: hidden;">aa</span> ~/./leviathan6 $number
+                    done
+                </code>
+            </pre>
+            <p>
+                Sweet. Just quickly.
+                <ul>
+                    <li>
+                        <strong>#!/bin/bash</strong> tells the system what shell to interpret the script with
+                    </li>
+                    <li>
+                        <strong>for number in {0000..9999}</strong> sets up the variable number and the range for it to run through
+                    </li>
+                    <li>
+                        <strong>do</strong> starts the loop
+                    </li>
+                    <li>
+                        <strong>~/./leviathan6 $number</strong> is the command we want to execute
+                    </li>
+                    <li>
+                        <strong>done</strong> ends the loop
+                    </li>
+                </ul>
+            </p>
+            <p>
+                Give this command a while to run and you will end with a <strong>$</strong>. Type who am I and you will see we are <em>leviathan7</em>. Get the password for levithan7 in <em>/etc/levithan_pass</em> and I will see you in the last level!
+            </p>
+        </div>
         
+
+        <button class="accordion">Leviathan 7</button>
+        <div class="panel">
+            <p>
+                Well... there isn't a challenge here, just the congratulations file. Give it a read. Be proud of what you did and I will see you in <strong>KRYPTON!</strong> Thanks for sticking around!
+            </p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
