@@ -1776,6 +1776,35 @@
             </p>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <button class="accordion">Krypton +</button>
+    <div class="panel">
+
+        <button class="accordion">Krypton 0</button>
+        <div class="panel">
+            <p>
+                Welcome to Krypton. We have been on this journey for a while and we will be here a little longer. So let's get going!
+            </p>
+            <p>
+                Interestingly enough, we solve Krypton 0 on our local machine. The give us an encoded string and tell us it is <em>base64</em> encoded. So to do it and get the password for Krypton 1 all we have to do is:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ echo "S1JZUFRPTklTR1JFQVQ=" |  base64 -d
+                </code>
+            </pre>
+            <p>
+                All we are doing here is repeating the string, piping it to the base64 command and using the -d flag to decode it. 
+            </p>
+            <p>
+                Use that password and I will see you in Krypton1!
+            </p>
+        </div>
+    </div>
+
+
+
+    
+    <script src="script.js"></script> 
 </body>
 </html>
