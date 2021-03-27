@@ -1800,6 +1800,48 @@
                 Use that password and I will see you in Krypton1!
             </p>
         </div>
+
+        <button class="accordion">Krypton 1</button>
+        <div class="panel">
+            <p>
+                So here the password is kept in a file called <em>Krypton 2</em>, it is a simple rotations cypher (also known as a Caesar cipher). What this means is that each letter in the alphabet move a certain number of letters to the right or left. So a rotation 1 cipher would mean: a = b. b = c ... z = a. You may have thought of something similar when you were a child and sending notes around class.
+            </p>
+            <p>
+                Next we have a somewhat confusing statement: "When using alpha characters for cipher text it is normal to group the letters into 5 letter clusters, regardless of word boundaries." All this is saying is that usually you group letters in groups of 5, regardless of how long the word is. This isn't done here, so the number of letters is a clue to the length of the actual word. 
+            </p>
+            <p>
+                Now that we are logged in to Krypton1 we need to see this encrypted string. Running an <strong>ls</strong> however doesn't show us this file. So let's find it on the system:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ find / -name krypton2 2>/dev/null
+                </code>
+            </pre>
+            <p>
+                I hope that still makes sense to you after bandit, but here we are just saying <strong>find</strong> form <strong>root</strong> every thing with the <strong>name krypton2</strong> and then <strong>redirect all errors to /dev/null</strong>.
+            </p>
+            <p>
+                We get <em>/krypton/krypton1/krypton2</em> so then we <strong>cd</strong> to <em>/krypton/krypton1</em> and we can read this cipher and we end up with this: <strong>YRIRY GJB CNFFJBEQ EBGGRA</strong>. Uhm.... well if we look up rotation cipher we can gather that the most common cipher is a rot13... we can try that one first? On rot13.com we can enter the string and we will get the password for level 2. Sweet. 
+                
+            <p>
+                 If that is a little disappointing. I am no expert in cryptography and more often than not going after the common ways of attacking the ciphers is the best approach. Spending time trying to crack the cipher is fun.. but will take a lot of your time when they have already been broken by people who are geniuses at this stuff.
+            </p>
+            <p> 
+                But the easiest way too attack a cipher like this one where word boundaries are not a problem. Is to look at the number of letters in the encrypted word. Find a list of all words of similar length and write up the cipher and crack by hand.
+             </p>
+            <p>
+                For example YRIRY is a five letter word. Where the first and with letter are the same and the second and forth letters are the same and the third letter is unique. I do not have a list. But I am pretty sure there are not too many words like that in the english language (126 5 letter palindromes according to lotsofwords.com).
+            </p>
+            <p>
+                Then we also have context clues. We have a rough idea of the word we will be looking for. <em>Level</em> makes sense. Looking at the list on lotsofwords.com something like <em>anona</em> won't really make sense in the context of this cipher and the answer we expect to get. Level, civic and radar could all be viable? So at that point you just need to map the letters and you can try and decrypt the string.   
+            </p>
+            <p>
+                Ok, I know I went on for a bit there, but please remember, unless you really want to get deep in to the mathematical field of cryptography. When you run into encrypted ctfs, more often than not you will attack it with common ciphers and tools. Yes this does feel a bit like throwing darts in a dark room, but it works. See you in the next level!
+            </p>
+            <p>
+                Side note: If you want a command line way of doing this. In one of the bandits we cover how to solve a rotation 13 cipher with the <strong>tr</strong> command.
+            </p>
+        </div>
     </div>
 
 
