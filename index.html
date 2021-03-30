@@ -1830,7 +1830,7 @@
                 But the easiest way too attack a cipher like this one where word boundaries are not a problem. Is to look at the number of letters in the encrypted word. Find a list of all words of similar length and write up the cipher and crack by hand.
              </p>
             <p>
-                For example YRIRY is a five letter word. Where the first and with letter are the same and the second and forth letters are the same and the third letter is unique. I do not have a list. But I am pretty sure there are not too many words like that in the english language (126 5 letter palindromes according to lotsofwords.com).
+                For example YRIRY is a five letter word. Where the first and fith letter are the same and the second and forth letters are the same and the third letter is unique. I do not have a list. But I am pretty sure there are not too many words like that in the english language (126 5 letter palindromes according to lotsofwords.com).
             </p>
             <p>
                 Then we also have context clues. We have a rough idea of the word we will be looking for. <em>Level</em> makes sense. Looking at the list on lotsofwords.com something like <em>anona</em> won't really make sense in the context of this cipher and the answer we expect to get. Level, civic and radar could all be viable? So at that point you just need to map the letters and you can try and decrypt the string.   
@@ -1840,6 +1840,93 @@
             </p>
             <p>
                 Side note: If you want a command line way of doing this. In one of the bandits we cover how to solve a rotation 13 cipher with the <strong>tr</strong> command.
+            </p>
+        </div>
+
+        <button class="accordion">Krypton 2</button>
+        <div class="panel">
+            <p>
+                Another encryption one, no surprise there. I think Krypton is only encryption related wargames. Here we will get a binary <em>encrypt</em> that will encrypt any file we give it. We do not know what kind of cipher it is using however. 
+            </p>
+            <p>
+                We also have a <em>Krypton3</em> file that is the password to the next level. This file was encrypted with the same <em>encrypt</em> binary. So all we have to do is run the binary on a file we created and we can figure out how the cipher works. Not to hard. So first let's make a temporary working directory:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ mkdir /tmp/wireKrypt2 && cd /tmp/wireKrypt2
+                </code>
+            </pre>
+            <p>
+                That will just create the dir and then we <strong>cd</strong> to it. Next we will create a text file that will contain the alphabet so that we can see how the cipher works.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" > alpha
+                </code>
+            </pre>
+            <p>
+                Now that it exists let's also link the keyfile that we want to use.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                   $ ln -s /krypton/krypton2/keyfile.dat
+                </code>
+            </pre>
+            <p>
+                And lastly we will just change permissions here so that we can run everything.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ chmod 777 .
+                </code>
+            </pre>
+            <p>
+                Awesome, awesome. All this setup done. All we did again in sumarry is:
+                <ul>
+                    <li>
+                        Create a temporary directory to work in
+                    </li>
+                    <li>
+                        Create a know file that we can use to encrypt with our cipher so that we can figure out how it works. We chose the alphabet as this will give us a firect one to on mapping of the cipher.
+                    </li>
+                    <li>
+                        Link the keyfile for the cipher to our working directory.
+                    </li>
+                    <li>
+                        Give ourselves blanket permissoins over everything in our tempotaty directory.
+                    </li>
+                </ul>
+            </p>
+            <p>
+                Now all that is left to do is execute the binary on this file and see what we end up with.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ /krypton/krypton2/encrypt ./alpha
+                </code>
+            </pre>
+            <p>
+                Nice, then out the other end we get a file: <em>ciphertext</em> and from that we can see the shift the cipher takes. 
+            </p>
+            <p>
+                Now the last step to decode would be to run our <em>krypton3</em>  file through a <strong>tr</strong> that represents this cipher:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat /krypton/krypton2/krypton3 | tr [M-ZA-L] [A-Z]
+                </code>
+            </pre>
+            <p>
+                Nice, we got our password. A quick recap of what the above is saying. We read the password file with <strong>cat</strong> and pipe it to our <tr>command</tr>. The first alphabet we use is the already encrypted one (since we want to decrypt).
+            </p> 
+            <p>
+                <em>A little side not here: if you get these shifted you will always go from (n)-ZA-(n-1). You will always need to end in a <strong>z</strong> en then start from an <strong>a</strong> to the letter just before the letter the cipher starts with.</em>
+            </p>
+            <p> 
+                Then the alphabet we want to decrypt to (in this case our normal A-Z alphabet)
+            </p>
+            <p>
+                Cool, see you in Krypton3!
             </p>
         </div>
     </div>
