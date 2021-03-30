@@ -1929,6 +1929,79 @@
                 Cool, see you in Krypton3!
             </p>
         </div>
+
+        <button class="accordion">Krypton 3</button>
+        <div class="panel">
+            <p>
+                You know. I wish I had some cool way of explaining this level. Some super cool trick on how to solve it. But... Remember when I said this can feel like playing darts in a dark room? Yeah... here we have a substitution cipher. What does this mean? Well it means that any letter of the alphabet can be replaced with any other letter of the alphabet. So there will be no rhyme or reason to the cipher. 
+            </p>
+            <p>
+                They mention frequency analysis. What this means is that certain letters are used more than others in the english (and most other) languages. We have some other intercepted files and the password file. So we can start there I guess. To get this I just googled "<strong>frequency analysis from linux terminal</strong>"
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    grep -o . found1 found2 found3 | sort | uniq -c
+                </code>
+            </pre>
+            <p>
+                So.. S is the most common letter in all of these documents. Now if we compare this to knwo frequency of letter usage of the english language on wikipedia. The most common letter is 'e'. So we are going to asume that S maps on to E.
+            </p>
+            <p>
+                We can follow the frequency we have and map it to the one on wikipedia and... It doesn't work... Uhm.. did we do something wrong? Not really no, It just means there is some more jumbled upness here than we thought. Also that the found files don't really contain a lot of real english words. 
+            </p>
+            <p>
+                So next step is... guessing I guess... One pattern we can see come up a lot is <strong>JDS</strong>. Why does this matter? Well the most common word in the english language is <strong>THE</strong>. So we have two more mappings.
+            </p>
+            <p>
+                If we now run:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat krypton4 | tr [JDS] [THE]
+                </code>
+            </pre>
+            <p>
+                We can see the word <strong>the</strong> does indeed appear!
+            </p>
+            <p>
+                This is where you are going to want to copy this string over to your computer and start working on the text. So we can now have:
+            </p>
+            <p>
+                <em>
+                    KEVVW BGE THE VEIE VXBMN YQUUK BNWCU ANMTE
+                </em>
+            </p>
+            <p>
+                Mmm.. <strong>VEIEV</strong> could be level so lets subsitute those:
+            </p>
+            <p>
+                Now we have: <em>KELLW BGE THE LEVEL XBMN YQUUK BNWCU ANMTE</em>
+            </p>
+            <p>
+                Since we want to be on level 4 I am going to guess <em>XBMN</em> could be <strong>four</strong>. Let's substitue that. Enjoying this game of darts in the dark? Our command so far:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ cat krypton4 | tr [JDSVIXBMN] [THELVFOUR]
+                </code>
+            </pre>
+            <p>
+                And we get: KELLW OGETH ELEVE LFOUR YQUUK ORWCU ARUTE or <em>
+                    KELLW OGE THE LEVEL FOUR YQUUK ORWCU ARUTE
+                </em>
+            </p>
+            <p>
+                Gonna make another jump here and say it should look something like:
+            </p>
+            <p>
+                <em>
+                    KELLWOGE THE LEVEL FOUR YQUUKORW<strong>(possibly password)</strong> CU<strong>(possibly is)</strong> ARUTE <strong>(Mmm.. looking like it could be BRUTE?)</strong>
+                </em>
+            </p>
+            <p>
+                Let's try BRUTE as the next level password. Worked! nailed it. I wish I had something cooler (and don't worry there are cooler tools out there that we could tell to brute force strings like this. Or brute force passwrods and we will learn about these). But for now, with what we know, this isn't too bad. Just a lot of time and guess work. See you in level 4!
+            </p>
+        </div>
     </div>
 
 
