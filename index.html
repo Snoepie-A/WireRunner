@@ -1944,10 +1944,10 @@
                 </code>
             </pre>
             <p>
-                So.. S is the most common letter in all of these documents. Now if we compare this to knwo frequency of letter usage of the english language on wikipedia. The most common letter is 'e'. So we are going to asume that S maps on to E.
+                So.. S is the most common letter in all of these documents. Now if we compare this to known frequency of letter usage of the english language on wikipedia. The most common letter is 'e'. So we are going to asume that S maps on to E.
             </p>
             <p>
-                We can follow the frequency we have and map it to the one on wikipedia and... It doesn't work... Uhm.. did we do something wrong? Not really no, It just means there is some more jumbled upness here than we thought. Also that the found files don't really contain a lot of real english words. 
+                We can follow the frequency we have and map it to the one on wikipedia and... It doesn't work... Uhm.. did we do something wrong? Not really no, It just means there is some more jumbled upness here than we thought. 
             </p>
             <p>
                 So next step is... guessing I guess... One pattern we can see come up a lot is <strong>JDS</strong>. Why does this matter? Well the most common word in the english language is <strong>THE</strong>. So we have two more mappings.
@@ -2000,6 +2000,31 @@
             </p>
             <p>
                 Let's try BRUTE as the next level password. Worked! nailed it. I wish I had something cooler (and don't worry there are cooler tools out there that we could tell to brute force strings like this. Or brute force passwrods and we will learn about these). But for now, with what we know, this isn't too bad. Just a lot of time and guess work. See you in level 4!
+            </p>
+        </div>
+
+        <button class="accordion">Krypton 4</button>
+        <div class="panel">
+            <p>
+                Another kinda hard one. The Over The Wire Website does  pretty good job explaining what is going on with this cipher. So we have our <em>source string</em>, the message we want ot encrypt and a <em>word</em> we then use as a key. 
+            </p>
+            <p>
+                So we can index all the letters of the alphabet, starting from a and we can number it 0. b can be 1 etc. We can then use this index on the letters in our word and in the message. With some funky math we can then get a new word. 
+            </p>
+            <p>
+                We are also lucky in that we know the key legnth. What we can deduce from this and the fact that certain letters appear more than others in the english language, is that somewhere along the way certain clusters of translation will occur. So for a six letter string like: <em>catdog</em> eventualy the letter <em>c</em> from cat will encrypt the same letter multiple times and result in the same output letter. So <em>c</em> being used to encrypt <em>e</em> will always result in the same answer: <em>g</em>
+            </p>
+            <p>
+                So now we need to code a way to decrypt this. The bandit systems have python installed on them so you can script something in that. You could also try C I think. But again. This is where I will encourage you to search for code or scripts online and on github that can already do this kind of thing for you. Feel free to try and write them. At the very least before you upload them read them and understand what they are doing and why and then at a later date try and write something. 
+            </p>
+            <p>
+                Another little side note here would be. The amount of scripting and coding is going to increase. If you want to take a break from these and learn some scripting and coding. Do it. It will need to be done at some point. You can also do some of the <em>NATAS</em> walkthroughs while you learn some scripting.
+            </p>
+            <p>
+                Personally I found this gihub and used these scripts to decode the ciphers. <a href="https://github.com/m-rosinsky/Krypton_Scripts">Scripts</a>. All credit to the author. He also has great youtube videos that also cover the challenges. 
+            </p>
+            <p>
+                Run these, get the password and I will see yo uin the next level
             </p>
         </div>
     </div>
