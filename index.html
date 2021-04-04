@@ -2029,7 +2029,43 @@
         </div>
     </div>
 
-
+    <button class="accordion">Natas +</button>
+    <div class="panel">
+        <button class="accordion">Natas 0</button>
+        <div class="panel">
+            <p>
+                Welcome to NATAS! Here we will start learning about website and web app  based attacks. With that knowledge we also wont be attacking the machine from the terminal. We will be attacking it from a web browser. so launch your favourite one. Copy and paste the url provided on over the wire and let's start Natas 0! 
+            </p>
+            <p>
+                Cool, you might be warned that this is a non secure site if you browser is configured to want to use HTTPS every where. This is fine. You can go ahead to the web page. 
+            </p>
+            <p>
+                On the page we will be told the password can be found on the page. Well we can't visibly see it so.. let us look at the source code for the page. 
+            </p>
+            <p>
+                To do this just press <strong>f12</strong>
+            </p>
+            <p>
+                Depending on your browser you may need to click on some of the div tags:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    &lt;div&gt;
+                </code>
+            </pre>
+            <p>
+                The one with the <em>id</em> of <strong>content</strong> willl have a comment in it that contains the password. This should look like:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    &lt;!--The password for natas1 is xxxxxxxxxxxxxxxxxxxxxx--&gt; 
+                </code>
+            </pre>
+            <p>
+                Sweet, grab that password and I will see you in the next level!
+            </p>
+        </div>
+    </div>
 
     
     <script src="script.js"></script> 
