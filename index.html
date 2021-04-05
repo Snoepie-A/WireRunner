@@ -22,7 +22,7 @@
         <div class="panel">
 
             <p>
-                For level 0 of over the wire we will just need to login. The details are given to us. The little dollar sign is a terminal character that means the command is being run as the user you are logged in as. Login using the following:
+                For level 0 of Bandit we will just need to login. The details are given to us. The little dollar sign is a terminal character that means the command is being run as the user you are logged in as. Login using the following:
             </p>
 
             <pre class="codeBlocks">
@@ -85,7 +85,7 @@
         <button class="accordion">Bandit  1</button>
         <div class="panel">
             <p>
-                Now we are at our first challenge. here the password is stored in a file called: <strong>-</strong>
+                Now we are at our first challenge. Here the password is stored in a file called: <strong>-</strong>
             </p>
             <p>
                 Cool, we read a file last time... just use <cat>cat</cat>? Ah... doesn't work.. what gives?
@@ -135,8 +135,8 @@
             </pre>
             <p>
                 Would be asking the computer to:<br>
-                -cat the file: this<br>
-                -cat the file: file<br>
+                -cat the file: <em>this</em><br>
+                -cat the file: <em>file</em><br>
                 So the error we will get with this is telling us that the file name we put in to cat does not exist. As all of these treated as separate file names and are thus not valid names of things that we can cat.
             </p>
             <p>
@@ -2031,6 +2031,7 @@
 
     <button class="accordion">Natas +</button>
     <div class="panel">
+
         <button class="accordion">Natas 0</button>
         <div class="panel">
             <p>
@@ -2065,6 +2066,25 @@
                 Sweet, grab that password and I will see you in the next level!
             </p>
         </div>
+
+        <button class="accordion">Natas 1</button>
+        <div class="panel">
+            <p>
+                Well, this one is pretty much the same as the last one. It is just also telling us that  right click is not usable.... that is becuase we can right click on a web page and then click <em>View page source</em>. Well so that is taken away from us. No matter. We can do <strong>f12</strong> again!
+            </p>
+            <p>
+                Check through the source in the div for another comment with the password and bam!:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    &lt;!--The password for natas2 is xxxxxxxxxxxxx --&gt;
+                </code>
+            </pre>
+            <p>
+                See you in the next level!
+            </p>
+        </div>
+
     </div>
 
     
