@@ -2085,6 +2085,33 @@
             </p>
         </div>
 
+        <button class="accordion">Natas 2</button>
+        <div class="panel">
+            <p>
+                This is quite a fun one! Tells us nothing is on this page. I will be the judge of that. Let's look at the source code.
+            </p>
+            <p>
+                Mmm.. the comment says nothing in this header will help us... and it appears to be right. Well that and the clue that <em>nothing is on this page</em> makes me think our answer might be on another webpage.
+            </p>
+            <p>
+                Welcome to directory traversal! A fancy name for saying <em>I am going to change the URL to other paths and hope I can access it.</em> So.. how do we see what other urls we have?
+            </p>
+            <p>
+                Looking at the page source the image has a link: <strong>files/pixel.png"</strong>. This is a way of saying. In our current location on the webserver (according to the url). There is another sub directory called <strong>files</strong> and in it we have a file called <strong>pixel.png</strong>. So we can try going to:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    natas2.natas.labs.overthewire.org/files/
+                </code>
+            </pre>
+            <p>
+                Oh? And sure enough we have a file: <strong>users.txt</strong>
+            </p>
+            <p>
+                Open it and presto! We have the username and password for Natas3. See you there!
+            </p>
+        </div>
+
     </div>
 
     
