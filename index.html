@@ -2115,6 +2115,33 @@
                 Nice! A <strong>user.txt</strong> file with the password! See you in Natas 4!
             </p>
         </div>
+
+        <button class="accordion">Natas 4</button>
+        <div class="panel">
+            <p>
+                Alright, now we are going to use a tool called <em>BurpSuite</em>. The main tool for web app pentesting. There are many guides and documents on how to install it and set it up. A quick google search should get you going. Maybe at some point I will do a burp tutorial. 
+            </p>
+            <p>
+                But once you have every thing installed and set up it really isn't gonna be that hard. 
+            </p>
+            <p>
+                Enable your proxy to redirect to your BurpSuite, turn <strong>intercept on</strong> and refresh the Natas web page. 
+            </p>
+            <p>
+                You should now see the whole packet that gets sent to the Natas web server. That's pretty cool! And as we go through this and we will learn more about what all of this is. 
+            </p>
+            <p>
+                On line 9 we will see a <strong>Referer</strong>. What is this? Basically if you were linked from another web page, that info would be listed here. And the info on the natas 4 pages tell us only people linked from <strong>5</strong> can access this page. So now all we need to do is change the referer to say that's where we are from and we are golden. 
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    Referer: http://natas5.natas.labs.overthewire.org/
+                </code>
+            </pre>
+            <p>
+                Is what you want line <strong>9</strong> to be. <strong>Forward</strong> that packet and you will get the next web page that tells you the password. Awesome! See you in Natas 5. 
+            </p>
+        </div>
     </div>
 
     
