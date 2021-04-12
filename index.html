@@ -2142,6 +2142,47 @@
                 Is what you want line <strong>9</strong> to be. <strong>Forward</strong> that packet and you will get the next web page that tells you the password. Awesome! See you in Natas 5. 
             </p>
         </div>
+
+        <button class="accordion">Natas 5</button>
+        <div class="panel">
+            <p>
+                Another quick fun one, this time we will be doing some more manipulation using BurpSuite.
+            </p>
+            <p>
+                So with Burp enabled and intercept on, refresh the webpage.
+            </p>
+            <p>
+                Interesting. In the <strong>cookie</strong> section we see:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    loggedin=0
+                </code>
+            </pre>
+            <p>
+                Basically what this is saying is that we are not logged in. As the landing page told us. What if we change that value to a <strong>1</strong> to make it say that we are logged in?
+            </p>
+            <p>
+                Edit it so that we now have:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    loggedin=1
+                </code>
+            </pre>
+            <p>
+                So for some reason in this challange we have a cookie that by default states that we are not logged in, even though we did just supply the login details. Weird I know. 
+            </p>
+            <p>
+                Any way so then we decide, hey let us just manipulate that cookie so that the server that we contact think we are logged in. Pretty cool stuff. And cookies themselves are such a big topic in web security, so set some time to learn about these tasty treats.
+            </p>
+            <p>
+                Now forward the packed with the edited cookie and...
+            </p>
+            <p>
+                Sweet! Got the password! See you in the next level.
+            </p>
+        </div>
     </div>
 
     
