@@ -2183,6 +2183,56 @@
                 Sweet! Got the password! See you in the next level.
             </p>
         </div>
+
+        <button class="accordion">Natas 6</button>
+        <div class="panel">
+            <p>
+                So this is another weird one again. Or easier one. We do another directory traversal while reading a bit more code.
+            </p>
+            <p>
+                On the landing page we see a page that asks us for input. Let's give it some input like <em>test</em> to see if it gives us any clues back?
+            </p>
+            <p>
+                Nope just the word wrong. We have a link to <strong>View sourcecode</strong> that we do not see every day. Let's take a look.
+            </p>
+            <p>
+                Some basic setup html, JS and CSS. Then we see.. some... <strong>PHP</strong>?
+            </p>
+            <p>
+                We can tell this because PHP code start with a  <strong>&lt;?</strong> and ends with a <strong>?&gt;</strong>
+            </p>
+            <p>
+                There is a bit going on here. Honestly I recommend some basic PHP course or maybe a quick video? It is a big language on the web so investing some time into PHP will only be a plus. 
+            </p>
+            <p>
+                The line we care about however is:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    include "includes/secret.inc"
+                </code>
+            </pre>
+            <p>
+                By the keyword <em>include</em> we have a bit of a guess about what this is doing. The include statement takes whatever text we are linking and copies it into the file that is requesting it.
+            </p>
+            <p>
+                Since we already know about directoy traversal, let's go check it out:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    natas6.natas.labs.overthewire.org/includes/secret.inc
+                </code>
+            </pre>
+            <p>
+                A blank page? Uhm.. check the source code?
+            </p>
+            <p>
+                There we go. We have our secret. Time to submit it.
+            </p>
+            <p>
+                Nice! Access granted and we get the password. See you in Natas 7!
+            </p>
+        </div>
     </div>
 
     
