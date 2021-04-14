@@ -2233,6 +2233,32 @@
                 Nice! Access granted and we get the password. See you in Natas 7!
             </p>
         </div>
+
+        <button class="accordion">Natas 7</button>
+        <div class="panel">
+            <p>
+                This one is quick and dirty. After we log in we see that we have two links. If we click on these we get some more text on the screen, that isn't too helpful. 
+            </p>
+            <p>
+                If we look at our address bar however. We can see that the PHP script is requisting the page.
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    index.php?page=home
+                </code>
+            </pre>
+            <p>
+                You guessed it. Let's look at our source code. Oh... we get a complete hint as to where our password is. What if we take that path and add it in our url?
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8
+                </code>
+            </pre>
+            <p>
+                Sweet, got it. That was easy. A little mix between directory traversal and code injection. See you in the next level!
+            </p>
+        </div>
     </div>
 
     
