@@ -2259,6 +2259,49 @@
                 Sweet, got it. That was easy. A little mix between directory traversal and code injection. See you in the next level!
             </p>
         </div>
+
+        <button class="accordion">Natas 8</button>
+        <div class="panel">
+            <p>
+                This one is really fun! Once we are on the page we have another input box and a <strong>View sourcecode</strong>. Let's go take a look.
+            </p>
+            <p>
+                More PHP. What we care about here is the encoded secret: <br>
+                <strong>$encodedSecret = "3d3d516343746d4d6d6c315669563362";</strong> and the function that encodes the secret and gives us that encoded string:<br>
+                 <strong>function encodeSecret($secret) {
+                    return bin2hex(strrev(base64_encode($secret)));
+                }</strong>
+            </p>
+            <p>
+                Now all we have to do is reverse that function! Simple, if one way encodes it then reversing will decode it.
+            </p>
+            <p>
+                Open your terminal and type:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    $ php -a
+                </code>
+            </pre>
+            <p>
+                This will put PHP in interactive mode, so now we can enter some code and it will give us feedback instantly.
+            </p>
+            <p>
+                Now we just need to reverse that encoding string:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                   $ echo base64_decode(strrev(hex2bin('3d3d516343746d4d6d6c315669563362')));
+                </code>
+            </pre>
+            <p>
+                So we literally took the function and just reversed the order of operations. <strong>echo</strong> will print out the result to the termianl screen. You will get a funny looking string out the other end. 
+            </p>
+            <p>
+                Submit that string on the webpage and.. BAM! Got the password for the next level. See you there!
+            </p>
+        </div>
+
     </div>
 
     
