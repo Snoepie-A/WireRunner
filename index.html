@@ -2302,6 +2302,50 @@
             </p>
         </div>
 
+        <button class="accordion">Natas 9</button>
+        <div class="panel">
+            <p>
+                Command Injection! That's what we will be doing here. 
+            </p>
+            <p>
+                When we have logged in we will see we have a search bar that says "Find words containing". Type in a few and see the words you get!
+            </p>
+            <p>
+                Ok after we have had our fun, let's look at the source code:
+            </p>
+            <p>
+                More PHP and we see that <strong>passthru("grep -i $key dictionaty.txt");</strong>
+            </p>
+            <p>
+                Essentially here a command gets thrown at the Linux server this website runs on to <strong>grep</strong> for our keyword variable. However. Remember that time we used a <strong>;</strong> to enter another command? Remember that the <strong>;</strong> means end of statement and that everything after it is a new command? Sweet. Let's see if we have command injection with:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    test; echo "injected"
+                </code>
+            </pre>
+            <p>
+                And we get back: <em>injected dictionary.txt</em>
+            </p>
+            <p>
+                Looks like we have command injection. In an earlier Natas challange they told us where we can find natas passwords:
+            </p>
+            <p>
+                <strong>/ect/natas_webpass/natasX</strong>
+            </p>
+            <p>
+                So let's <strong>cat</strong> out the password for Natas10!
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    test; cat /etc/natas_webpass/natas10
+                </code>
+            </pre>
+            <p>
+                Sweet! Got the password. See you in Natas 10!
+            </p>
+        </div>
+
     </div>
 
     
