@@ -2346,6 +2346,57 @@
             </p>
         </div>
 
+        <button class="accordion">Natas 10</button>
+        <div class="panel">
+            <p>
+                This one is pretty interesting. So it is the same as the last level, only this time they are checking for all the characters that can be used to inject commands. 
+            </p>
+            <p>
+                So now we need to exploit grep. We need grep to print out an unknown string of an unknown length in a file we specify. 
+            </p>
+            <p>
+                We can also pass a complete path to grep to a file we want it to match input in. 
+            </p>
+            <p>
+                If that sounds a little confusing let's break it apart like this:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    grep -i [string to match] [file to look for string in]
+                </code>
+            </pre>
+            <p>
+                So if we do a normal search like: <strong>grep -i test dictionary.txt</strong> grep will look for test in the dictionary file. So what would happen if we add another file for grep to look through? And then also tell it to match ANYTHING.
+            </p>
+            <p>
+                Well, we will get to view the password for the next level. How will that look?
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    .* /etc/natas_webpass/natas11
+                </code>
+            </pre>
+            <p>
+                The <strong>.</strong> means match any character, other than a new line. 
+            </p>
+            <p>
+                The <strong>*</strong> means match it for any length.
+            </p>
+            <p>
+                And the <strong>/cat</strong> part is another file we want to look in. So mapping that onto our previous breakdown:
+            </p>
+            <pre class="codeBlocks">
+                <code>
+                    grep -i [string to match = .*] [file to look for string in = /etc/natas_webpass/natas11] [file to look in = dictionary.txt]
+                </code>
+            </pre>
+            <p>
+                So what the web server is seeing is: <strong>grep -i .* /etc/natas_webpass/natas11 dictionary.txt</strong>
+            </p>
+            <p>
+                And that is a valid command that will give us the password for the next level. Pretty sweet. See you there.
+            </p>
+        </div>
     </div>
 
     
